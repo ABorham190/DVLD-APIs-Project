@@ -1,0 +1,18 @@
+E:\programming main\Course 19\New folder\GlobalStructs\bin\Debug\GlobalStructs.dll
+E:\programming main\Course 19\New folder\GlobalStructs\bin\Debug\GlobalStructs.pdb
+E:\programming main\Course 19\New folder\GlobalStructs\obj\Debug\GlobalStructs.csproj.AssemblyReference.cache
+E:\programming main\Course 19\New folder\GlobalStructs\obj\Debug\GlobalStructs.csproj.CoreCompileInputs.cache
+E:\programming main\Course 19\New folder\GlobalStructs\obj\Debug\GlobalStructs.dll
+E:\programming main\Course 19\New folder\GlobalStructs\obj\Debug\GlobalStructs.pdb
+H:\Programming Projects\DVLD Project My Solution\New folder\GlobalStructs\bin\Debug\GlobalStructs.dll
+H:\Programming Projects\DVLD Project My Solution\New folder\GlobalStructs\bin\Debug\GlobalStructs.pdb
+H:\Programming Projects\DVLD Project My Solution\New folder\GlobalStructs\obj\Debug\GlobalStructs.csproj.AssemblyReference.cache
+H:\Programming Projects\DVLD Project My Solution\New folder\GlobalStructs\obj\Debug\GlobalStructs.csproj.CoreCompileInputs.cache
+H:\Programming Projects\DVLD Project My Solution\New folder\GlobalStructs\obj\Debug\GlobalStructs.dll
+H:\Programming Projects\DVLD Project My Solution\New folder\GlobalStructs\obj\Debug\GlobalStructs.pdb
+E:\programming_main\MyProjects\DVLD Project My Solution - Copy\New folder\GlobalStructs\bin\Debug\GlobalStructs.dll
+E:\programming_main\MyProjects\DVLD Project My Solution - Copy\New folder\GlobalStructs\bin\Debug\GlobalStructs.pdb
+E:\programming_main\MyProjects\DVLD Project My Solution - Copy\New folder\GlobalStructs\obj\Debug\GlobalStructs.csproj.AssemblyReference.cache
+E:\programming_main\MyProjects\DVLD Project My Solution - Copy\New folder\GlobalStructs\obj\Debug\GlobalStructs.csproj.CoreCompileInputs.cache
+E:\programming_main\MyProjects\DVLD Project My Solution - Copy\New folder\GlobalStructs\obj\Debug\GlobalStructs.dll
+E:\programming_main\MyProjects\DVLD Project My Solution - Copy\New folder\GlobalStructs\obj\Debug\GlobalStructs.pdb

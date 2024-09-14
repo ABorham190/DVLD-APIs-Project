@@ -1,0 +1,29 @@
+E:\programming main\Course 19\New folder\DVLDdataAccessLayer\bin\Debug\DVLDdataAccessLayer.dll
+E:\programming main\Course 19\New folder\DVLDdataAccessLayer\bin\Debug\DVLDdataAccessLayer.pdb
+E:\programming main\Course 19\New folder\DVLDdataAccessLayer\obj\Debug\DVLDdataAccessLayer.csproj.AssemblyReference.cache
+E:\programming main\Course 19\New folder\DVLDdataAccessLayer\obj\Debug\DVLDdataAccessLayer.csproj.CoreCompileInputs.cache
+E:\programming main\Course 19\New folder\DVLDdataAccessLayer\obj\Debug\DVLDdataAccessLayer.dll
+E:\programming main\Course 19\New folder\DVLDdataAccessLayer\obj\Debug\DVLDdataAccessLayer.pdb
+E:\programming main\Course 19\New folder\DVLDdataAccessLayer\bin\Debug\GlobalStructs.dll
+E:\programming main\Course 19\New folder\DVLDdataAccessLayer\bin\Debug\GlobalStructs.pdb
+E:\programming main\Course 19\New folder\DVLDdataAccessLayer\obj\Debug\DVLDdataAccessLayer.csproj.CopyComplete
+H:\Programming Projects\DVLD Project My Solution\New folder\DVLDdataAccessLayer\bin\Debug\DVLDdataAccessLayer.dll
+H:\Programming Projects\DVLD Project My Solution\New folder\DVLDdataAccessLayer\bin\Debug\DVLDdataAccessLayer.pdb
+H:\Programming Projects\DVLD Project My Solution\New folder\DVLDdataAccessLayer\bin\Debug\GlobalStructs.dll
+H:\Programming Projects\DVLD Project My Solution\New folder\DVLDdataAccessLayer\bin\Debug\GlobalStructs.pdb
+H:\Programming Projects\DVLD Project My Solution\New folder\DVLDdataAccessLayer\obj\Debug\DVLDdataAccessLayer.csproj.AssemblyReference.cache
+H:\Programming Projects\DVLD Project My Solution\New folder\DVLDdataAccessLayer\obj\Debug\DVLDdataAccessLayer.csproj.CoreCompileInputs.cache
+H:\Programming Projects\DVLD Project My Solution\New folder\DVLDdataAccessLayer\obj\Debug\DVLDdataAccessLayer.dll
+H:\Programming Projects\DVLD Project My Solution\New folder\DVLDdataAccessLayer\obj\Debug\DVLDdataAccessLayer.pdb
+H:\Programming Projects\DVLD Project My Solution\New folder\DVLDdataAccessLayer\bin\Debug\DVLDdataAccessLayer.dll.config
+H:\Programming Projects\DVLD Project My Solution\New folder\DVLDdataAccessLayer\obj\Debug\DVLDdata.7AC691E2.Up2Date
+E:\programming_main\MyProjects\DVLD Project My Solution - Copy\New folder\DVLDdataAccessLayer\bin\Debug\DVLDdataAccessLayer.dll.config
+E:\programming_main\MyProjects\DVLD Project My Solution - Copy\New folder\DVLDdataAccessLayer\bin\Debug\DVLDdataAccessLayer.dll
+E:\programming_main\MyProjects\DVLD Project My Solution - Copy\New folder\DVLDdataAccessLayer\bin\Debug\DVLDdataAccessLayer.pdb
+E:\programming_main\MyProjects\DVLD Project My Solution - Copy\New folder\DVLDdataAccessLayer\bin\Debug\GlobalStructs.dll
+E:\programming_main\MyProjects\DVLD Project My Solution - Copy\New folder\DVLDdataAccessLayer\bin\Debug\GlobalStructs.pdb
+E:\programming_main\MyProjects\DVLD Project My Solution - Copy\New folder\DVLDdataAccessLayer\obj\Debug\DVLDdataAccessLayer.csproj.AssemblyReference.cache
+E:\programming_main\MyProjects\DVLD Project My Solution - Copy\New folder\DVLDdataAccessLayer\obj\Debug\DVLDdataAccessLayer.csproj.CoreCompileInputs.cache
+E:\programming_main\MyProjects\DVLD Project My Solution - Copy\New folder\DVLDdataAccessLayer\obj\Debug\DVLDdata.7AC691E2.Up2Date
+E:\programming_main\MyProjects\DVLD Project My Solution - Copy\New folder\DVLDdataAccessLayer\obj\Debug\DVLDdataAccessLayer.dll
+E:\programming_main\MyProjects\DVLD Project My Solution - Copy\New folder\DVLDdataAccessLayer\obj\Debug\DVLDdataAccessLayer.pdb

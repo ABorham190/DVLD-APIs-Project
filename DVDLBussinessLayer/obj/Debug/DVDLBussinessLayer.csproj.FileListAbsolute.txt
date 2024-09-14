@@ -1,0 +1,35 @@
+E:\programming main\Course 19\New folder\DVDLBussinessLayer\bin\Debug\DVDLBussinessLayer.dll
+E:\programming main\Course 19\New folder\DVDLBussinessLayer\bin\Debug\DVDLBussinessLayer.pdb
+E:\programming main\Course 19\New folder\DVDLBussinessLayer\bin\Debug\DVLDdataAccessLayer.dll
+E:\programming main\Course 19\New folder\DVDLBussinessLayer\bin\Debug\DVLDdataAccessLayer.pdb
+E:\programming main\Course 19\New folder\DVDLBussinessLayer\obj\Debug\DVDLBussinessLayer.csproj.AssemblyReference.cache
+E:\programming main\Course 19\New folder\DVDLBussinessLayer\obj\Debug\DVDLBussinessLayer.csproj.CoreCompileInputs.cache
+E:\programming main\Course 19\New folder\DVDLBussinessLayer\obj\Debug\DVDLBussinessLayer.csproj.CopyComplete
+E:\programming main\Course 19\New folder\DVDLBussinessLayer\obj\Debug\DVDLBussinessLayer.dll
+E:\programming main\Course 19\New folder\DVDLBussinessLayer\obj\Debug\DVDLBussinessLayer.pdb
+E:\programming main\Course 19\New folder\DVDLBussinessLayer\bin\Debug\GlobalStructs.dll
+E:\programming main\Course 19\New folder\DVDLBussinessLayer\bin\Debug\GlobalStructs.pdb
+H:\Programming Projects\DVLD Project My Solution\New folder\DVDLBussinessLayer\bin\Debug\DVDLBussinessLayer.dll
+H:\Programming Projects\DVLD Project My Solution\New folder\DVDLBussinessLayer\bin\Debug\DVDLBussinessLayer.pdb
+H:\Programming Projects\DVLD Project My Solution\New folder\DVDLBussinessLayer\bin\Debug\DVLDdataAccessLayer.dll
+H:\Programming Projects\DVLD Project My Solution\New folder\DVDLBussinessLayer\bin\Debug\GlobalStructs.dll
+H:\Programming Projects\DVLD Project My Solution\New folder\DVDLBussinessLayer\bin\Debug\DVLDdataAccessLayer.pdb
+H:\Programming Projects\DVLD Project My Solution\New folder\DVDLBussinessLayer\bin\Debug\GlobalStructs.pdb
+H:\Programming Projects\DVLD Project My Solution\New folder\DVDLBussinessLayer\obj\Debug\DVDLBussinessLayer.csproj.AssemblyReference.cache
+H:\Programming Projects\DVLD Project My Solution\New folder\DVDLBussinessLayer\obj\Debug\DVDLBussinessLayer.csproj.CoreCompileInputs.cache
+H:\Programming Projects\DVLD Project My Solution\New folder\DVDLBussinessLayer\obj\Debug\DVDLBussinessLayer.dll
+H:\Programming Projects\DVLD Project My Solution\New folder\DVDLBussinessLayer\obj\Debug\DVDLBussinessLayer.pdb
+H:\Programming Projects\DVLD Project My Solution\New folder\DVDLBussinessLayer\bin\Debug\DVLDdataAccessLayer.dll.config
+H:\Programming Projects\DVLD Project My Solution\New folder\DVDLBussinessLayer\obj\Debug\DVDLBuss.541DB123.Up2Date
+E:\programming_main\MyProjects\DVLD Project My Solution - Copy\New folder\DVDLBussinessLayer\bin\Debug\DVDLBussinessLayer.dll
+E:\programming_main\MyProjects\DVLD Project My Solution - Copy\New folder\DVDLBussinessLayer\bin\Debug\DVDLBussinessLayer.pdb
+E:\programming_main\MyProjects\DVLD Project My Solution - Copy\New folder\DVDLBussinessLayer\bin\Debug\DVLDdataAccessLayer.dll
+E:\programming_main\MyProjects\DVLD Project My Solution - Copy\New folder\DVDLBussinessLayer\bin\Debug\GlobalStructs.dll
+E:\programming_main\MyProjects\DVLD Project My Solution - Copy\New folder\DVDLBussinessLayer\bin\Debug\DVLDdataAccessLayer.pdb
+E:\programming_main\MyProjects\DVLD Project My Solution - Copy\New folder\DVDLBussinessLayer\bin\Debug\DVLDdataAccessLayer.dll.config
+E:\programming_main\MyProjects\DVLD Project My Solution - Copy\New folder\DVDLBussinessLayer\bin\Debug\GlobalStructs.pdb
+E:\programming_main\MyProjects\DVLD Project My Solution - Copy\New folder\DVDLBussinessLayer\obj\Debug\DVDLBussinessLayer.csproj.AssemblyReference.cache
+E:\programming_main\MyProjects\DVLD Project My Solution - Copy\New folder\DVDLBussinessLayer\obj\Debug\DVDLBussinessLayer.csproj.CoreCompileInputs.cache
+E:\programming_main\MyProjects\DVLD Project My Solution - Copy\New folder\DVDLBussinessLayer\obj\Debug\DVDLBuss.541DB123.Up2Date
+E:\programming_main\MyProjects\DVLD Project My Solution - Copy\New folder\DVDLBussinessLayer\obj\Debug\DVDLBussinessLayer.dll
+E:\programming_main\MyProjects\DVLD Project My Solution - Copy\New folder\DVDLBussinessLayer\obj\Debug\DVDLBussinessLayer.pdb

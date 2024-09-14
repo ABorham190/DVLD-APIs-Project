@@ -1,0 +1,28 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="DVDLBussinessLayer\**" />
+    <Compile Remove="DVLDdataAccessLayer\**" />
+    <Compile Remove="GlobalStructs\**" />
+    <Content Remove="DVDLBussinessLayer\**" />
+    <Content Remove="DVLDdataAccessLayer\**" />
+    <Content Remove="GlobalStructs\**" />
+    <EmbeddedResource Remove="DVDLBussinessLayer\**" />
+    <EmbeddedResource Remove="DVLDdataAccessLayer\**" />
+    <EmbeddedResource Remove="GlobalStructs\**" />
+    <None Remove="DVDLBussinessLayer\**" />
+    <None Remove="DVLDdataAccessLayer\**" />
+    <None Remove="GlobalStructs\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
+  </ItemGroup>
+
+</Project>
