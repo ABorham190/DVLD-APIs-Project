@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data.SqlClient;
+using Microsoft.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,6 +11,24 @@ namespace DVLDdataAccessLayer
 {
     public static class clsUsersDataLayer
     {
+        public class UserDTO
+        {
+            int ID { get; set; }
+            public string Name { get; set; }
+            public string UserName { get; set; }
+            public bool IsActive { get; set; }
+
+            public UserDTO(int id,string name,bool isactive,string username) 
+            {
+
+                this.ID = id;
+                this.Name = name;
+                this.IsActive = isactive;
+                this.UserName = username;
+                
+            
+            }
+        }
         static public int AddNewUser (int PersonID,string UserName,
             string Password,bool IsActive)
         {
@@ -19,16 +37,17 @@ namespace DVLDdataAccessLayer
             using (SqlConnection Connection = new SqlConnection(Settings.ConnectionString))
             {
                 
-                string Querey = @"Insert into Users (PersonID,UserName,
-                          Password,IsActive) values 
-                          (@PersonID,@UserName,@Password,@IsActive);
-                           select Scope_identity();";
-                using (SqlCommand Command = new SqlCommand(Querey, Connection))
+                
+                using (SqlCommand Command = new SqlCommand("SP_AddNewUser", Connection))
+
                 {
+                    Command.CommandType = CommandType.StoredProcedure;
+
                     Command.Parameters.AddWithValue("@PersonID", PersonID);
                     Command.Parameters.AddWithValue("@UserName", UserName);
                     Command.Parameters.AddWithValue("@Password", HashedPassword);
                     Command.Parameters.AddWithValue("@IsActive", IsActive);
+
                     try
                     {
                         Connection.Open();
@@ -49,35 +68,67 @@ namespace DVLDdataAccessLayer
             }
             return InsertedID;
         }
-        static public DataTable GetUsersList()
+        static public List<UserDTO> GetUsersDTOs()
         {
-            DataTable dt = new DataTable();
-            string Querey = @"select UserID,Users.PersonID,
-                          FirstName+' '+SecondName+' '+ThirdName+' '+LastName as FullName , 
-                          UserName,
-                          IsActive from Users inner join People 
-                          on Users.PersonID=People.PersonID;";
-            SqlConnection Connection=new SqlConnection(Settings.ConnectionString); ;
-            SqlCommand Command=new SqlCommand( Querey,Connection);
+            List<UserDTO>UsersList=new List<UserDTO>();
             try
             {
-                Connection.Open();
-                SqlDataReader Reader = Command.ExecuteReader();
-                if (Reader.HasRows)
+                using (SqlConnection Connection = new SqlConnection(Settings.ConnectionString))
                 {
-                    dt.Load(Reader);
-                }
-                Reader.Close();
-                
-            }catch(Exception ex)
-            {
+                    Connection.Open();
+                    using (SqlCommand Command = new SqlCommand("SP_GetUsersListdto", Connection))
+                    {
 
-            }finally
-            {
-                Connection.Close();
+                        Command.CommandType = CommandType.StoredProcedure;
+                        using (SqlDataReader Reader = Command.ExecuteReader())
+                        {
+                            while (Reader.Read())
+                            {
+                                UsersList.Add(new UserDTO((int)Reader["UserID"], (string)Reader["FullName"],
+                                    (bool)Reader["IsActive"], (string)Reader["UserName"]));
+                            }
+                        }
+
+                    }
+                }
+
             }
-            return dt;
+            catch (Exception ex) 
+            {
+                Settings.AddErrorToEventViewer("Error in GetUsersDTOs", ex.Message);
+            }
+
+            return UsersList;
         }
+        //static public DataTable GetUsersList()
+        //{
+        //    DataTable dt = new DataTable();
+        //    string Querey = @"select UserID,Users.PersonID,
+        //                  FirstName+' '+SecondName+' '+ThirdName+' '+LastName as FullName , 
+        //                  UserName,
+        //                  IsActive from Users inner join People 
+        //                  on Users.PersonID=People.PersonID;";
+        //    SqlConnection Connection=new SqlConnection(Settings.ConnectionString); ;
+        //    SqlCommand Command=new SqlCommand( Querey,Connection);
+        //    try
+        //    {
+        //        Connection.Open();
+        //        SqlDataReader Reader = Command.ExecuteReader();
+        //        if (Reader.HasRows)
+        //        {
+        //            dt.Load(Reader);
+        //        }
+        //        Reader.Close();
+                
+        //    }catch(Exception ex)
+        //    {
+
+        //    }finally
+        //    {
+        //        Connection.Close();
+        //    }
+        //    return dt;
+        //}
         static public bool DeleteUser(int UserID)
         {
             int NumberOfAffectedRows = 0;
@@ -141,37 +192,48 @@ namespace DVLDdataAccessLayer
         {
             bool IsFound = false;
             string HashedPassword=Settings.ComputeHash(Password);
-            using (SqlConnection Connection = new SqlConnection(Settings.ConnectionString))
+            try
             {
-
-                string Querey = @"select * from Users where UserName=@UserName
-                             and Password=@Password";
-                using (SqlCommand Command = new SqlCommand(Querey, Connection))
+                using (SqlConnection Connection = new SqlConnection(Settings.ConnectionString))
                 {
-                    Command.Parameters.AddWithValue("@UserName", UserName);
-                    Command.Parameters.AddWithValue("@Password", HashedPassword);
-                    try
-                    {
-                        Connection.Open();
-                        using (SqlDataReader Reader = Command.ExecuteReader())
-                        {
-                            if (Reader.Read())
-                            {
-                                IsFound = true;
-                                PersonID = (int)Reader["PersonID"];
-                                UserID = (int)Reader["UserID"];
-                                IsActive = (bool)Reader["IsActive"];
-                            }
-                        }
 
-                    }
-                    catch (Exception ex)
+                    
+                    using (SqlCommand Command = new SqlCommand("SP_FindUserByUserNameAndPassword",
+                        Connection))
                     {
-                        IsFound = false;
-                        Settings.AddErrorToEventViewer("Error in FindUserByUserNameAndPassword",ex.Message);
+                        Command.Parameters.AddWithValue("@UserName", UserName);
+                        Command.Parameters.AddWithValue("@Password", HashedPassword);
+
+                        Command.CommandType = CommandType.StoredProcedure;
+                        try
+                        {
+                            Connection.Open();
+                            using (SqlDataReader Reader = Command.ExecuteReader())
+                            {
+                                if (Reader.Read())
+                                {
+                                    IsFound = true;
+                                    PersonID = (int)Reader["PersonID"];
+                                    UserID = (int)Reader["UserID"];
+                                    IsActive = (bool)Reader["IsActive"];
+                                }
+                            }
+
+                        }
+                        catch (Exception ex)
+                        {
+                            IsFound = false;
+                            Settings.AddErrorToEventViewer("Error in FindUserByUserNameAndPassword", ex.Message);
+                        }
                     }
                 }
             }
+            catch (Exception ex)
+            {
+                IsFound = false;
+                Settings.AddErrorToEventViewer("Error in findUserByUserNameAndPassword func",ex.Message);
+            }
+
 
             return IsFound;
         }

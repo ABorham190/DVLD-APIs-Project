@@ -21,10 +21,17 @@ namespace DVDLBussinessLayer
         enum enMode { AddNewUser=0, UpdateUser=1 }
         enMode _Mode;
 
-        static public DataTable GetAllUsersList()
+        //static public DataTable GetAllUsersList()
+        //{
+        //    return clsUsersDataLayer.GetUsersList();
+        //}
+
+        static public List<clsUsersDataLayer.UserDTO> GetUsersDTO()
         {
-            return clsUsersDataLayer.GetUsersList();
+            return clsUsersDataLayer.GetUsersDTOs();
         }
+
+
         public clsUsers()
         {
             PersonID = -1;

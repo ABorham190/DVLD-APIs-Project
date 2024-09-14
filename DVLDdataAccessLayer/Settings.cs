@@ -14,8 +14,8 @@ namespace DVLDdataAccessLayer
     {
         static public string SourceName = "MyDLApp Project 1";
 
-        static public string ConnectionString = "Server=.;Database=DVLD3;User Id=sa;" +
-        "Password=111990;";
+        static public string ConnectionString = "Server=.;Database=DVLD;User Id=sa;" +
+        "Password=111990;TrustServerCertificate=True;";
         //static public string ConnectionString = ConfigurationManager.AppSettings["ConnectionStringDefault"];
         static public void AddErrorToEventViewer(string Error,string exMessage)
         {

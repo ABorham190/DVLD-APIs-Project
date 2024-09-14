@@ -4,6 +4,40 @@
     "E:\\programming_main\\MyProjects\\dvld_api\\dvld_api.csproj": {}
   },
   "projects": {
+    "E:\\programming_main\\MyProjects\\dvld_api\\DVDLBussinessLayer\\DVDLBussinessLayer.csproj": {
+      "restore": {
+        "projectUniqueName": "E:\\programming_main\\MyProjects\\dvld_api\\DVDLBussinessLayer\\DVDLBussinessLayer.csproj",
+        "projectName": "DVDLBussinessLayer",
+        "projectPath": "E:\\programming_main\\MyProjects\\dvld_api\\DVDLBussinessLayer\\DVDLBussinessLayer.csproj",
+        "frameworks": {
+          "net472": {
+            "projectReferences": {
+              "E:\\programming_main\\MyProjects\\dvld_api\\DVLDdataAccessLayer\\DVLDdataAccessLayer.csproj": {
+                "projectPath": "E:\\programming_main\\MyProjects\\dvld_api\\DVLDdataAccessLayer\\DVLDdataAccessLayer.csproj"
+              }
+            }
+          }
+        }
+      },
+      "frameworks": {
+        "net472": {}
+      }
+    },
+    "E:\\programming_main\\MyProjects\\dvld_api\\DVLDdataAccessLayer\\DVLDdataAccessLayer.csproj": {
+      "restore": {
+        "projectUniqueName": "E:\\programming_main\\MyProjects\\dvld_api\\DVLDdataAccessLayer\\DVLDdataAccessLayer.csproj",
+        "projectName": "DVLDdataAccessLayer",
+        "projectPath": "E:\\programming_main\\MyProjects\\dvld_api\\DVLDdataAccessLayer\\DVLDdataAccessLayer.csproj",
+        "frameworks": {
+          "net472": {
+            "projectReferences": {}
+          }
+        }
+      },
+      "frameworks": {
+        "net472": {}
+      }
+    },
     "E:\\programming_main\\MyProjects\\dvld_api\\dvld_api.csproj": {
       "version": "1.0.0",
       "restore": {
@@ -32,7 +66,11 @@
         "frameworks": {
           "net8.0": {
             "targetAlias": "net8.0",
-            "projectReferences": {}
+            "projectReferences": {
+              "E:\\programming_main\\MyProjects\\dvld_api\\DVDLBussinessLayer\\DVDLBussinessLayer.csproj": {
+                "projectPath": "E:\\programming_main\\MyProjects\\dvld_api\\DVDLBussinessLayer\\DVDLBussinessLayer.csproj"
+              }
+            }
           }
         },
         "warningProperties": {
@@ -50,6 +88,10 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
+            "Microsoft.Data.SqlClient": {
+              "target": "Package",
+              "version": "[5.2.2, )"
+            },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
               "version": "[6.4.0, )"
