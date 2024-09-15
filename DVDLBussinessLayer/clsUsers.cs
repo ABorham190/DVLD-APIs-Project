@@ -18,6 +18,8 @@ namespace DVDLBussinessLayer
         public string UserPassword { get; set; }
         public bool IsActive {  get; set; }
 
+        public clsPerson Person { get; set; }
+
         enum enMode { AddNewUser=0, UpdateUser=1 }
         enMode _Mode;
 
@@ -39,9 +41,10 @@ namespace DVDLBussinessLayer
             UserName = "";
             UserPassword = "";
             IsActive = false;
+            
             _Mode=enMode.AddNewUser;
         }
-        private clsUsers(int UserID,int PersonID,string UserName,string Password,
+        public clsUsers(int UserID,int PersonID,string UserName,string Password,
             bool IsActive)
         {
             this.UserID = UserID;
@@ -49,6 +52,7 @@ namespace DVDLBussinessLayer
             this.UserName = UserName;
             this.UserPassword = Password;
             this.IsActive = IsActive;
+            this.Person = clsPerson.FindPerson(PersonID);
             _Mode = enMode.UpdateUser;
         }
         bool _UpdateUser()
@@ -147,6 +151,11 @@ namespace DVDLBussinessLayer
         public static string HashPassWord(string Password)
         {
             return Settings.ComputeHash(Password);
+        }
+
+        public static bool IsUserExists(int UserID)
+        {
+            return clsUsersDataLayer.IsUserExists(UserID);
         }
     }
 }
