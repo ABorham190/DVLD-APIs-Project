@@ -53,7 +53,7 @@ namespace DVDLBussinessLayer
         private clsPerson(int id,string nationalNumber,string firstName,string secondName,
             string thirdName,string lastName,string email,string address,
             string phone,int gender,int natioCountryID,DateTime dateofbirth,
-            string imagepath)
+            string imagepath,string country)
         {
             this.ID = id;
             this.NationalNumber = nationalNumber;
@@ -65,7 +65,7 @@ namespace DVDLBussinessLayer
             this.Address = address;
             this.Phone = phone;
             this.Gender = gender;
-            //this.Country = country;
+            this.Country = country;
             this.NationalityCountryID = natioCountryID;
             this.DateOfBirth = dateofbirth;
             this.ImagePath = imagepath;
@@ -101,7 +101,7 @@ namespace DVDLBussinessLayer
 
         }
 
-        public static DataTable GetAllPersonsData()
+        public static List<PersonDTO> GetAllPersonsData()
         {
             return clsPeopleDataLayer.GetPersonsList();
         }
@@ -154,11 +154,11 @@ namespace DVDLBussinessLayer
             if(clsPeopleDataLayer.FindPerson(PersonID,ref NationalNumber,
                 ref FirstName,ref SecondName,ref ThirdName,ref LastName,
                 ref Gender,ref Email,ref Phone,ref Address,ref ImagePath,
-                ref NatiocountID, ref DateOfBirth))
+                ref NatiocountID, ref DateOfBirth,ref Country))
             {
                 return new clsPerson(PersonID,NationalNumber,FirstName,
                     SecondName,ThirdName,LastName,Email,Address,Phone,Gender,
-                    NatiocountID, DateOfBirth,ImagePath);
+                    NatiocountID, DateOfBirth,ImagePath,Country);
 
             }
             else
@@ -179,11 +179,11 @@ namespace DVDLBussinessLayer
                 NationalNumber,
                 ref FirstName, ref SecondName, ref ThirdName, ref LastName,
                 ref Gender, ref Email, ref Phone, ref Address, ref ImagePath,
-                ref CountryID, ref DateOfBirth))
+                ref CountryID, ref DateOfBirth,ref Country))
             {
                 return new clsPerson(PersonID, NationalNumber, FirstName,
                     SecondName, ThirdName, LastName, Email, Address, Phone, Gender,
-                    CountryID, DateOfBirth, ImagePath);
+                    CountryID, DateOfBirth, ImagePath,Country);
 
             }
             else
