@@ -8,6 +8,8 @@ using System.Linq.Expressions;
 using System.Diagnostics;
 using System.Windows.Forms;
 using Microsoft.Data.SqlClient;
+using System.Drawing;
+
 
 namespace DVLDdataAccessLayer
 {
@@ -38,6 +40,23 @@ namespace DVLDdataAccessLayer
             Country = country;
         }
         public PersonDTO() { }
+    }
+
+    public class AddNewPersonDTO
+    {
+        public string NationalNumber { set; get; }
+        public string FirstName { set; get; }
+        public string SecondName { set; get; }
+        public string ThirdName { set; get; }
+        public string LastName { set; get; }
+
+        public DateTime DateOfBirth{ set; get; }
+        public string Address { set; get; }
+        public string Phone {  set; get; }
+        public string Email { set; get; }
+        public string Country { set; get; }
+        public string ImagePath { set; get; }
+        
     }
     public static class clsPeopleDataLayer
     {
@@ -268,50 +287,55 @@ namespace DVLDdataAccessLayer
            ref int CountryID, ref DateTime DateOfBirth,ref string Country)
         {
             bool IsFound = false;
-            string Querey = "Select * from People where NationalNo = @NationalNumber";
-            SqlConnection Connection = new SqlConnection(Settings.ConnectionString);
-            SqlCommand Command = new SqlCommand(Querey, Connection);
-            Command.Parameters.AddWithValue("@NationalNumber", NationalNumber);
-            try
-            {
-                Connection.Open();
-                SqlDataReader Reader = Command.ExecuteReader();
-                if (Reader.Read())
+            try {
+                using (SqlConnection Connection = new SqlConnection(Settings.ConnectionString))
                 {
-                    IsFound = true;
-                    //NationalNumber = (string)Reader["NationalNumber"];
-                    PersonID = (int)Reader["PersonID"];
-                    FirstName = (string)Reader["FirstName"];
-                    SecondName = (string)Reader["SecondName"];
-                    ThirdName = (string)Reader["ThirdName"];
-                    LastName = (string)Reader["LastName"];
-                    Gender = (byte)Reader["Gendor"];
-                    Address = (string)Reader["Address"];
-                    if (Reader["Email"] != null)
+                    using (SqlCommand Command = new SqlCommand("SP_GetPersonByNationalNo", Connection))
                     {
-                        Email = (string)Reader["Email"];
+                        Command.CommandType = CommandType.StoredProcedure;
+
+                        Command.Parameters.AddWithValue("@NationalNumber", NationalNumber);
+
+
+                        Connection.Open();
+                        using (SqlDataReader Reader = Command.ExecuteReader())
+                        {
+                            if (Reader.Read())
+                            {
+                                IsFound = true;
+                                PersonID = (int)Reader["PersonID"];
+                                FirstName = (string)Reader["FirstName"];
+                                SecondName = (string)Reader["SecondName"];
+                                ThirdName = (string)Reader["ThirdName"];
+                                LastName = (string)Reader["LastName"];
+                                Gender = (byte)Reader["Gendor"];
+                                Address = (string)Reader["Address"];
+                                if (Reader["Email"] != null)
+                                {
+                                    Email = (string)Reader["Email"];
+                                }
+                                else
+                                {
+                                    Email = "";
+                                }
+                                Phone = (string)Reader["Phone"];
+                                CountryID = (int)Reader["NationalityCountryID"];
+
+                                if (Reader["ImagePath"] != System.DBNull.Value)
+                                {
+                                    ImagePath = (string)Reader["ImagePath"];
+                                }
+                                else
+                                {
+                                    ImagePath = "";
+                                }
+
+
+                                DateOfBirth = (DateTime)Reader["DateOfBirth"];
+                                Country = (string)Reader["CountryName"];
+                            }
+                        }
                     }
-                    else
-                    {
-                        Email = "";
-                    }
-                    Phone = (string)Reader["Phone"];
-                    CountryID = (int)Reader["NationalityCountryID"];
-
-                    if (Reader["ImagePath"] != System.DBNull.Value)
-                    {
-                        ImagePath = (string)Reader["ImagePath"];
-                    }
-                    else
-                    {
-                        ImagePath = "";
-                    }
-
-
-                    DateOfBirth = (DateTime)Reader["DateOfBirth"];
-
-
-
                 }
             }
             catch (Exception ex)
@@ -321,10 +345,7 @@ namespace DVLDdataAccessLayer
                 ex.Message);
 
             }
-            finally
-            {
-                Connection.Close();
-            }
+            
             return IsFound;
         }
 

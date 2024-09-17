@@ -33,12 +33,14 @@ namespace dvld_api.Controllers
         }
 
         [HttpGet("GetByID/{PersonID}")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
 
         public IActionResult GetByID(int PersonID)
         {
             if (PersonID < 1)
             {
-                return BadRequest("Invalic input parameters");
+                return BadRequest("Invalid input parameters");
             }
 
             clsPerson person = clsPerson.FindPerson(PersonID);
@@ -63,6 +65,47 @@ namespace dvld_api.Controllers
 
             return Ok(persondto);
 
+        }
+
+        [HttpGet("GetByNationalNumber/{NationalNo}")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+
+        public IActionResult GetByID(string NationalNo)
+        {
+            if (string.IsNullOrEmpty(NationalNo))
+            {
+                return BadRequest("Invalid input parameters");
+            }
+
+            clsPerson person = clsPerson.FindPerson(NationalNo);
+
+            if (person == null)
+            {
+                return BadRequest($"There is no person with PersonID : {NationalNo}");
+            }
+
+            PersonDTO persondto = new PersonDTO
+            {
+                ID = person.ID,
+                NationalNumber = person.NationalNumber,
+                FullName = person.FullName,
+                DateOfBirth = person.DateOfBirth,
+                Gender = person.Gender == 1 ? "Male" : "Female",
+                Phone = person.Phone,
+                Email = person.Email,
+                Country = person.Country,
+
+            };
+
+            return Ok(persondto);
+
+        }
+
+        [HttpPost("AddNew")]
+        public IActionResult AddNew(AddNewPersonDTO newPerson)
+        {
+            return Ok(newPerson);
         }
     }
 }

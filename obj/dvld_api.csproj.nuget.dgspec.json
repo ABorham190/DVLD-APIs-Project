@@ -88,9 +88,9 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
-            "AutoMapper": {
+            "AutoMapper.Collection": {
               "target": "Package",
-              "version": "[13.0.1, )"
+              "version": "[10.0.0, )"
             },
             "Microsoft.Data.SqlClient": {
               "target": "Package",

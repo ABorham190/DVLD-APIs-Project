@@ -107,3 +107,4 @@ E:\programming_main\MyProjects\dvld_api\DVLDdataAccessLayer\obj\Debug\DVLDdataAc
 E:\programming_main\MyProjects\dvld_api\DVLDdataAccessLayer\obj\Debug\DVLDdata.7AC691E2.Up2Date
 E:\programming_main\MyProjects\dvld_api\DVLDdataAccessLayer\obj\Debug\DVLDdataAccessLayer.dll
 E:\programming_main\MyProjects\dvld_api\DVLDdataAccessLayer\obj\Debug\DVLDdataAccessLayer.pdb
+E:\programming_main\MyProjects\dvld_api\DVLDdataAccessLayer\bin\Debug\GlobalStructs.dll.config

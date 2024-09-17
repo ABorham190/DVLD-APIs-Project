@@ -116,3 +116,4 @@ E:\programming_main\MyProjects\dvld_api\DVDLBussinessLayer\bin\Debug\System.Conf
 E:\programming_main\MyProjects\dvld_api\DVDLBussinessLayer\bin\Debug\System.Security.AccessControl.xml
 E:\programming_main\MyProjects\dvld_api\DVDLBussinessLayer\bin\Debug\System.Security.Permissions.xml
 E:\programming_main\MyProjects\dvld_api\DVDLBussinessLayer\bin\Debug\System.Text.Encodings.Web.xml
+E:\programming_main\MyProjects\dvld_api\DVDLBussinessLayer\bin\Debug\GlobalStructs.dll.config
