@@ -70,61 +70,54 @@ namespace DVLDdataAccessLayer
         {
 
             int InsertedID=-1;
-            //int CountryID = Settings.GetCountryID(Country);
-            //string Querey = @"insert into People 
-            //              (
-            //               NationalNo,FirstName,SecondName, 
-            //               ThirdName,LastName,DateOfBirth,Gendor,
-            //               Address,Phone,Email,NationalityCountryID,ImagePath
-            //              )values(@NationalNumber,@FirstName,@SecondName
-            //              ,@ThirdName,
-            //              @LastName,@DateOfBirth,@Gender,@Address,@Phone,@Email
-            //              ,@CountryID,@ImagePath);
-            //               select scope_identity();";
 
-            try { 
-            SqlConnection Connection = new SqlConnection(Settings.ConnectionString);
-            SqlCommand Command = new SqlCommand("SP_AddNewPerson", Connection);
-
-            Command.CommandType = CommandType.StoredProcedure;
-
-
-            Command.Parameters.AddWithValue("@NationalNumber", NationalNumber);
-            Command.Parameters.AddWithValue("@FirstName", FirstName);
-            Command.Parameters.AddWithValue("@SecondName", SecondName);
-            Command.Parameters.AddWithValue("@ThirdName", ThirdName);
-            Command.Parameters.AddWithValue("@LastName", LastName);
-            Command.Parameters.AddWithValue("@DateOfBirth", DateOfBirth);
-            Command.Parameters.AddWithValue("@Address", Address);
-            Command.Parameters.AddWithValue("@Phone", Phone);
-            Command.Parameters.AddWithValue("@Email", Email);
-            Command.Parameters.AddWithValue("@Gender", Gender);
-            Command.Parameters.AddWithValue("@CountryID", CountryID);
-
-            if (ImagePath != "")
-            {
-                Command.Parameters.AddWithValue("@ImagePath", ImagePath);
-            }
-            else
-            {
-                Command.Parameters.AddWithValue("@ImagePath", System.DBNull.Value);
-            }
-
-            
-
-            SqlParameter outputparameter = new SqlParameter("@PersonID", DbType.Int32)
-            {
-                Direction = ParameterDirection.Output
-            };
-
-                Command.Parameters.Add(outputparameter);
-           
-            
-                Connection.Open();
-                int NumberOfAffectedRows = 0;
-                if (( NumberOfAffectedRows = Command.ExecuteNonQuery()) > 0)
+            try {
+                using (SqlConnection Connection = new SqlConnection(Settings.ConnectionString))
                 {
-                    InsertedID=(int)outputparameter.Value;
+                    using (SqlCommand Command = new SqlCommand("SP_AddNewPerson", Connection))
+                    {
+
+                        Command.CommandType = CommandType.StoredProcedure;
+
+
+                        Command.Parameters.AddWithValue("@NationalNumber", NationalNumber);
+                        Command.Parameters.AddWithValue("@FirstName", FirstName);
+                        Command.Parameters.AddWithValue("@SecondName", SecondName);
+                        Command.Parameters.AddWithValue("@ThirdName", ThirdName);
+                        Command.Parameters.AddWithValue("@LastName", LastName);
+                        Command.Parameters.AddWithValue("@DateOfBirth", DateOfBirth);
+                        Command.Parameters.AddWithValue("@Address", Address);
+                        Command.Parameters.AddWithValue("@Phone", Phone);
+                        Command.Parameters.AddWithValue("@Email", Email);
+                        Command.Parameters.AddWithValue("@Gender", Gender);
+                        Command.Parameters.AddWithValue("@CountryID", CountryID);
+
+                        if (ImagePath != "")
+                        {
+                            Command.Parameters.AddWithValue("@ImagePath", ImagePath);
+                        }
+                        else
+                        {
+                            Command.Parameters.AddWithValue("@ImagePath", System.DBNull.Value);
+                        }
+
+
+
+                        SqlParameter outputparameter = new SqlParameter("@PersonID", DbType.Int32)
+                        {
+                            Direction = ParameterDirection.Output
+                        };
+
+                        Command.Parameters.Add(outputparameter);
+
+
+                        Connection.Open();
+                        int NumberOfAffectedRows = 0;
+                        if ((NumberOfAffectedRows = Command.ExecuteNonQuery()) > 0)
+                        {
+                            InsertedID = (int)outputparameter.Value;
+                        }
+                    }
                 }
 
                 
