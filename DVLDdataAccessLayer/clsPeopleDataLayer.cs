@@ -50,11 +50,13 @@ namespace DVLDdataAccessLayer
         public string ThirdName { set; get; }
         public string LastName { set; get; }
 
+        public string GenderType {  set; get; }
+
         public DateTime DateOfBirth{ set; get; }
         public string Address { set; get; }
         public string Phone {  set; get; }
         public string Email { set; get; }
-        public string Country { set; get; }
+        public int NationalityCountryID { set; get; }
         public string ImagePath { set; get; }
         
     }

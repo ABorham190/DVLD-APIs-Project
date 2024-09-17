@@ -4,6 +4,7 @@ using DVLDdataAccessLayer;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Identity.Client;
+using Microsoft.VisualBasic.FileIO;
 
 
 namespace dvld_api.Controllers
@@ -12,7 +13,12 @@ namespace dvld_api.Controllers
     [ApiController]
     public class PersonController : ControllerBase
     {
-       
+        private readonly IMapper _mapper;
+
+        public PersonController(IMapper mapper)
+        {
+            _mapper = mapper;
+        }
 
         [HttpGet("GetAll")]
         [ProducesResponseType(StatusCodes.Status200OK)]
@@ -32,7 +38,7 @@ namespace dvld_api.Controllers
             
         }
 
-        [HttpGet("GetByID/{PersonID}")]
+        [HttpGet("GetByID/{PersonID}",Name ="GetByID")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
 
@@ -105,6 +111,28 @@ namespace dvld_api.Controllers
         [HttpPost("AddNew")]
         public IActionResult AddNew(AddNewPersonDTO newPerson)
         {
+            if (newPerson==null)
+            {
+                return BadRequest("Invalid input parameters");
+            }
+           
+            clsPerson person = _mapper.Map<clsPerson>(newPerson);
+
+
+
+            if (person == null)
+            {
+                return StatusCode(500, new { error = "Internal server Error" });
+
+            }
+
+            person.Gender = newPerson.GenderType == "Male" ? 1 : 0;
+
+            if (!person.Save())
+            {
+                return StatusCode(500, new { error = "Internal server error" });
+            }
+
             return Ok(newPerson);
         }
     }
