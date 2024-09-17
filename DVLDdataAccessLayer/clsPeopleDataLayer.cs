@@ -71,20 +71,24 @@ namespace DVLDdataAccessLayer
 
             int InsertedID=-1;
             //int CountryID = Settings.GetCountryID(Country);
-            string Querey = @"insert into People 
-                          (
-                           NationalNo,FirstName,SecondName, 
-                           ThirdName,LastName,DateOfBirth,Gendor,
-                           Address,Phone,Email,NationalityCountryID,ImagePath
-                          )values(@NationalNumber,@FirstName,@SecondName
-                          ,@ThirdName,
-                          @LastName,@DateOfBirth,@Gender,@Address,@Phone,@Email
-                          ,@CountryID,@ImagePath);
-                           select scope_identity();";
+            //string Querey = @"insert into People 
+            //              (
+            //               NationalNo,FirstName,SecondName, 
+            //               ThirdName,LastName,DateOfBirth,Gendor,
+            //               Address,Phone,Email,NationalityCountryID,ImagePath
+            //              )values(@NationalNumber,@FirstName,@SecondName
+            //              ,@ThirdName,
+            //              @LastName,@DateOfBirth,@Gender,@Address,@Phone,@Email
+            //              ,@CountryID,@ImagePath);
+            //               select scope_identity();";
 
-
+            try { 
             SqlConnection Connection = new SqlConnection(Settings.ConnectionString);
-            SqlCommand Command = new SqlCommand(Querey, Connection);
+            SqlCommand Command = new SqlCommand("SP_AddNewPerson", Connection);
+
+            Command.CommandType = CommandType.StoredProcedure;
+
+
             Command.Parameters.AddWithValue("@NationalNumber", NationalNumber);
             Command.Parameters.AddWithValue("@FirstName", FirstName);
             Command.Parameters.AddWithValue("@SecondName", SecondName);
@@ -94,7 +98,6 @@ namespace DVLDdataAccessLayer
             Command.Parameters.AddWithValue("@Address", Address);
             Command.Parameters.AddWithValue("@Phone", Phone);
             Command.Parameters.AddWithValue("@Email", Email);
-            //Command.Parameters.AddWithValue("@Country", Country);
             Command.Parameters.AddWithValue("@Gender", Gender);
             Command.Parameters.AddWithValue("@CountryID", CountryID);
 
@@ -107,14 +110,21 @@ namespace DVLDdataAccessLayer
                 Command.Parameters.AddWithValue("@ImagePath", System.DBNull.Value);
             }
 
+            
 
-            try
+            SqlParameter outputparameter = new SqlParameter("@PersonID", DbType.Int32)
             {
+                Direction = ParameterDirection.Output
+            };
+
+                Command.Parameters.Add(outputparameter);
+           
+            
                 Connection.Open();
-                object Result = Command.ExecuteScalar();
-                if (Result != null&&int.TryParse(Result.ToString(),out int ID))
+                int NumberOfAffectedRows = 0;
+                if (( NumberOfAffectedRows = Command.ExecuteNonQuery()) > 0)
                 {
-                    InsertedID= ID;
+                    InsertedID=(int)outputparameter.Value;
                 }
 
                 
@@ -125,7 +135,7 @@ namespace DVLDdataAccessLayer
                 Settings.AddErrorToEventViewer("Error In Add New Person DataLayer Func",
                     ex.Message);
             }
-            finally { Connection.Close(); }
+            
 
 
             return InsertedID;

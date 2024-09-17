@@ -109,6 +109,9 @@ namespace dvld_api.Controllers
         }
 
         [HttpPost("AddNew")]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        [ProducesResponseType(StatusCodes.Status201Created)]
         public IActionResult AddNew(AddNewPersonDTO newPerson)
         {
             if (newPerson==null)
@@ -133,7 +136,7 @@ namespace dvld_api.Controllers
                 return StatusCode(500, new { error = "Internal server error" });
             }
 
-            return Ok(newPerson);
+            return CreatedAtAction(nameof(GetByID), new {PersonID=person.ID},newPerson);
         }
     }
 }
