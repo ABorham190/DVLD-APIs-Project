@@ -197,5 +197,26 @@ namespace dvld_api.Controllers
 
             return NoContent();
         }
+
+        [HttpGet("GetPersonIDByNationalNumber/{NationalNo}")]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+
+        public IActionResult GetPersonIDByNationalNumber(string NationalNo)
+        {
+            if (string.IsNullOrEmpty(NationalNo))
+            {
+                return BadRequest("Invalid User Input");
+            }
+            clsPerson Person = clsPerson.FindPerson(NationalNo);
+
+            if (Person == null)
+            {
+                return NotFound($"There is no Person Has National Number : {NationalNo}");
+            }
+
+            return Ok(Person.ID);
+        }
     }
 }
