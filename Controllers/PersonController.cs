@@ -55,19 +55,7 @@ namespace dvld_api.Controllers
             {
                 return BadRequest($"There is no person with PersonID : {PersonID}");
             }
-
-            PersonDTO persondto = new PersonDTO
-            {
-                ID = person.ID,
-                NationalNumber = person.NationalNumber,
-                FullName = person.FullName,
-                DateOfBirth = person.DateOfBirth,
-                Gender = person.Gender == 1 ? "Male" : "Female",
-                Phone = person.Phone,
-                Email = person.Email,
-                Country = person.Country,
-
-            };
+            PersonDTO persondto=_mapper.Map<PersonDTO>(person);
 
             return Ok(persondto);
 
@@ -77,7 +65,7 @@ namespace dvld_api.Controllers
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
 
-        public IActionResult GetByID(string NationalNo)
+        public IActionResult GetByNationalNumber(string NationalNo)
         {
             if (string.IsNullOrEmpty(NationalNo))
             {
@@ -90,19 +78,7 @@ namespace dvld_api.Controllers
             {
                 return BadRequest($"There is no person with PersonID : {NationalNo}");
             }
-
-            PersonDTO persondto = new PersonDTO
-            {
-                ID = person.ID,
-                NationalNumber = person.NationalNumber,
-                FullName = person.FullName,
-                DateOfBirth = person.DateOfBirth,
-                Gender = person.Gender == 1 ? "Male" : "Female",
-                Phone = person.Phone,
-                Email = person.Email,
-                Country = person.Country,
-
-            };
+            PersonDTO persondto = _mapper.Map<PersonDTO>(person);
 
             return Ok(persondto);
 

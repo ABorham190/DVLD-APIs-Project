@@ -9,6 +9,7 @@ namespace dvld_api.models
             
             CreateMap<clsPerson,AddNewPersonDTO>();
             CreateMap<AddNewPersonDTO, clsPerson>();
+            CreateMap<clsPerson,PersonDTO>();
             
         }
     }
