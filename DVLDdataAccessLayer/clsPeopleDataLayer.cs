@@ -60,6 +60,16 @@ namespace DVLDdataAccessLayer
         public string ImagePath { set; get; }
         
     }
+    public class UpdatePersonDTO
+    {
+
+        public string Address { set; get; }
+        public string Phone { set; get; }
+        public string Email { set; get; }
+        public string ImagePath { set; get; }
+
+
+    }
     public static class clsPeopleDataLayer
     {
         public static int AddNewPerson(string NationalNumber,
@@ -386,44 +396,44 @@ namespace DVLDdataAccessLayer
             ,DateTime DateOfBirth)
         {
             int NumberOfAffectedRows = 0;
-            //int CountryID = Settings.GetCountryID(Country);
-            string Querey = @"Update People 
-                          set NationalNo=@NationalNumber,FirstName=@FirstName,
-                          SecondName=@SecondName,
-                          ThirdName=@ThirdName,LastName=@LastName,
-                          Phone=@Phone,Email=@Email,Address=@Address,
-                          NationalityCountryID=@CountryID,Gendor=@Gender,
-                          ImagePath=@ImagePath,DateOfBirth=@DateOfBirth 
-                          where PersonID=@PersonID;";
-
-            SqlConnection Connection= new SqlConnection(Settings.ConnectionString); 
-            SqlCommand Command=new SqlCommand( Querey,Connection);
-            Command.Parameters.AddWithValue("@NationalNumber",NationalNumber);
-            Command.Parameters.AddWithValue("@FirstName",FirstName);
-            Command.Parameters.AddWithValue("@SecondName",SecondName);
-            Command.Parameters.AddWithValue("@ThirdName",ThirdName);
-            Command.Parameters.AddWithValue("@LastName",LastName);
-            Command.Parameters.AddWithValue("@Phone",Phone);
-            Command.Parameters.AddWithValue("@Email",Email);
-            Command.Parameters.AddWithValue("@Address",Address);
-            Command.Parameters.AddWithValue("@CountryID",CountryID);
-            Command.Parameters.AddWithValue("@Gender",Gender);
-            Command.Parameters.AddWithValue("@ImagePath",ImagePath);
-            Command.Parameters.AddWithValue("@DateOfBirth",DateOfBirth);
-            Command.Parameters.AddWithValue("@PersonID", PersonID);
-
             try
             {
-                Connection.Open();
-                NumberOfAffectedRows = Command.ExecuteNonQuery();
-            }catch (Exception ex)
+                using (SqlConnection Connection = new SqlConnection(Settings.ConnectionString))
+                {
+                    using (SqlCommand Command = new SqlCommand("SP_UpdatePersonByID", Connection))
+                    {
+
+                        Command.CommandType = CommandType.StoredProcedure;
+
+                        Command.Parameters.AddWithValue("@NationalNumber", NationalNumber);
+                        Command.Parameters.AddWithValue("@FirstName", FirstName);
+                        Command.Parameters.AddWithValue("@SecondName", SecondName);
+                        Command.Parameters.AddWithValue("@ThirdName", ThirdName);
+                        Command.Parameters.AddWithValue("@LastName", LastName);
+                        Command.Parameters.AddWithValue("@Phone", Phone);
+                        Command.Parameters.AddWithValue("@Email", Email);
+                        Command.Parameters.AddWithValue("@Address", Address);
+                        Command.Parameters.AddWithValue("@CountryID", CountryID);
+                        Command.Parameters.AddWithValue("@Gender", Gender);
+                        Command.Parameters.AddWithValue("@ImagePath", ImagePath);
+                        Command.Parameters.AddWithValue("@DateOfBirth", DateOfBirth);
+                        Command.Parameters.AddWithValue("@PersonID", PersonID);
+
+
+
+
+                        Connection.Open();
+                        NumberOfAffectedRows = Command.ExecuteNonQuery();
+                    }
+                }
+            }
+            catch (Exception ex)
             {
                 NumberOfAffectedRows = 0;
                 Settings.AddErrorToEventViewer("Error In Update Person DataLayer Func",
                 ex.Message);
 
             }
-            finally { Connection.Close(); }
 
             return NumberOfAffectedRows > 0;
         }

@@ -94,6 +94,15 @@ namespace dvld_api.Controllers
             {
                 return BadRequest("Invalid input parameters");
             }
+
+            if (string.IsNullOrEmpty(newPerson.FirstName) || string.IsNullOrEmpty(newPerson.SecondName) ||
+                string.IsNullOrEmpty(newPerson.LastName) || string.IsNullOrEmpty(newPerson.Address) ||
+                 string.IsNullOrEmpty(newPerson.Phone) || string.IsNullOrEmpty(newPerson.NationalNumber)
+                 || string.IsNullOrEmpty(newPerson.GenderType) || 
+                 newPerson.NationalityCountryID < 1 || newPerson.NationalityCountryID > 193)
+            {
+                return BadRequest("Invalid User Input");
+            }
            
             clsPerson person = _mapper.Map<clsPerson>(newPerson);
 
@@ -113,6 +122,51 @@ namespace dvld_api.Controllers
             }
 
             return CreatedAtAction(nameof(GetByID), new {PersonID=person.ID},newPerson);
+        }
+
+        [HttpPut("UpdateByID/{PersonID}")]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+
+        public IActionResult UpdateByID(int PersonID,UpdatePersonDTO UpdatedPerson)
+        {
+            if (PersonID < 1)
+            {
+                return BadRequest("Invalid User input");
+            }
+
+            clsPerson Person=clsPerson.FindPerson(PersonID);
+
+            if (Person == null)
+            {
+                return NotFound($"There is no Person with PersonID : {PersonID}");
+            }
+
+            if (UpdatedPerson == null)
+            {
+                return BadRequest("Invalid input parameters");
+            }
+
+            if ( string.IsNullOrEmpty(UpdatedPerson.Address) ||string.IsNullOrEmpty(UpdatedPerson.Phone))
+            {
+                return BadRequest("Invalid User Input");
+            }
+
+            Person.Address = UpdatedPerson.Address;
+            Person.Phone = UpdatedPerson.Phone;
+            Person.Email = UpdatedPerson.Email;
+            Person.ImagePath = UpdatedPerson.ImagePath;
+
+            if (!Person.Save())
+            {
+                return StatusCode(500, new { error = "Internal server Error" });
+            }
+
+            PersonDTO personDTO = _mapper.Map<PersonDTO>(Person);
+
+            return Ok(personDTO);
+
         }
     }
 }
