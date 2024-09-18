@@ -168,5 +168,34 @@ namespace dvld_api.Controllers
             return Ok(personDTO);
 
         }
+
+        [HttpDelete("Delete/{PersonID}")]
+
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
+
+        public IActionResult Delete(int PersonID)
+        {
+            if (PersonID < 1)
+            {
+                return BadRequest("Invalid User Input");
+            }
+
+            clsPerson Person= clsPerson.FindPerson(PersonID);
+
+            if(Person == null)
+            {
+                return NotFound($"There is no Person Wiht PersonID : {PersonID}");
+            }
+
+            if (!clsPerson.DeletePerson(PersonID))
+            {
+                return StatusCode(500, new { error = "Internal Server Error" });
+            }
+
+            return NoContent();
+        }
     }
 }
