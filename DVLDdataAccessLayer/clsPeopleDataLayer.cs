@@ -25,6 +25,8 @@ namespace DVLDdataAccessLayer
         public string Email { get; set; }
         public string Country { get; set; }
 
+        public string ImagePath { get; set; }
+
         public PersonDTO(int personID, string nationNo, string fullName, DateTime dateOfBirth, string gender, string phone, string email, string country)
         {
             ID = personID;

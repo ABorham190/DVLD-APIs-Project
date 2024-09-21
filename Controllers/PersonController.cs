@@ -45,20 +45,33 @@ namespace dvld_api.Controllers
 
         public IActionResult GetByID(int PersonID)
         {
-            if (PersonID < 1)
+            try
             {
-                return BadRequest("Invalid input parameters");
+                if (PersonID < 1)
+                {
+                    return BadRequest("Invalid input parameters");
+                }
+
+                clsPerson person = clsPerson.FindPerson(PersonID);
+
+                if (person == null)
+                {
+                    return BadRequest($"There is no person with PersonID : {PersonID}");
+                }
+                
+                PersonDTO persondto = _mapper.Map<PersonDTO>(person);
+
+                
+
+                return Ok(persondto);
             }
-
-            clsPerson person = clsPerson.FindPerson(PersonID);
-
-            if (person == null)
+            catch (Exception ex) 
             {
-                return BadRequest($"There is no person with PersonID : {PersonID}");
-            }
-            PersonDTO persondto=_mapper.Map<PersonDTO>(person);
 
-            return Ok(persondto);
+                Settings.AddErrorToEventViewer("Error is : ",ex.Message);
+                return StatusCode(500, new { error = "Internal server error" });
+            
+            }
 
         }
 
