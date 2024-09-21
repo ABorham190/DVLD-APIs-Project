@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Identity.Client;
 using Microsoft.VisualBasic.FileIO;
+using dvld_api.models;
 
 
 namespace dvld_api.Controllers
@@ -88,12 +89,13 @@ namespace dvld_api.Controllers
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         [ProducesResponseType(StatusCodes.Status201Created)]
-        public IActionResult AddNew(AddNewPersonDTO newPerson)
+        public async Task<IActionResult> AddNew(AddNewPersonDTO newPerson)
         {
             if (newPerson==null)
             {
                 return BadRequest("Invalid input parameters");
             }
+            
 
             if (string.IsNullOrEmpty(newPerson.FirstName) || string.IsNullOrEmpty(newPerson.SecondName) ||
                 string.IsNullOrEmpty(newPerson.LastName) || string.IsNullOrEmpty(newPerson.Address) ||
@@ -103,7 +105,18 @@ namespace dvld_api.Controllers
             {
                 return BadRequest("Invalid User Input");
             }
-           
+
+            string ImagePath = "";
+            if (newPerson.PersonPhoto == null)
+            {
+                ImagePath = "";
+            }
+            else
+            {
+                 ImagePath= await clsUploadPersonPhoto.Upload(newPerson.PersonPhoto);
+        
+            }
+
             clsPerson person = _mapper.Map<clsPerson>(newPerson);
 
 
@@ -115,6 +128,7 @@ namespace dvld_api.Controllers
             }
 
             person.Gender = newPerson.GenderType == "Male" ? 1 : 0;
+            person.ImagePath = ImagePath;
 
             if (!person.Save())
             {
