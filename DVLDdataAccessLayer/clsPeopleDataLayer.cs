@@ -46,16 +46,7 @@ namespace DVLDdataAccessLayer
     }
 
     
-    public class UpdatePersonDTO
-    {
-
-        public string Address { set; get; }
-        public string Phone { set; get; }
-        public string Email { set; get; }
-        public string ImagePath { set; get; }
-
-
-    }
+    
     public static class clsPeopleDataLayer
     {
         public static int AddNewPerson(string NationalNumber,
@@ -608,6 +599,8 @@ namespace DVLDdataAccessLayer
 
             return PersonID;
         }
+
+       
 
     }
 }

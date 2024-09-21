@@ -157,6 +157,7 @@
     <Compile Include="clsLicensesDataLayer.cs" />
     <Compile Include="clsOrdersDataLayer.cs" />
     <Compile Include="clsPeopleDataLayer.cs" />
+    <Compile Include="clsPersonImagesHandling.cs" />
     <Compile Include="clsServicesDataLayer.cs" />
     <Compile Include="clsTestsDataLayer.cs" />
     <Compile Include="clsTestTypesDataLayer.cs" />

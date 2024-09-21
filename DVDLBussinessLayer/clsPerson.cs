@@ -225,5 +225,10 @@ namespace DVDLBussinessLayer
         {
             return clsPeopleDataLayer.GetPersonIDUsingLicenseID(LicenseID);
         }
+
+        public static bool AddPreviousPersonImageToDataBase(int PersonID,string ImagePath,DateTime DateOfChange)
+        {
+            return clsPersonImagesHandling.AddPerviousImageToPreviousImageTable(PersonID, ImagePath, DateOfChange);
+        }
     }
 }

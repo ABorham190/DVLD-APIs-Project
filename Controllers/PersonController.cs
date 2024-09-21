@@ -179,7 +179,7 @@ namespace dvld_api.Controllers
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
 
-        public IActionResult UpdateByID(int PersonID,UpdatePersonDTO UpdatedPerson)
+        public async Task< IActionResult> UpdateByID(int PersonID,UpdatePersonDTO UpdatedPerson)
         {
             try
             {
@@ -195,20 +195,24 @@ namespace dvld_api.Controllers
                     return NotFound($"There is no Person with PersonID : {PersonID}");
                 }
 
+                string OldImagePath = string.IsNullOrEmpty(Person.ImagePath)?"":Person.ImagePath;
+
                 if (UpdatedPerson == null)
                 {
                     return BadRequest("Invalid input parameters");
                 }
 
-                if (string.IsNullOrEmpty(UpdatedPerson.Address) || string.IsNullOrEmpty(UpdatedPerson.Phone))
+                if (string.IsNullOrEmpty(UpdatedPerson.Address) || string.IsNullOrEmpty(UpdatedPerson.Phone)
+                    ||UpdatedPerson.PersonImage==null)
                 {
                     return BadRequest("Invalid User Input");
                 }
+                
 
                 Person.Address = UpdatedPerson.Address;
                 Person.Phone = UpdatedPerson.Phone;
                 Person.Email = UpdatedPerson.Email;
-                Person.ImagePath = UpdatedPerson.ImagePath;
+                Person.ImagePath = await clsUploadPersonPhoto.Upload(UpdatedPerson.PersonImage);
 
                 if (!Person.Save())
                 {
@@ -216,6 +220,18 @@ namespace dvld_api.Controllers
                 }
 
                 PersonDTO personDTO = _mapper.Map<PersonDTO>(Person);
+
+                if (!clsPersonImagesHandling.AddPerviousImageToPreviousImageTable
+                    (Person.ID, OldImagePath, DateTime.Now))
+                {
+
+                    var response = new
+                    {
+                        message = "Old Image Not saved successfully",
+                    };
+
+                    return StatusCode(500,response);
+                }
 
                 return Ok(personDTO);
             }
