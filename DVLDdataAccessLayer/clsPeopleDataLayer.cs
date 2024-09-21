@@ -161,7 +161,9 @@ namespace DVLDdataAccessLayer
                                 Gender = (string)Reader["Gendor"],
                                 Phone = (string)Reader["Phone"],
                                 Email = Reader["Email"] == System.DBNull.Value ? "not found" : (string)Reader["Email"],
-                                Country = (string)Reader["CountryName"]
+                                Country = (string)Reader["CountryName"],
+                                ImagePath = Reader["ImagePath"] == DBNull.Value?"Not found":(string)Reader["ImagePath"]
+
                             });
 
                         }
