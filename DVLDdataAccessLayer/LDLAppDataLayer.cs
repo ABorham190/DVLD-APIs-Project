@@ -11,38 +11,50 @@ namespace DVLDdataAccessLayer
     public class LDLAppDataLayer
     {
 
-        public static int AddNewLDLApp(int AppID,int LicenseTypeID)
+        public static int AddNewLDLApp(int AppID,int LicenseClassID)
         {
-
             int InsertedID = -1;
-            using (SqlConnection Connection = new SqlConnection(Settings.ConnectionString)) { 
+            try
+            {
+                
+                using (SqlConnection Connection = new SqlConnection(Settings.ConnectionString))
+                {
 
-                string Querey = @"Insert into LocalDrivingLicenseApplications
-                           (ApplicationID , LicenseClassID) 
-                            values(@AppID,@LicenseTypeID);
-                           select scope_Identity();";
+                    Connection.Open();
 
-                using (SqlCommand Command = new SqlCommand(Querey, Connection)) {
-                    Command.Parameters.AddWithValue("@AppID", AppID);
-                    Command.Parameters.AddWithValue("@LicenseTypeID", LicenseTypeID);
-                    try
+                    using (SqlCommand Command = new SqlCommand("SP_AddNewLocalDrivingLicenseApp", Connection))
                     {
-                        Connection.Open();
-                        Object Result = Command.ExecuteScalar();
-                        
-                            if (Result != null && int.TryParse(Result.ToString(), out int ID))
-                            {
-                                InsertedID = ID;
-                            }
-                        
-                    } catch (Exception ex)
-                    {
-                        InsertedID = -1;
-                        Settings.AddErrorToEventViewer("Error In Add New LDLApp ", ex.Message);
+
+                        Command.CommandType = CommandType.StoredProcedure;
+
+                        Command.Parameters.AddWithValue("@ApplicationID", AppID);
+                        Command.Parameters.AddWithValue("@LicenseClassID", LicenseClassID);
+
+                        SqlParameter outPutParam = new SqlParameter("LDLAID", DbType.Int32)
+                        {
+                            Direction = ParameterDirection.Output
+                        };
+                        Command.Parameters.Add(outPutParam);
+
+
+                        int NumberOfAffectedRow = 0;
+                        if ((NumberOfAffectedRow = Command.ExecuteNonQuery()) > 0)
+                        {
+                            InsertedID = (int)outPutParam.Value;
+                        }
+
+
                     }
                 }
-               
             }
+            catch (Exception ex)
+            {
+                InsertedID = -1;
+                Settings.AddErrorToEventViewer("Error In Add New LDLApp ", ex.Message);
+            }
+                
+               
+            
             return InsertedID;
 
         }

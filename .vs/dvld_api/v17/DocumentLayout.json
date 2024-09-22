@@ -3,6 +3,22 @@
   "WorkspaceRootPath": "E:\\programming_main\\MyProjects\\dvld_api\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{1977AE4D-7229-4BA1-8567-43304E41F5D5}|dvld_api.csproj|e:\\programming_main\\myprojects\\dvld_api\\controllers\\ldlappcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1977AE4D-7229-4BA1-8567-43304E41F5D5}|dvld_api.csproj|solutionrelative:controllers\\ldlappcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D627EB82-D110-4524-853E-83E47AC013FB}|DVLDdataAccessLayer\\DVLDdataAccessLayer.csproj|e:\\programming_main\\myprojects\\dvld_api\\dvlddataaccesslayer\\clsordersdatalayer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D627EB82-D110-4524-853E-83E47AC013FB}|DVLDdataAccessLayer\\DVLDdataAccessLayer.csproj|solutionrelative:dvlddataaccesslayer\\clsordersdatalayer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D627EB82-D110-4524-853E-83E47AC013FB}|DVLDdataAccessLayer\\DVLDdataAccessLayer.csproj|e:\\programming_main\\myprojects\\dvld_api\\dvlddataaccesslayer\\ldlappdatalayer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D627EB82-D110-4524-853E-83E47AC013FB}|DVLDdataAccessLayer\\DVLDdataAccessLayer.csproj|solutionrelative:dvlddataaccesslayer\\ldlappdatalayer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D627EB82-D110-4524-853E-83E47AC013FB}|DVLDdataAccessLayer\\DVLDdataAccessLayer.csproj|e:\\programming_main\\myprojects\\dvld_api\\dvlddataaccesslayer\\clspeopledatalayer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D627EB82-D110-4524-853E-83E47AC013FB}|DVLDdataAccessLayer\\DVLDdataAccessLayer.csproj|solutionrelative:dvlddataaccesslayer\\clspeopledatalayer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{1977AE4D-7229-4BA1-8567-43304E41F5D5}|dvld_api.csproj|e:\\programming_main\\myprojects\\dvld_api\\controllers\\personcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{1977AE4D-7229-4BA1-8567-43304E41F5D5}|dvld_api.csproj|solutionrelative:controllers\\personcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -13,10 +29,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{1977AE4D-7229-4BA1-8567-43304E41F5D5}|dvld_api.csproj|e:\\programming_main\\myprojects\\dvld_api\\models\\updatepersondto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{1977AE4D-7229-4BA1-8567-43304E41F5D5}|dvld_api.csproj|solutionrelative:models\\updatepersondto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D627EB82-D110-4524-853E-83E47AC013FB}|DVLDdataAccessLayer\\DVLDdataAccessLayer.csproj|e:\\programming_main\\myprojects\\dvld_api\\dvlddataaccesslayer\\clspeopledatalayer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D627EB82-D110-4524-853E-83E47AC013FB}|DVLDdataAccessLayer\\DVLDdataAccessLayer.csproj|solutionrelative:dvlddataaccesslayer\\clspeopledatalayer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{7FB7444F-9E5B-4846-AA5F-FA933807947D}|DVDLBussinessLayer\\DVDLBussinessLayer.csproj|E:\\programming_main\\MyProjects\\dvld_api\\dvdlbussinesslayer\\clsperson.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -39,10 +51,6 @@
       "RelativeMoniker": "D:0:0:{1977AE4D-7229-4BA1-8567-43304E41F5D5}|dvld_api.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D627EB82-D110-4524-853E-83E47AC013FB}|DVLDdataAccessLayer\\DVLDdataAccessLayer.csproj|E:\\programming_main\\MyProjects\\dvld_api\\dvlddataaccesslayer\\clsusersdatalayer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D627EB82-D110-4524-853E-83E47AC013FB}|DVLDdataAccessLayer\\DVLDdataAccessLayer.csproj|solutionrelative:dvlddataaccesslayer\\clsusersdatalayer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{D627EB82-D110-4524-853E-83E47AC013FB}|DVLDdataAccessLayer\\DVLDdataAccessLayer.csproj|E:\\programming_main\\MyProjects\\dvld_api\\dvlddataaccesslayer\\settings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{D627EB82-D110-4524-853E-83E47AC013FB}|DVLDdataAccessLayer\\DVLDdataAccessLayer.csproj|solutionrelative:dvlddataaccesslayer\\settings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
@@ -54,11 +62,50 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 8,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "clsOrdersDataLayer.cs",
+              "DocumentMoniker": "E:\\programming_main\\MyProjects\\dvld_api\\DVLDdataAccessLayer\\clsOrdersDataLayer.cs",
+              "RelativeDocumentMoniker": "DVLDdataAccessLayer\\clsOrdersDataLayer.cs",
+              "ToolTip": "E:\\programming_main\\MyProjects\\dvld_api\\DVLDdataAccessLayer\\clsOrdersDataLayer.cs*",
+              "RelativeToolTip": "DVLDdataAccessLayer\\clsOrdersDataLayer.cs*",
+              "ViewState": "AQIAAAsAAAAAAAAAAAAxwA0AAAAHAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-21T15:16:43.194Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 2,
+              "Title": "LDLAppDataLayer.cs",
+              "DocumentMoniker": "E:\\programming_main\\MyProjects\\dvld_api\\DVLDdataAccessLayer\\LDLAppDataLayer.cs",
+              "RelativeDocumentMoniker": "DVLDdataAccessLayer\\LDLAppDataLayer.cs",
+              "ToolTip": "E:\\programming_main\\MyProjects\\dvld_api\\DVLDdataAccessLayer\\LDLAppDataLayer.cs",
+              "RelativeToolTip": "DVLDdataAccessLayer\\LDLAppDataLayer.cs",
+              "ViewState": "AQIAABEAAAAAAAAAAAAAwA8AAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-21T14:46:36.651Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "LDLAppController.cs",
+              "DocumentMoniker": "E:\\programming_main\\MyProjects\\dvld_api\\Controllers\\LDLAppController.cs",
+              "RelativeDocumentMoniker": "Controllers\\LDLAppController.cs",
+              "ToolTip": "E:\\programming_main\\MyProjects\\dvld_api\\Controllers\\LDLAppController.cs*",
+              "RelativeToolTip": "Controllers\\LDLAppController.cs*",
+              "ViewState": "AQIAACIAAAAAAAAAAAAswBsAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-21T14:35:28.244Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
               "Title": "UpdatePersonDTO.cs",
               "DocumentMoniker": "E:\\programming_main\\MyProjects\\dvld_api\\models\\UpdatePersonDTO.cs",
               "RelativeDocumentMoniker": "models\\UpdatePersonDTO.cs",
@@ -71,7 +118,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 8,
               "Title": "clsPersonImagesHandling.cs",
               "DocumentMoniker": "E:\\programming_main\\MyProjects\\dvld_api\\DVLDdataAccessLayer\\clsPersonImagesHandling.cs",
               "RelativeDocumentMoniker": "DVLDdataAccessLayer\\clsPersonImagesHandling.cs",
@@ -90,14 +137,14 @@
               "RelativeDocumentMoniker": "DVLDdataAccessLayer\\clsPeopleDataLayer.cs",
               "ToolTip": "E:\\programming_main\\MyProjects\\dvld_api\\DVLDdataAccessLayer\\clsPeopleDataLayer.cs",
               "RelativeToolTip": "DVLDdataAccessLayer\\clsPeopleDataLayer.cs",
-              "ViewState": "AQIAACwAAAAAAAAAAAA7wDAAAAAEAAAA",
+              "ViewState": "AQIAAFsAAAAAAAAAAAAUwDAAAAAEAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-09-21T12:24:53.832Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 9,
               "Title": "UserController.cs",
               "DocumentMoniker": "E:\\programming_main\\MyProjects\\dvld_api\\Controllers\\UserController.cs",
               "RelativeDocumentMoniker": "Controllers\\UserController.cs",
@@ -110,7 +157,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 5,
               "Title": "clsUploadPersonPhoto.cs",
               "DocumentMoniker": "E:\\programming_main\\MyProjects\\dvld_api\\models\\clsUploadPersonPhoto.cs",
               "RelativeDocumentMoniker": "models\\clsUploadPersonPhoto.cs",
@@ -123,7 +170,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 10,
               "Title": "AddNewPersonDTO.cs",
               "DocumentMoniker": "E:\\programming_main\\MyProjects\\dvld_api\\models\\AddNewPersonDTO.cs",
               "RelativeDocumentMoniker": "models\\AddNewPersonDTO.cs",
@@ -136,7 +183,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 11,
               "Title": "Program.cs",
               "DocumentMoniker": "E:\\programming_main\\MyProjects\\dvld_api\\Program.cs",
               "RelativeDocumentMoniker": "Program.cs",
@@ -149,7 +196,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 7,
               "Title": "clsPerson.cs",
               "DocumentMoniker": "E:\\programming_main\\MyProjects\\dvld_api\\DVDLBussinessLayer\\clsPerson.cs",
               "RelativeDocumentMoniker": "DVDLBussinessLayer\\clsPerson.cs",
@@ -162,20 +209,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 4,
               "Title": "PersonController.cs",
               "DocumentMoniker": "E:\\programming_main\\MyProjects\\dvld_api\\Controllers\\PersonController.cs",
               "RelativeDocumentMoniker": "Controllers\\PersonController.cs",
-              "ToolTip": "E:\\programming_main\\MyProjects\\dvld_api\\Controllers\\PersonController.cs*",
-              "RelativeToolTip": "Controllers\\PersonController.cs*",
-              "ViewState": "AQIAAMgAAAAAAAAAAAAmwLUAAAApAAAA",
+              "ToolTip": "E:\\programming_main\\MyProjects\\dvld_api\\Controllers\\PersonController.cs",
+              "RelativeToolTip": "Controllers\\PersonController.cs",
+              "ViewState": "AQIAAAwAAAAAAAAAAAAAALUAAAApAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-09-16T09:00:26.943Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 12,
               "Title": "Settings.cs",
               "DocumentMoniker": "E:\\programming_main\\MyProjects\\dvld_api\\DVLDdataAccessLayer\\Settings.cs",
               "RelativeDocumentMoniker": "DVLDdataAccessLayer\\Settings.cs",
@@ -184,18 +231,6 @@
               "ViewState": "AQIAABQAAAAAAAAAAAAAwB0AAAAIAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-09-14T19:35:41.581Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "clsUsersDataLayer.cs",
-              "DocumentMoniker": "E:\\programming_main\\MyProjects\\dvld_api\\DVLDdataAccessLayer\\clsUsersDataLayer.cs",
-              "RelativeDocumentMoniker": "DVLDdataAccessLayer\\clsUsersDataLayer.cs",
-              "ToolTip": "E:\\programming_main\\MyProjects\\dvld_api\\DVLDdataAccessLayer\\clsUsersDataLayer.cs",
-              "RelativeToolTip": "DVLDdataAccessLayer\\clsUsersDataLayer.cs",
-              "ViewState": "AQIAAEYAAAAAAAAAAAAcwCIBAABOAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-14T19:00:47.379Z"
             }
           ]
         }
