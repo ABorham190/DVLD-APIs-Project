@@ -48,49 +48,43 @@ namespace DVLDdataAccessLayer
             DateTime LastStatusDate , Decimal PaidFees,int CreatedByUserID)
         {
             int InsertedID = -1;
-            string Querey = @"insert into Applications (ApplicantPersonID,
-                            ApplicationDate,ApplicationTypeID,ApplicationStatus,
-                             LastStatusDate,PaidFees,CreatedByUserID)
-                            values (@ApplicantPersonID,
-                            @ApplicationDate,@ApplicationTypeID,
-                            @ApplicationStatus,
-                            @LastStatusDate,@PaidFees,@CreatedByUserID);
-                            select scope_identity();";
-            SqlConnection Connection=new SqlConnection( Settings.ConnectionString );
-            SqlCommand Command=new SqlCommand("SP_AddNewApplication", Connection);
-
-            Command.CommandType = CommandType.StoredProcedure;
-
-            Command.Parameters.AddWithValue("@ApplicantPersonID", ApplicantPersonID);
-            Command.Parameters.AddWithValue("@ApplicationDate",ApplicationDate);
-            Command.Parameters.AddWithValue("@ApplicationTypeID",ApplicationTypeID);
-            Command.Parameters.AddWithValue("@ApplicationStatus", ApplicationStatus);
-            Command.Parameters.AddWithValue("@LastStatusDate", LastStatusDate);
-            Command.Parameters.AddWithValue("@PaidFees", PaidFees);
-            Command.Parameters.AddWithValue("@CreatedByUserID", CreatedByUserID);
-
-            SqlParameter outputparam = new SqlParameter("@ApplicationID", DbType.Int32)
-            {
-                Direction = ParameterDirection.Output,
-            };
-
-            Command.Parameters.Add(outputparam);
-
-            try
-            {
-                Connection.Open();
-                int NumberOfAffectedRows = 0;
-                if ((NumberOfAffectedRows = Command.ExecuteNonQuery()) > 0)
+            try {
+                using (SqlConnection Connection = new SqlConnection(Settings.ConnectionString))
                 {
-                    InsertedID = (int)outputparam.Value;
+                    using (SqlCommand Command = new SqlCommand("SP_AddNewApplication", Connection))
+                    {
+
+                        Command.CommandType = CommandType.StoredProcedure;
+
+                        Command.Parameters.AddWithValue("@ApplicantPersonID", ApplicantPersonID);
+                        Command.Parameters.AddWithValue("@ApplicationDate", ApplicationDate);
+                        Command.Parameters.AddWithValue("@ApplicationTypeID", ApplicationTypeID);
+                        Command.Parameters.AddWithValue("@ApplicationStatus", ApplicationStatus);
+                        Command.Parameters.AddWithValue("@LastStatusDate", LastStatusDate);
+                        Command.Parameters.AddWithValue("@PaidFees", PaidFees);
+                        Command.Parameters.AddWithValue("@CreatedByUserID", CreatedByUserID);
+
+                        SqlParameter outputparam = new SqlParameter("@ApplicationID", DbType.Int32)
+                        {
+                            Direction = ParameterDirection.Output,
+                        };
+
+                        Command.Parameters.Add(outputparam);
+
+
+
+                        Connection.Open();
+                        int NumberOfAffectedRows = 0;
+                        if ((NumberOfAffectedRows = Command.ExecuteNonQuery()) > 0)
+                        {
+                            InsertedID = (int)outputparam.Value;
+                        }
+                    }
                 }
 
             }catch (Exception ex)
             {
                 InsertedID=-1;
-            }finally 
-            {
-                Connection.Close(); 
             }
 
             return InsertedID;

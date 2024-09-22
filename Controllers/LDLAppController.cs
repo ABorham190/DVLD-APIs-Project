@@ -53,5 +53,20 @@ namespace dvld_api.Controllers
             }
 
         }
+
+        [HttpGet("GetAll")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        public async Task<IActionResult> GetAll()
+        {
+            List<LDLAppDataLayer.LDLAppDTO>LDLAppDTOList=await LDLApp.GetAllLDLApps();
+
+            if (LDLAppDTOList.Count < 1)
+            {
+                return NotFound("There is no LDLApp right now");
+            }
+
+            return Ok(LDLAppDTOList);
+        }
     }
 }

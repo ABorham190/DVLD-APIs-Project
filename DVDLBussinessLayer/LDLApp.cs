@@ -65,9 +65,9 @@ namespace DVDLBussinessLayer
 
             return false;
         }
-        public static  DataTable GetAllLDLApps()
+        public static async Task<  List<LDLAppDataLayer.LDLAppDTO>> GetAllLDLApps()
         {
-            return LDLAppDataLayer.GetAllLDLApps();
+            return await LDLAppDataLayer.GetAllLDLApps();
         } 
 
         public static bool GetLicenseType(int LDLAppID,ref string LicenseType)

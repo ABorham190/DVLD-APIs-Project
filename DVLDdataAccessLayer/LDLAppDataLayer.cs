@@ -10,6 +10,17 @@ namespace DVLDdataAccessLayer
 {
     public class LDLAppDataLayer
     {
+        public class LDLAppDTO
+        {
+            public int LDLAppID { get; set; }
+            public string LicenseClass { get; set; }
+            public string FullName { get; set; }
+            public DateTime ApplicationDate { get; set; }
+            public int PassedTests { get; set; }
+            public string Status { get; set; }
+
+
+        }
 
         public static int AddNewLDLApp(int AppID,int LicenseClassID)
         {
@@ -59,59 +70,46 @@ namespace DVLDdataAccessLayer
 
         }
 
-        public static DataTable GetAllLDLApps()
+        public static async Task< List<LDLAppDTO>> GetAllLDLApps()
         {
-            DataTable dt = new DataTable();
-            using (SqlConnection Connection = new SqlConnection(Settings.ConnectionString)) {  
-
-                string Querey = @"select LocalDrivingLicenseApplicationID As LDLAppID 
-                           ,LicenseClasses.ClassName as LicenseClass,
-                           People.NationalNo,(People.FirstName+' '
-                           +People.SecondName+' '+People.ThirdName+' '+
-                           People.LastName)as FullName,Applications.ApplicationDate,
-                           (select count(TestAppointments.TestTypeID) from Tests
-						   inner join TestAppointments on 
-                           Tests.TestAppointmentID=TestAppointments.TestAppointmentID 
-                            where TestAppointments.LocalDrivingLicenseApplicationID=
-							LocalDrivingLicenseApplications.LocalDrivingLicenseApplicationID
-							and TestResult=1) as PassedTests,Case When Applications.ApplicationStatus
-							=1 Then 'New' when Applications.ApplicationStatus=2 then 'Cancelled'
-							when Applications.ApplicationStatus=3 Then 'Completed' End As Status
-                           from LocalDrivingLicenseApplications inner join
-                           LicenseClasses on LocalDrivingLicenseApplications.LicenseClassID
-                           =LicenseClasses.LicenseClassID inner join Applications on 
-                           LocalDrivingLicenseApplications.ApplicationID
-                           =Applications.ApplicationID inner join People on 
-                            Applications.ApplicantPersonID=People.PersonID 
-                           Order by LocalDrivingLicenseApplicationID desc;
-
-                           ";
-
-
-                using (SqlCommand Command = new SqlCommand(Querey, Connection))
+            
+            List<LDLAppDTO>ldlapplist=new List<LDLAppDTO>();
+            try
+            {
+                using (SqlConnection Connection = new SqlConnection(Settings.ConnectionString))
                 {
 
-                    try
+                    using (SqlCommand Command = new SqlCommand("SP_GetAllLDLAppWithDetails", Connection))
                     {
+                        Command.CommandType = CommandType.StoredProcedure;
+
                         Connection.Open();
-                        using (SqlDataReader Reader = Command.ExecuteReader())
+                        using (SqlDataReader Reader = await Command.ExecuteReaderAsync())
                         {
-                            if (Reader.HasRows)
+                            while (Reader.Read())
                             {
-                                dt.Load(Reader);
+                                ldlapplist.Add(new LDLAppDTO
+                                {
+                                    LDLAppID = (int)Reader["LDLAppID"],
+                                    LicenseClass = (string)Reader["LicenseClass"],
+                                    FullName = (string)Reader["FullName"],
+                                    ApplicationDate = (DateTime)Reader["ApplicationDate"],
+                                    PassedTests = (int)Reader["PassedTests"],
+                                    Status = (string)Reader["Status"]
+                                });
+
                             }
                         }
                     }
-                    catch (Exception ex)
-                    {
-
-                        Settings.AddErrorToEventViewer("Error In Get All LDLAppa", ex.Message);
-
-                    }
                 }
             }
+            catch (Exception ex)
+            {
 
-            return dt;
+                Settings.AddErrorToEventViewer("Error In Get All LDLAppa", ex.Message);
+
+            }
+            return ldlapplist;
         }
 
         public static bool GetLicenseTypeUsingLDLAppID(int LDLAppID,ref string LicenseType)
