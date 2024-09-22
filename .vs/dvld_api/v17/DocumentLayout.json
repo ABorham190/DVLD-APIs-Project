@@ -3,8 +3,8 @@
   "WorkspaceRootPath": "E:\\programming_main\\MyProjects\\dvld_api\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{1977AE4D-7229-4BA1-8567-43304E41F5D5}|dvld_api.csproj|e:\\programming_main\\myprojects\\dvld_api\\controllers\\applicationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1977AE4D-7229-4BA1-8567-43304E41F5D5}|dvld_api.csproj|solutionrelative:controllers\\applicationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{7FB7444F-9E5B-4846-AA5F-FA933807947D}|DVDLBussinessLayer\\DVDLBussinessLayer.csproj|e:\\programming_main\\myprojects\\dvld_api\\dvdlbussinesslayer\\ldlapp.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7FB7444F-9E5B-4846-AA5F-FA933807947D}|DVDLBussinessLayer\\DVDLBussinessLayer.csproj|solutionrelative:dvdlbussinesslayer\\ldlapp.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{D627EB82-D110-4524-853E-83E47AC013FB}|DVLDdataAccessLayer\\DVLDdataAccessLayer.csproj|e:\\programming_main\\myprojects\\dvld_api\\dvlddataaccesslayer\\ldlappdatalayer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -15,40 +15,8 @@
       "RelativeMoniker": "D:0:0:{1977AE4D-7229-4BA1-8567-43304E41F5D5}|dvld_api.csproj|solutionrelative:controllers\\ldlappcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1977AE4D-7229-4BA1-8567-43304E41F5D5}|dvld_api.csproj|e:\\programming_main\\myprojects\\dvld_api\\models\\myautomapperprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1977AE4D-7229-4BA1-8567-43304E41F5D5}|dvld_api.csproj|solutionrelative:models\\myautomapperprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1977AE4D-7229-4BA1-8567-43304E41F5D5}|dvld_api.csproj|e:\\programming_main\\myprojects\\dvld_api\\models\\clsapplicationdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1977AE4D-7229-4BA1-8567-43304E41F5D5}|dvld_api.csproj|solutionrelative:models\\clsapplicationdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7FB7444F-9E5B-4846-AA5F-FA933807947D}|DVDLBussinessLayer\\DVDLBussinessLayer.csproj|e:\\programming_main\\myprojects\\dvld_api\\dvdlbussinesslayer\\clsorders.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7FB7444F-9E5B-4846-AA5F-FA933807947D}|DVDLBussinessLayer\\DVDLBussinessLayer.csproj|solutionrelative:dvdlbussinesslayer\\clsorders.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D627EB82-D110-4524-853E-83E47AC013FB}|DVLDdataAccessLayer\\DVLDdataAccessLayer.csproj|e:\\programming_main\\myprojects\\dvld_api\\dvlddataaccesslayer\\clsordersdatalayer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D627EB82-D110-4524-853E-83E47AC013FB}|DVLDdataAccessLayer\\DVLDdataAccessLayer.csproj|solutionrelative:dvlddataaccesslayer\\clsordersdatalayer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D627EB82-D110-4524-853E-83E47AC013FB}|DVLDdataAccessLayer\\DVLDdataAccessLayer.csproj|e:\\programming_main\\myprojects\\dvld_api\\dvlddataaccesslayer\\clslicensesdatalayer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D627EB82-D110-4524-853E-83E47AC013FB}|DVLDdataAccessLayer\\DVLDdataAccessLayer.csproj|solutionrelative:dvlddataaccesslayer\\clslicensesdatalayer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7FB7444F-9E5B-4846-AA5F-FA933807947D}|DVDLBussinessLayer\\DVDLBussinessLayer.csproj|e:\\programming_main\\myprojects\\dvld_api\\dvdlbussinesslayer\\ldlapp.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7FB7444F-9E5B-4846-AA5F-FA933807947D}|DVDLBussinessLayer\\DVDLBussinessLayer.csproj|solutionrelative:dvdlbussinesslayer\\ldlapp.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D627EB82-D110-4524-853E-83E47AC013FB}|DVLDdataAccessLayer\\DVLDdataAccessLayer.csproj|E:\\programming_main\\MyProjects\\dvld_api\\dvlddataaccesslayer\\clsusersdatalayer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D627EB82-D110-4524-853E-83E47AC013FB}|DVLDdataAccessLayer\\DVLDdataAccessLayer.csproj|solutionrelative:dvlddataaccesslayer\\clsusersdatalayer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{1977AE4D-7229-4BA1-8567-43304E41F5D5}|dvld_api.csproj|e:\\programming_main\\myprojects\\dvld_api\\models\\clshandleldlapp.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{1977AE4D-7229-4BA1-8567-43304E41F5D5}|dvld_api.csproj|solutionrelative:models\\clshandleldlapp.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7FB7444F-9E5B-4846-AA5F-FA933807947D}|DVDLBussinessLayer\\DVDLBussinessLayer.csproj|e:\\programming_main\\myprojects\\dvld_api\\dvdlbussinesslayer\\clsservices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7FB7444F-9E5B-4846-AA5F-FA933807947D}|DVDLBussinessLayer\\DVDLBussinessLayer.csproj|solutionrelative:dvdlbussinesslayer\\clsservices.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -58,123 +26,32 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "MyAutoMapperProfile.cs",
-              "DocumentMoniker": "E:\\programming_main\\MyProjects\\dvld_api\\models\\MyAutoMapperProfile.cs",
-              "RelativeDocumentMoniker": "models\\MyAutoMapperProfile.cs",
-              "ToolTip": "E:\\programming_main\\MyProjects\\dvld_api\\models\\MyAutoMapperProfile.cs",
-              "RelativeToolTip": "models\\MyAutoMapperProfile.cs",
-              "ViewState": "AQIAAAMAAAAAAAAAAAAAAAwAAAA1AAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-22T15:23:20.807Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "clsApplicationDTO.cs",
-              "DocumentMoniker": "E:\\programming_main\\MyProjects\\dvld_api\\models\\clsApplicationDTO.cs",
-              "RelativeDocumentMoniker": "models\\clsApplicationDTO.cs",
-              "ToolTip": "E:\\programming_main\\MyProjects\\dvld_api\\models\\clsApplicationDTO.cs",
-              "RelativeToolTip": "models\\clsApplicationDTO.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAAyAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-22T15:21:38.848Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "ApplicationController.cs",
-              "DocumentMoniker": "E:\\programming_main\\MyProjects\\dvld_api\\Controllers\\ApplicationController.cs",
-              "RelativeDocumentMoniker": "Controllers\\ApplicationController.cs",
-              "ToolTip": "E:\\programming_main\\MyProjects\\dvld_api\\Controllers\\ApplicationController.cs",
-              "RelativeToolTip": "Controllers\\ApplicationController.cs",
-              "ViewState": "AQIAABYAAAAAAAAAAAAAwBYAAABIAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-22T14:05:42.021Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "LDLApp.cs",
-              "DocumentMoniker": "E:\\programming_main\\MyProjects\\dvld_api\\DVDLBussinessLayer\\LDLApp.cs",
-              "RelativeDocumentMoniker": "DVDLBussinessLayer\\LDLApp.cs",
-              "ToolTip": "E:\\programming_main\\MyProjects\\dvld_api\\DVDLBussinessLayer\\LDLApp.cs",
-              "RelativeToolTip": "DVDLBussinessLayer\\LDLApp.cs",
-              "ViewState": "AQIAAEAAAAAAAAAAAAAcwEYAAAAIAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-22T12:11:33.075Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "clsLicensesDataLayer.cs",
-              "DocumentMoniker": "E:\\programming_main\\MyProjects\\dvld_api\\DVLDdataAccessLayer\\clsLicensesDataLayer.cs",
-              "RelativeDocumentMoniker": "DVLDdataAccessLayer\\clsLicensesDataLayer.cs",
-              "ToolTip": "E:\\programming_main\\MyProjects\\dvld_api\\DVLDdataAccessLayer\\clsLicensesDataLayer.cs",
-              "RelativeToolTip": "DVLDdataAccessLayer\\clsLicensesDataLayer.cs",
-              "ViewState": "AQIAAPEAAAAAAAAAAAAAwOMAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-22T08:51:46.859Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "clsOrders.cs",
-              "DocumentMoniker": "E:\\programming_main\\MyProjects\\dvld_api\\DVDLBussinessLayer\\clsOrders.cs",
-              "RelativeDocumentMoniker": "DVDLBussinessLayer\\clsOrders.cs",
-              "ToolTip": "E:\\programming_main\\MyProjects\\dvld_api\\DVDLBussinessLayer\\clsOrders.cs",
-              "RelativeToolTip": "DVDLBussinessLayer\\clsOrders.cs",
-              "ViewState": "AQIAAA4AAAAAAAAAAAAxwBUAAAAzAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-22T07:50:43.3Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "clsServices.cs",
-              "DocumentMoniker": "E:\\programming_main\\MyProjects\\dvld_api\\DVDLBussinessLayer\\clsServices.cs",
-              "RelativeDocumentMoniker": "DVDLBussinessLayer\\clsServices.cs",
-              "ToolTip": "E:\\programming_main\\MyProjects\\dvld_api\\DVDLBussinessLayer\\clsServices.cs",
-              "RelativeToolTip": "DVDLBussinessLayer\\clsServices.cs",
-              "ViewState": "AQIAACwAAAAAAAAAAAAuwCUAAAAkAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-22T07:37:12.081Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
               "Title": "clsHandleLDLApp.cs",
               "DocumentMoniker": "E:\\programming_main\\MyProjects\\dvld_api\\models\\clsHandleLDLApp.cs",
               "RelativeDocumentMoniker": "models\\clsHandleLDLApp.cs",
               "ToolTip": "E:\\programming_main\\MyProjects\\dvld_api\\models\\clsHandleLDLApp.cs",
               "RelativeToolTip": "models\\clsHandleLDLApp.cs",
-              "ViewState": "AQIAACcAAAAAAAAAAAAAwDAAAAAIAAAA",
+              "ViewState": "AQIAABsAAAAAAAAAAAAqwB8AAAAiAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-22T07:04:54.185Z",
+              "WhenOpened": "2024-09-22T16:20:26.438Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "clsOrdersDataLayer.cs",
-              "DocumentMoniker": "E:\\programming_main\\MyProjects\\dvld_api\\DVLDdataAccessLayer\\clsOrdersDataLayer.cs",
-              "RelativeDocumentMoniker": "DVLDdataAccessLayer\\clsOrdersDataLayer.cs",
-              "ToolTip": "E:\\programming_main\\MyProjects\\dvld_api\\DVLDdataAccessLayer\\clsOrdersDataLayer.cs",
-              "RelativeToolTip": "DVLDdataAccessLayer\\clsOrdersDataLayer.cs",
-              "ViewState": "AQIAAIUAAAAAAAAAAAAAwJ8AAAAIAAAA",
+              "DocumentIndex": 0,
+              "Title": "LDLApp.cs",
+              "DocumentMoniker": "E:\\programming_main\\MyProjects\\dvld_api\\DVDLBussinessLayer\\LDLApp.cs",
+              "RelativeDocumentMoniker": "DVDLBussinessLayer\\LDLApp.cs",
+              "ToolTip": "E:\\programming_main\\MyProjects\\dvld_api\\DVDLBussinessLayer\\LDLApp.cs*",
+              "RelativeToolTip": "DVDLBussinessLayer\\LDLApp.cs*",
+              "ViewState": "AQIAADoAAAAAAAAAAAAUwEkAAAAJAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-21T15:16:43.194Z",
+              "WhenOpened": "2024-09-22T12:11:33.075Z",
               "EditorCaption": ""
             },
             {
@@ -183,9 +60,9 @@
               "Title": "LDLAppDataLayer.cs",
               "DocumentMoniker": "E:\\programming_main\\MyProjects\\dvld_api\\DVLDdataAccessLayer\\LDLAppDataLayer.cs",
               "RelativeDocumentMoniker": "DVLDdataAccessLayer\\LDLAppDataLayer.cs",
-              "ToolTip": "E:\\programming_main\\MyProjects\\dvld_api\\DVLDdataAccessLayer\\LDLAppDataLayer.cs",
-              "RelativeToolTip": "DVLDdataAccessLayer\\LDLAppDataLayer.cs",
-              "ViewState": "AQIAAJMAAAAAAAAAAAAYwHIAAAAoAAAA",
+              "ToolTip": "E:\\programming_main\\MyProjects\\dvld_api\\DVLDdataAccessLayer\\LDLAppDataLayer.cs*",
+              "RelativeToolTip": "DVLDdataAccessLayer\\LDLAppDataLayer.cs*",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAHIAAAAtAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-09-21T14:46:36.651Z",
               "EditorCaption": ""
@@ -196,24 +73,11 @@
               "Title": "LDLAppController.cs",
               "DocumentMoniker": "E:\\programming_main\\MyProjects\\dvld_api\\Controllers\\LDLAppController.cs",
               "RelativeDocumentMoniker": "Controllers\\LDLAppController.cs",
-              "ToolTip": "E:\\programming_main\\MyProjects\\dvld_api\\Controllers\\LDLAppController.cs",
-              "RelativeToolTip": "Controllers\\LDLAppController.cs",
-              "ViewState": "AQIAABEAAAAAAAAAAAAYwEcAAAAAAAAA",
+              "ToolTip": "E:\\programming_main\\MyProjects\\dvld_api\\Controllers\\LDLAppController.cs*",
+              "RelativeToolTip": "Controllers\\LDLAppController.cs*",
+              "ViewState": "AQIAAA0AAAAAAAAAAAAUwEkAAAA/AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-09-21T14:35:28.244Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "clsUsersDataLayer.cs",
-              "DocumentMoniker": "E:\\programming_main\\MyProjects\\dvld_api\\DVLDdataAccessLayer\\clsUsersDataLayer.cs",
-              "RelativeDocumentMoniker": "DVLDdataAccessLayer\\clsUsersDataLayer.cs",
-              "ToolTip": "E:\\programming_main\\MyProjects\\dvld_api\\DVLDdataAccessLayer\\clsUsersDataLayer.cs",
-              "RelativeToolTip": "DVLDdataAccessLayer\\clsUsersDataLayer.cs",
-              "ViewState": "AQIAAD8AAAAAAAAAAADwvyIBAABOAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-14T19:00:47.379Z",
               "EditorCaption": ""
             }
           ]

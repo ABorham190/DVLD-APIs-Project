@@ -16,7 +16,7 @@ namespace dvld_api.Controllers
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
 
-        public IActionResult AddNew(int PersonID,int LicenseTypeID)
+        public async Task<IActionResult> AddNew(int PersonID,int LicenseTypeID)
         {
             try
             {
@@ -39,7 +39,7 @@ namespace dvld_api.Controllers
                 }
 
                 clsHandleLDLApp HldlApp = new clsHandleLDLApp(PersonID,LicenseTypeID);
-                if (!HldlApp.Save())
+                if (!await HldlApp.Save())
                 {
                     return StatusCode(500, new { error = "Internal Server Error" });
                 }
@@ -67,6 +67,26 @@ namespace dvld_api.Controllers
             }
 
             return Ok(LDLAppDTOList);
+        }
+
+        [HttpGet("GetByID/{LDLAppID}")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public IActionResult GetByID(int LDLAppID)
+        {
+            if (LDLAppID < 1)
+            {
+                return BadRequest("Invalid User Input");
+            }
+            
+            LDLApp ldlapp = LDLApp.FindLDLApp(LDLAppID);
+
+            if (ldlapp==null)
+            {
+                return BadRequest($"There is no ldlapp with ID : {LDLAppID}");
+            }
+
+            return Ok(ldlapp);
         }
 
 

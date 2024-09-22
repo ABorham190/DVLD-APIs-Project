@@ -38,20 +38,20 @@ namespace DVDLBussinessLayer
         
         }
 
-        private bool _AddNewLDLApp()
+        private async Task<bool> _AddNewLDLApp()
         {
-            this.LDLAppID = LDLAppDataLayer.AddNewLDLApp(this.AppID, this.LicenseTypeID);
+            this.LDLAppID =await LDLAppDataLayer.AddNewLDLApp(this.AppID, this.LicenseTypeID);
             return this.LDLAppID != -1;
         }
 
 
-        public bool Save()
+        public async Task <bool> Save()
         {
             switch (_Mode)
             {
                 case enMode.AddNewMode:
 
-                    if (_AddNewLDLApp()) 
+                    if (await _AddNewLDLApp()) 
                     {
                         _Mode = enMode.UpdateMode;
                         return true;
@@ -70,9 +70,9 @@ namespace DVDLBussinessLayer
             return await LDLAppDataLayer.GetAllLDLApps();
         } 
 
-        public static bool GetLicenseType(int LDLAppID,ref string LicenseType)
+        public static async Task<string> GetLicenseType(int LDLAppID)
         {
-            return LDLAppDataLayer.GetLicenseTypeUsingLDLAppID(LDLAppID, ref LicenseType);
+            return await LDLAppDataLayer.GetLicenseTypeUsingLDLAppID(LDLAppID);
         }
 
         public static LDLApp FindLDLApp(int LDLAppID)

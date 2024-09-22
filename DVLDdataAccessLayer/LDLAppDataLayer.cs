@@ -22,7 +22,7 @@ namespace DVLDdataAccessLayer
 
         }
 
-        public static int AddNewLDLApp(int AppID,int LicenseClassID)
+        public static async Task<int> AddNewLDLApp(int AppID,int LicenseClassID)
         {
             int InsertedID = -1;
             try
@@ -49,7 +49,7 @@ namespace DVLDdataAccessLayer
 
 
                         int NumberOfAffectedRow = 0;
-                        if ((NumberOfAffectedRow = Command.ExecuteNonQuery()) > 0)
+                        if ((NumberOfAffectedRow =await Command.ExecuteNonQueryAsync()) > 0)
                         {
                             InsertedID = (int)outPutParam.Value;
                         }
@@ -112,73 +112,83 @@ namespace DVLDdataAccessLayer
             return ldlapplist;
         }
 
-        public static bool GetLicenseTypeUsingLDLAppID(int LDLAppID,ref string LicenseType)
+        public static async Task <string> GetLicenseTypeUsingLDLAppID(int LDLAppID)
         {
-            LicenseType = "";
-            string Querey = @"select LicenseTypes.LicenseType 
-                           from NewLocalDrivingLicenseApplications inner join 
-                           LicenseTypes
-                           on NewLocalDrivingLicenseApplications.LicenseTypeID = 
-                           LicenseTypes.LicenseTypeID
-                           where 
-                           NewLocalDrivingLicenseApplications.LocalDrivingLicenseApplicationID=@LDLAppID;";
-
-            SqlConnection connection=new SqlConnection(Settings.ConnectionString);
-            SqlCommand Command=new SqlCommand(Querey, connection);
-            Command.Parameters.AddWithValue("@LDLAppID", LDLAppID);
-
-            try
-            {
-                connection.Open();
-                SqlDataReader Reader = Command.ExecuteReader();
-                if (Reader.Read()) 
+            string LicenseType = "";
+            try {
+                using (SqlConnection connection = new SqlConnection(Settings.ConnectionString))
                 {
-                    LicenseType = (string)Reader["LicenseType"];
-                
-                
+                    using (SqlCommand Command = new SqlCommand("SP_GetLicenseTypeByLDLAppID", connection))
+                    {
+                        Command.CommandType = CommandType.StoredProcedure;
+
+                        Command.Parameters.AddWithValue("@LDLAppID", LDLAppID);
+
+                        SqlParameter outputparam = new SqlParameter("@LicenseType", DbType.String)
+                        {
+                            Direction = ParameterDirection.Output,
+                        };
+
+                        Command.Parameters.Add(outputparam);
+
+                        connection.Open();
+                        using (SqlDataReader Reader = await Command.ExecuteReaderAsync())
+                        {
+                            if (Reader.Read())
+                            {
+                                LicenseType = (string)outputparam.Value;
+
+
+                            }
+                        }
+                    }
                 }
             }catch (Exception ex)
             {
                 LicenseType = "";
+                Settings.AddErrorToEventViewer("Error in Get LicenstypeByLDLAppID ",ex.Message);
             }
-            finally
-            {
-                connection.Close();
-            }
-            return LicenseType != "";
+            
+            return LicenseType;
         }
 
         public static bool FindLDLApp(int LDLAppID,ref int AppID,ref int LicenseTypeID)
         {
             bool IsFound = false;
-            string Querey = @"select * from LocalDrivingLicenseApplications
-                             where LocalDrivingLicenseApplicationID=@LDLAppID;";
-            SqlConnection Connection = new SqlConnection(Settings.ConnectionString);
-            SqlCommand Command=new SqlCommand(Querey,Connection);
-
-            Command.Parameters.AddWithValue("@LDLAppID", LDLAppID);
-
             try
             {
-                Connection.Open();
-                SqlDataReader Reader = Command.ExecuteReader();
-                if (Reader.Read())
+                using (SqlConnection Connection = new SqlConnection(Settings.ConnectionString))
                 {
-                    IsFound = true;
-                    AppID = (int)Reader["ApplicationID"];
-                    LicenseTypeID = (int)Reader["LicenseClassID"];
+                    using (SqlCommand Command = new SqlCommand("SP_GetLDLAppByLDLAppID", Connection))
+                    {
+                        Command.CommandType = CommandType.StoredProcedure;
+
+                        Command.Parameters.AddWithValue("@LDLAppID", LDLAppID);
+
+
+
+                        Connection.Open();
+                        using (SqlDataReader Reader = Command.ExecuteReader())
+                        {
+                            if (Reader.Read())
+                            {
+                                IsFound = true;
+                                AppID = (int)Reader["ApplicationID"];
+                                LicenseTypeID = (int)Reader["LicenseClassID"];
+                            }
+                        }
+                    }
                 }
-                Reader.Close();
+
             }catch (Exception ex)
             {
                 IsFound = false;
             }
-            finally
-            {
-                Connection.Close();
-            }
+           
             return IsFound;
         }
+
+         
 
     }
 }

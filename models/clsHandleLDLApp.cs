@@ -29,12 +29,12 @@ namespace dvld_api.models
             this.ldlApp.LicenseTypeID = licenseTypeID;
         }
 
-        public bool Save()
+        public async Task<bool> Save()
         {
             if (this.Application.Save())
             {
                 this.ldlApp.AppID = this.Application.ApplicationID;
-                if (this.ldlApp.Save())
+                if (await this.ldlApp.Save())
                 {
                     return true;
                 }
