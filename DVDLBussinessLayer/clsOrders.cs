@@ -24,20 +24,18 @@ namespace DVDLBussinessLayer
         public DateTime LastStatusDate { get; set; }
         public Decimal PaidFees { get; set; }
 
-        public int LicesneTypeID { get; set; }  //Remember to delete this line
-        //public byte ApplicationTypeID {  get; set; }
         public int CreatedByUserID { get; set; }
         public string AppStatus { get; set; }
 
 
 
 
-        public clsOrders(int applicationID, int personID, string applicationStatus, DateTime applicationDate,
+        public clsOrders(int applicationID, int personID, byte applicationStatus, DateTime applicationDate,
            int OrderNameID)
         {
             ApplicationID = applicationID;
             ApplicantID = personID;
-            AppStatus = applicationStatus;
+            ApplicationStatus = applicationStatus;
 
             ApplicationDate = applicationDate;
             ApplicationTypeID = OrderNameID;
@@ -77,9 +75,9 @@ namespace DVDLBussinessLayer
             return false;
         }
 
-        public static bool IsApplicationExist(int PersonID, int LicenseTypeID, ref int ApplicationID)
+        public static bool IsThisPersonIDHasAnActiveApplicationToThisLicenseTypeID(int PersonID, int LicenseTypeID, ref int ApplicationID)
         {
-            return clsOrdersDataLayer.IsApplicationExists(PersonID, LicenseTypeID, ref ApplicationID);
+            return clsOrdersDataLayer.IsThisPersonIDHasAnActiveApplicationForThisLicenseTypeID(PersonID, LicenseTypeID, ref ApplicationID);
         }
 
         public static bool CancelApplication(int OrderID)
@@ -93,11 +91,12 @@ namespace DVDLBussinessLayer
             byte OrderCaseID = 0;
             int OrderNameID = 0;
             string AppStatus = "";
+            byte ApplicationStatusID = 0;
             DateTime OrderDate = DateTime.MinValue;
-            if (clsOrdersDataLayer.FindOrder(OrderID, ref PersonID, ref AppStatus,
-                ref OrderDate, ref OrderNameID))
+            if (clsOrdersDataLayer.FindOrder(OrderID, ref PersonID, 
+                ref OrderDate, ref OrderNameID,ref ApplicationStatusID))
             {
-                return new clsOrders(OrderID, PersonID, AppStatus,
+                return new clsOrders(OrderID, PersonID, ApplicationStatusID,
                      OrderDate, OrderNameID);
             }
             else

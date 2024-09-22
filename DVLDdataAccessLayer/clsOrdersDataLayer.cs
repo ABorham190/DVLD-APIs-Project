@@ -91,7 +91,7 @@ namespace DVLDdataAccessLayer
 
         }
 
-        public static bool IsApplicationExists(int PersonID
+        public static bool IsThisPersonIDHasAnActiveApplicationForThisLicenseTypeID(int PersonID
             ,int LicenseTypeID,ref int ApplicationID)
         {
 
@@ -160,8 +160,8 @@ namespace DVLDdataAccessLayer
         }
 
         public static bool FindOrder(int OrderID,ref int PersonID,
-            ref string AppStatus,ref DateTime AppDate,
-            ref int OrderNameID)
+            ref DateTime AppDate,
+            ref int OrderNameID,ref byte ApplicationStatusID)
         {
             bool IsFound = false;
             //string AppStatus = "";
@@ -173,7 +173,8 @@ namespace DVLDdataAccessLayer
                              when ApplicationStatus = 3 then  'Completed'
                              end,
                               Applications.ApplicationDate,
-                              Applications.ApplicationTypeID
+                              Applications.ApplicationTypeID,
+                              ApplicationStatus
                               from Applications 
                               where Applications.ApplicationID=@OrderID;";
            
@@ -189,10 +190,11 @@ namespace DVLDdataAccessLayer
                 {
                     IsFound = true;
                     PersonID = (int)Reader["ApplicantPersonID"];
-                    AppStatus = (string)Reader["Status"];
+                    
                    
                     AppDate = (DateTime)Reader["ApplicationDate"];
                     OrderNameID = (int)Reader["ApplicationTypeID"];
+                    ApplicationStatusID = (byte)Reader["ApplicationStatus"];
 
                 }
                 Reader.Close();

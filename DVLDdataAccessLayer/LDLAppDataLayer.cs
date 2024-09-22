@@ -86,7 +86,7 @@ namespace DVLDdataAccessLayer
                         Connection.Open();
                         using (SqlDataReader Reader = await Command.ExecuteReaderAsync())
                         {
-                            while (Reader.Read())
+                            while (await Reader.ReadAsync())
                             {
                                 ldlapplist.Add(new LDLAppDTO
                                 {

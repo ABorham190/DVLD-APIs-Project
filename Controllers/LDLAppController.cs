@@ -32,7 +32,7 @@ namespace dvld_api.Controllers
                 }
 
                 int ApplicationID = 0;
-                if(clsOrders.IsApplicationExist(PersonID,LicenseTypeID,ref ApplicationID))
+                if(clsOrders.IsThisPersonIDHasAnActiveApplicationToThisLicenseTypeID(PersonID,LicenseTypeID,ref ApplicationID))
                 {
                     return BadRequest($"This person is already has an open application for " +
                         $"this License type , application ID : {ApplicationID}");
@@ -57,16 +57,19 @@ namespace dvld_api.Controllers
         [HttpGet("GetAll")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public async Task<IActionResult> GetAll()
+        public async Task<ActionResult<List<LDLAppDataLayer.LDLAppDTO>>> GetAll()
         {
             List<LDLAppDataLayer.LDLAppDTO>LDLAppDTOList=await LDLApp.GetAllLDLApps();
 
-            if (LDLAppDTOList.Count < 1)
+            if (LDLAppDTOList==null||!LDLAppDTOList.Any())
             {
-                return NotFound("There is no LDLApp right now");
+                return NotFound("There is no LDLApps right now");
             }
 
             return Ok(LDLAppDTOList);
         }
+
+
+
     }
 }
