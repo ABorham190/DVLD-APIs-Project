@@ -32,7 +32,7 @@ namespace DVDLBussinessLayer
 
 
 
-        clsOrders(int applicationID, int personID, string applicationStatus, DateTime applicationDate,
+        public clsOrders(int applicationID, int personID, string applicationStatus, DateTime applicationDate,
            int OrderNameID)
         {
             ApplicationID = applicationID;
@@ -61,7 +61,7 @@ namespace DVDLBussinessLayer
 
         public bool AddNewApplication()
         {
-            this.ApplicationID = clsOrdersDataLayer.AddNewOrder(this.ApplicantID, this.ApplicationDate,
+            this.ApplicationID = clsOrdersDataLayer.AddNewApplication(this.ApplicantID, this.ApplicationDate,
                 this.ApplicationTypeID, this.ApplicationStatus, this.LastStatusDate,
                 this.PaidFees, this.CreatedByUserID);
 
@@ -123,7 +123,7 @@ namespace DVDLBussinessLayer
             return clsOrdersDataLayer.EditPassedTests(ApplicationID);
         }
 
-        public static bool GetAppFees(string ServiceName, ref float Fees)
+        public static bool GetAppFees(string ServiceName, ref decimal Fees)
         {
             return clsOrdersDataLayer.GetApplicationFeesUsingName(ServiceName, ref Fees);
         }

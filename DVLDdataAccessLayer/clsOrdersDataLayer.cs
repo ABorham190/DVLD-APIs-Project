@@ -4,8 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data;
-using System.Data.SqlClient;
 using System.Windows.Forms;
+using Microsoft.Data.SqlClient;
 
 namespace DVLDdataAccessLayer
 {
@@ -42,7 +42,7 @@ namespace DVLDdataAccessLayer
 
         }
 
-        public static int AddNewOrder(int ApplicantPersonID,
+        public static int AddNewApplication(int ApplicantPersonID,
             DateTime ApplicationDate,
             int ApplicationTypeID,byte ApplicationStatus,
             DateTime LastStatusDate , Decimal PaidFees,int CreatedByUserID)
@@ -57,7 +57,10 @@ namespace DVLDdataAccessLayer
                             @LastStatusDate,@PaidFees,@CreatedByUserID);
                             select scope_identity();";
             SqlConnection Connection=new SqlConnection( Settings.ConnectionString );
-            SqlCommand Command=new SqlCommand(Querey,Connection);
+            SqlCommand Command=new SqlCommand("SP_AddNewApplication", Connection);
+
+            Command.CommandType = CommandType.StoredProcedure;
+
             Command.Parameters.AddWithValue("@ApplicantPersonID", ApplicantPersonID);
             Command.Parameters.AddWithValue("@ApplicationDate",ApplicationDate);
             Command.Parameters.AddWithValue("@ApplicationTypeID",ApplicationTypeID);
@@ -66,14 +69,22 @@ namespace DVLDdataAccessLayer
             Command.Parameters.AddWithValue("@PaidFees", PaidFees);
             Command.Parameters.AddWithValue("@CreatedByUserID", CreatedByUserID);
 
+            SqlParameter outputparam = new SqlParameter("@ApplicationID", DbType.Int32)
+            {
+                Direction = ParameterDirection.Output,
+            };
+
+            Command.Parameters.Add(outputparam);
+
             try
             {
                 Connection.Open();
-                object Result = Command.ExecuteScalar();
-                if (Result != null && int.TryParse(Result.ToString(), out int ID))
+                int NumberOfAffectedRows = 0;
+                if ((NumberOfAffectedRows = Command.ExecuteNonQuery()) > 0)
                 {
-                    InsertedID = ID;
+                    InsertedID = (int)outputparam.Value;
                 }
+
             }catch (Exception ex)
             {
                 InsertedID=-1;
@@ -91,76 +102,40 @@ namespace DVLDdataAccessLayer
         {
 
             ApplicationID = -1;
-            string Querey = @"select Applications.ApplicationID 
-                             from Applications inner join 
-                            LocalDrivingLicenseApplications
-                            on Applications.ApplicationID=
-                            LocalDrivingLicenseApplications.ApplicationID
-                            
-                            where Applications.ApplicantPersonID=@PersonID and 
-                            (Applications.ApplicationStatus=1 or 
-                            Applications.ApplicationStatus=3) and 
-                            (LocalDrivingLicenseApplications.LicenseClassID=
-                             @LicenseTypeID);
-                            ;";
-
-            SqlConnection connection = new SqlConnection( Settings.ConnectionString );
-            SqlCommand Command = new SqlCommand(Querey, connection);
-
-            Command.Parameters.AddWithValue("@PersonID", PersonID);
-            Command.Parameters.AddWithValue("@LicenseTypeID", LicenseTypeID);
-            try
-            {
-                connection.Open();
-                Object Result = Command.ExecuteScalar();
-
-               if(Result!=null && int.TryParse(Result.ToString(),out int ID))
+            try {
+                using (SqlConnection connection = new SqlConnection(Settings.ConnectionString))
                 {
-                    ApplicationID=ID;
+                    using (SqlCommand Command = new SqlCommand("SP_GetApplicationIDByPersonIDAndLicenseTypeID", connection))
+                    {
+
+                        Command.CommandType = CommandType.StoredProcedure;
+
+                        Command.Parameters.AddWithValue("@PersonID", PersonID);
+                        Command.Parameters.AddWithValue("@LicenseTypeID", LicenseTypeID);
+
+
+                        connection.Open();
+                        using (SqlDataReader Reader = Command.ExecuteReader())
+                        {
+
+                            if (Reader.Read())
+                            {
+
+                                ApplicationID = (int)Reader["ApplicationID"];
+                            }
+                        }
+                    }
                 }
             }catch(Exception ex)
             {
                 ApplicationID=-1;
             }
-            finally
-            {
-                connection.Close();
-            }
+           
 
             return ApplicationID != -1;
 
 
         }
-
-        //public static int GetApplicationIDUsingPersonID(int PersonID)
-        //{
-        //    int ApplicationID = 0;
-        //    string Querey = @"select Orders.OrderID from Orders 
-        //                    where Orders.PersonID=@PersonID;
-        //                    ";
-        //    SqlConnection Connection=new SqlConnection( Settings.ConnectionString );
-        //    SqlCommand Command=new SqlCommand(Querey, Connection);
-        //    Command.Parameters.AddWithValue("@PersonID", PersonID);
-
-        //    try
-        //    {
-        //        Connection.Open();
-        //        Object Result = Command.ExecuteScalar();
-        //        if(Result != null && int.TryParse(Result.ToString(),out int ID)) 
-        //        {
-
-        //            ApplicationID = ID;
-
-
-        //        }
-        //    }catch (Exception ex)
-        //    {
-        //        ApplicationID=0;
-        //    }finally { Connection.Close(); }
-        //    return ApplicationID;
-        //}
-
-
         public static bool CancelOrder(int OrderID)
         {
             int NumberOfAffectedRows = 0;
@@ -334,7 +309,7 @@ namespace DVLDdataAccessLayer
             return NumberOfAffectedRows > 0;
         }
 
-        public static bool GetApplicationFeesUsingName(string ServiceName , ref float Fees)
+        public static bool GetApplicationFeesUsingName(string ServiceName , ref decimal Fees)
         {
             Fees= 0;
             string Querey = @"select ApplicationTypes.ApplicationFees from ApplicationTypes
@@ -351,8 +326,9 @@ namespace DVLDdataAccessLayer
                 SqlDataReader Reader = Command.ExecuteReader();
                 if (Reader.Read())
                 {
-                    float.TryParse(Reader["ApplicationFees"].ToString(), out float fees);
-                    Fees = fees;
+                    //float.TryParse(Reader["ApplicationFees"].ToString(), out float fees);
+                    
+                    Fees = Reader.GetDecimal(Reader.GetOrdinal("ApplicationFees")); 
                     Reader.Close();
                 }
             }catch (Exception ex)

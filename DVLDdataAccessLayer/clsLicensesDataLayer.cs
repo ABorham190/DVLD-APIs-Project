@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Microsoft.Data.SqlClient;
 
 namespace DVLDdataAccessLayer
 {
@@ -220,37 +220,34 @@ namespace DVLDdataAccessLayer
             int PersonID, int LicenseClassID, ref int LicenseID)
         {
             bool IsFound = false;
-            string Querey = @"select LicenseID from 
-                             Licenses inner join Applications on
-                             Licenses.ApplicationID=Applications.ApplicationID
-                             inner join People on Applications.ApplicantPersonID=
-                             People.PersonID 
-                             where People.PersonID=@PersonID and Licenses.LicenseClass=@LicenseClassID;
-
-                             ";
-            SqlConnection Connection=new SqlConnection(Settings.ConnectionString);  
-            SqlCommand Command=new SqlCommand( Querey, Connection);
-            Command.Parameters.AddWithValue("@PersonID", PersonID);
-            Command.Parameters.AddWithValue("@LicenseClassID", LicenseClassID);
-
             try
             {
-                Connection.Open();
-                SqlDataReader Reader = Command.ExecuteReader();
-                if (Reader.Read())
+                using (SqlConnection Connection = new SqlConnection(Settings.ConnectionString))
                 {
-                    IsFound = true;
-                    LicenseID = (int)Reader["LicenseID"];
+                    Connection.Open();
+
+                    using (SqlCommand Command = new SqlCommand("SP_GetLicenseIDByPersonIDAndLicenseClassID", Connection))
+                    {
+                        Command.CommandType = CommandType.StoredProcedure;
+                        Command.Parameters.AddWithValue("@PersonID", PersonID);
+                        Command.Parameters.AddWithValue("@LicenseClassID", LicenseClassID);
+                        
+                        SqlDataReader Reader = Command.ExecuteReader();
+                        if (Reader.Read())
+                        {
+                            IsFound = true;
+                            LicenseID = (int)Reader["LicenseID"];
+                        }
+                       
+                    }
                 }
-                Reader.Close();
-            }catch (Exception ex)
-            {
-                IsFound=false;
             }
-            finally
+            catch (Exception ex)
             {
-                Connection.Close( );
+                IsFound = false;
+                Settings.AddInfoToEventViewer("ERRor : " + ex.Message);
             }
+           
             return IsFound;
         }
 

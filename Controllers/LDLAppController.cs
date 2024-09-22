@@ -1,7 +1,9 @@
 ﻿using DVDLBussinessLayer;
+using dvld_api.models;
 using DVLDdataAccessLayer;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+
 
 namespace dvld_api.Controllers
 {
@@ -9,36 +11,40 @@ namespace dvld_api.Controllers
     [ApiController]
     public class LDLAppController : ControllerBase
     {
-        [HttpPost("AddNew")]
+        [HttpPost("AddNew/{PersonID}/{LicenseTypeID}")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
 
-        public IActionResult AddNew(int PersonID,LDLApp ldlapp)
+        public IActionResult AddNew(int PersonID,int LicenseTypeID)
         {
             try
             {
-                if (ldlapp.AppID < 1 || ldlapp.LicenseTypeID < 1 || ldlapp.LicenseTypeID > 7 || ldlapp == null)
+                if (PersonID < 1 || LicenseTypeID < 1)
                 {
-                    return BadRequest("Invalid User Input");
+                    return BadRequest(new { error = "Invalid User Input!!" });
                 }
 
-                int LicenseID = 0;
-                if(clsLicenses.IsThisPersonHasLicenseFromThisType(PersonID,ldlapp.LicenseTypeID,ref LicenseID))
+                int licensetypeid = 0;
+                if(clsLicenses.IsThisPersonHasLicenseFromThisType(PersonID,LicenseTypeID,ref licensetypeid))
                 {
-                    return BadRequest($"Person With ID : {PersonID} ,Is Already Has License From This Type With ID : {LicenseID}");
+                    return BadRequest($"Person With ID : {PersonID} ,Is Already Has License From This Type With ID : {licensetypeid}");
                 }
 
                 int ApplicationID = 0;
-                if(clsOrders.IsApplicationExist(PersonID,ldlapp.LicenseTypeID,ref ApplicationID))
+                if(clsOrders.IsApplicationExist(PersonID,LicenseTypeID,ref ApplicationID))
                 {
                     return BadRequest($"This person is already has an open application for " +
                         $"this License type , application ID : {ApplicationID}");
                 }
 
-                if (!ldlapp.Save())
+                clsHandleLDLApp HldlApp = new clsHandleLDLApp(PersonID,LicenseTypeID);
+                if (!HldlApp.Save())
                 {
                     return StatusCode(500, new { error = "Internal Server Error" });
                 }
 
-                return Ok(ldlapp);
+                return Ok(HldlApp);
             }
             catch (Exception ex)
             {
