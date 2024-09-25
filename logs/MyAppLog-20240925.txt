@@ -71,3 +71,51 @@ System.IndexOutOfRangeException: LDLAppD
 2024-09-25 14:36:41.329 +03:00 [WRN] Failed to determine the https port for redirect.
 2024-09-25 14:36:41.472 +03:00 [INF] Starting execution AddNew ldlapp 
 2024-09-25 14:36:41.474 +03:00 [ERR] INVALID user Input PersonID : 0 , LicenseTypeID : 2
+2024-09-25 14:54:27.669 +03:00 [WRN] Failed to determine the https port for redirect.
+2024-09-25 14:54:27.810 +03:00 [INF] Starting GetByID Method (LDLAppController)
+2024-09-25 14:54:27.811 +03:00 [ERR] Invalid User Input LDLAppID : 0
+2024-09-25 14:55:02.260 +03:00 [WRN] Failed to determine the https port for redirect.
+2024-09-25 14:55:02.417 +03:00 [INF] Starting GetByID Method (LDLAppController)
+2024-09-25 14:55:02.679 +03:00 [ERR] ldlapp equal null
+2024-09-25 14:55:40.566 +03:00 [INF] Starting GetByID Method (LDLAppController)
+2024-09-25 14:55:50.079 +03:00 [INF] LDLApp successfully Found with ID : 52 and ApplicationID : 141
+2024-09-25 14:55:57.026 +03:00 [INF] Starting GetByID Method (LDLAppController)
+2024-09-25 14:55:57.040 +03:00 [INF] LDLApp successfully Found with ID : 52 and ApplicationID : 141
+2024-09-25 15:32:31.576 +03:00 [WRN] Failed to determine the https port for redirect.
+2024-09-25 15:32:31.966 +03:00 [INF] Starting Cancel Method in ApplicationController
+2024-09-25 15:32:32.237 +03:00 [ERR] Order equal null
+2024-09-25 15:33:34.284 +03:00 [WRN] Failed to determine the https port for redirect.
+2024-09-25 15:33:34.554 +03:00 [INF] Starting Cancel Method in ApplicationController
+2024-09-25 15:33:34.808 +03:00 [ERR] There is no application with ID : 150
+2024-09-25 15:34:24.263 +03:00 [WRN] Failed to determine the https port for redirect.
+2024-09-25 15:34:24.508 +03:00 [INF] Starting Cancel Method in ApplicationController
+2024-09-25 15:34:24.509 +03:00 [ERR] INVALID user input 0
+2024-09-25 16:09:30.384 +03:00 [WRN] Failed to determine the https port for redirect.
+2024-09-25 16:09:30.704 +03:00 [INF] Starting Cancel Method in ApplicationController
+2024-09-25 16:09:30.993 +03:00 [INF] Application Canceled successfully : dvld_api.models.clsApplicationDTO
+2024-09-25 16:11:35.740 +03:00 [WRN] Failed to determine the https port for redirect.
+2024-09-25 16:11:36.002 +03:00 [INF] Starting Cancel Method in ApplicationController
+2024-09-25 16:11:36.327 +03:00 [INF] Application Canceled successfully : {"ApplicationID":134,"ApplicantID":1045,"ApplicationDate":"2024-09-21T19:19:36.8270000","ApplicationTypeID":1,"ApplicationStatus":2,"$type":"clsApplicationDTO"}
+2024-09-25 17:57:39.274 +03:00 [WRN] Failed to determine the https port for redirect.
+2024-09-25 17:57:39.580 +03:00 [INF] Starting Cancel Method in ApplicationController
+2024-09-25 17:57:39.863 +03:00 [INF] Start UpdateApplicationStatus func in clsOrdersDataLayer with ApplicationID : 132 , Cancel
+2024-09-25 17:57:39.866 +03:00 [INF] Connection to database stablished successfully
+2024-09-25 17:57:39.904 +03:00 [INF] Application Canceled successfully : {"ApplicationID":132,"ApplicantID":1045,"ApplicationDate":"2024-09-21T19:18:17.0230000","ApplicationTypeID":1,"ApplicationStatus":2,"$type":"clsApplicationDTO"}
+2024-09-25 18:11:16.062 +03:00 [WRN] Failed to determine the https port for redirect.
+2024-09-25 18:11:16.316 +03:00 [INF] Starting Complete Method in ApplicationController
+2024-09-25 18:11:16.617 +03:00 [INF] Start UpdateApplicationStatus func in clsOrdersDataLayer with ApplicationID : 115 , Complete
+2024-09-25 18:11:16.622 +03:00 [INF] Connection to database stablished successfully
+2024-09-25 18:11:16.668 +03:00 [INF] Application Completed successfully : {"ApplicationID":115,"ApplicantID":1025,"ApplicationDate":"2023-10-07T11:16:55.2400000","ApplicationTypeID":1,"ApplicationStatus":3,"$type":"clsApplicationDTO"}
+2024-09-25 18:36:02.057 +03:00 [WRN] Failed to determine the https port for redirect.
+2024-09-25 18:36:02.382 +03:00 [INF] Starting Complete Method in ApplicationController
+2024-09-25 18:36:02.402 +03:00 [INF] starting FindApplicationByID in clsOrdersDatalayer
+2024-09-25 18:36:02.605 +03:00 [INF] Connection to database established successfully
+2024-09-25 18:36:02.656 +03:00 [INF] Reader is reading
+2024-09-25 18:36:02.673 +03:00 [INF] FindApplicationByID executed successfully
+2024-09-25 18:36:02.675 +03:00 [INF] Start UpdateApplicationStatus func in clsOrdersDataLayer with ApplicationID : 143 , Complete
+2024-09-25 18:36:02.678 +03:00 [INF] Connection to database stablished successfully
+2024-09-25 18:36:02.707 +03:00 [INF] starting FindApplicationByID in clsOrdersDatalayer
+2024-09-25 18:36:02.709 +03:00 [INF] Connection to database established successfully
+2024-09-25 18:36:02.710 +03:00 [INF] Reader is reading
+2024-09-25 18:36:02.711 +03:00 [INF] FindApplicationByID executed successfully
+2024-09-25 18:36:02.724 +03:00 [INF] Application Completed successfully : {"ApplicationID":143,"ApplicantID":1050,"ApplicationDate":"2024-09-25T18:29:58.0630000","ApplicationTypeID":1,"ApplicationStatus":3,"$type":"clsApplicationDTO"}

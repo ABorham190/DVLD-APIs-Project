@@ -96,19 +96,33 @@ namespace dvld_api.Controllers
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         public IActionResult GetByID(int LDLAppID)
         {
-            if (LDLAppID < 1)
-            {
-                return BadRequest("Invalid User Input");
-            }
-            
-            LDLApp ldlapp = LDLApp.FindLDLApp(LDLAppID);
+            _logger.LogInformation("Starting GetByID Method (LDLAppController)");
 
-            if (ldlapp==null)
+            try
             {
-                return BadRequest($"There is no ldlapp with ID : {LDLAppID}");
-            }
+                if (LDLAppID < 1)
+                {
+                    _logger.LogError($"Invalid User Input LDLAppID : {LDLAppID}");
+                    return BadRequest("Invalid User Input");
+                }
 
-            return Ok(ldlapp);
+                LDLApp ldlapp = LDLApp.FindLDLApp(LDLAppID);
+
+                if (ldlapp == null)
+                {
+                    _logger.LogError("ldlapp equal null");
+                    return BadRequest($"There is no ldlapp with ID : {LDLAppID}");
+                }
+
+                _logger.LogInformation($"LDLApp successfully Found with ID : {ldlapp.LDLAppID} and ApplicationID : {ldlapp.AppID}");
+
+                return Ok(ldlapp);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error in GetByID Method (LDLAppController)");
+                return StatusCode(500, new { error = "Internal server Error" });
+            }
         }
 
 

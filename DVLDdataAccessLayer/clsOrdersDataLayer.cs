@@ -6,11 +6,13 @@ using System.Threading.Tasks;
 using System.Data;
 using System.Windows.Forms;
 using Microsoft.Data.SqlClient;
+using Serilog;
 
 namespace DVLDdataAccessLayer
 {
     public class clsOrdersDataLayer
     {
+        public enum enWhatToDo { Cancel=2,Complete=3};
        
 
         public static DataTable GetAllOrders()
@@ -130,41 +132,16 @@ namespace DVLDdataAccessLayer
 
 
         }
-        public static bool CancelOrder(int OrderID)
-        {
-            int NumberOfAffectedRows = 0;
-            string Querey = @"update Applications 
-                             set ApplicationStatus = 2 
-                             where ApplicationID=@OrderID;";
-            SqlConnection Connection = new SqlConnection(Settings.ConnectionString);
-            SqlCommand Command = new SqlCommand( Querey, Connection);
 
-            Command.Parameters.AddWithValue("@OrderID", OrderID);
-
-            try
-            {
-                Connection.Open();
-                NumberOfAffectedRows = Command.ExecuteNonQuery();
-
-            }catch(Exception ex)
-            {
-                NumberOfAffectedRows = 0;
-            }
-            finally
-            {
-                Connection.Close();
-            }
-
-            return NumberOfAffectedRows > 0;
-
-        }
-
-        public static bool FindOrder(int OrderID,ref int PersonID,
+        public static bool FindApplicationByID(int ApplicationID,ref int PersonID,
             ref DateTime AppDate,
             ref int OrderNameID,ref byte ApplicationStatusID)
         {
+            Log.Information("starting FindApplicationByID in clsOrdersDatalayer");
             bool IsFound = false;
             //string AppStatus = "";
+            try { 
+
             string Querey = @"select Applications.ApplicantPersonID,Status  
                               =   
                              case
@@ -177,36 +154,43 @@ namespace DVLDdataAccessLayer
                               ApplicationStatus
                               from Applications 
                               where Applications.ApplicationID=@OrderID;";
-           
-            SqlConnection connection = new SqlConnection(Settings.ConnectionString);
-            SqlCommand Command = new SqlCommand(Querey, connection);
-            Command.Parameters.AddWithValue("@OrderID", OrderID);
 
-            try
-            {
-                connection.Open();
-                SqlDataReader Reader = Command.ExecuteReader();
-                if (Reader.Read())
+                using (SqlConnection connection = new SqlConnection(Settings.ConnectionString))
                 {
-                    IsFound = true;
-                    PersonID = (int)Reader["ApplicantPersonID"];
-                    
-                   
-                    AppDate = (DateTime)Reader["ApplicationDate"];
-                    OrderNameID = (int)Reader["ApplicationTypeID"];
-                    ApplicationStatusID = (byte)Reader["ApplicationStatus"];
+                    connection.Open();
+                    Log.Information("Connection to database established successfully");
 
+                    using (SqlCommand Command = new SqlCommand("SP_FindApplicationByApplicationID", connection))
+                    {
+
+                        Command.CommandType = CommandType.StoredProcedure;
+                        Command.Parameters.AddWithValue("@ApplicationID", ApplicationID);
+
+                        
+                        using (SqlDataReader Reader = Command.ExecuteReader())
+                        {
+                            if (Reader.Read())
+                            {
+                                Log.Information("Reader is reading");
+
+                                IsFound = true;
+                                PersonID = (int)Reader["ApplicantPersonID"];
+                                AppDate = (DateTime)Reader["ApplicationDate"];
+                                OrderNameID = (int)Reader["ApplicationTypeID"];
+                                ApplicationStatusID = (byte)Reader["ApplicationStatus"];
+                            }
+                        }
+                    }
                 }
-                Reader.Close();
+
+                Log.Information("FindApplicationByID executed successfully");
 
             }catch(Exception ex)
             {
+                Log.Error(ex, "Error (Exception) in FindApplicationByID");
                 IsFound = false;
             }
-            finally
-            {
-                connection.Close();
-            }
+           
 
             return IsFound;
         }
@@ -338,35 +322,7 @@ namespace DVLDdataAccessLayer
             return Fees > 0;
         }
 
-        public static bool CompleteOrder(int OrderID)
-        {
-            int NumberOfAffectedRows = 0;
-            string Querey = @"update Applications 
-                             set ApplicationStatus = 3 
-                             where ApplicationID=@OrderID;";
-            SqlConnection Connection = new SqlConnection(Settings.ConnectionString);
-            SqlCommand Command = new SqlCommand(Querey, Connection);
-
-            Command.Parameters.AddWithValue("@OrderID", OrderID);
-
-            try
-            {
-                Connection.Open();
-                NumberOfAffectedRows = Command.ExecuteNonQuery();
-
-            }
-            catch (Exception ex)
-            {
-                NumberOfAffectedRows = 0;
-            }
-            finally
-            {
-                Connection.Close();
-            }
-
-            return NumberOfAffectedRows > 0;
-
-        }
+       
         public static DataTable GetAllApplicationForInternationalLicenses()
         {
             DataTable dataTable = new DataTable();
@@ -387,6 +343,42 @@ namespace DVLDdataAccessLayer
                 MessageBox.Show(ex.Message);
             }finally { Connection.Close(); }
             return dataTable;
+        }
+
+        public static async Task<bool> UpdateApplicationStatus(int ApplicationID,enWhatToDo whattodo)
+        {
+            Log.Information($"Start UpdateApplicationStatus func in clsOrdersDataLayer with " +
+                $"ApplicationID : {ApplicationID} , {whattodo}");
+            
+            int NumberOfAffectedRows = 0;
+            try {
+
+                using (SqlConnection Connection = new SqlConnection(Settings.ConnectionString))
+                {   
+                    await Connection.OpenAsync();
+
+                    Log.Information("Connection to database stablished successfully");
+
+                    using (SqlCommand Command = new SqlCommand("SP_UpdateApplicationStatus", Connection))
+                    {
+
+                        Command.CommandType = CommandType.StoredProcedure;
+                        Command.Parameters.AddWithValue("@ApplicationID", ApplicationID);
+                        Command.Parameters.AddWithValue("@StatusNumber", (int)whattodo);
+                        
+                        NumberOfAffectedRows = await Command.ExecuteNonQueryAsync();
+                    }
+                }
+
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex, "Error in (UpdateApplicationStatus)");
+                NumberOfAffectedRows = 0;
+            }
+            
+
+            return NumberOfAffectedRows > 0;
         }
 
         

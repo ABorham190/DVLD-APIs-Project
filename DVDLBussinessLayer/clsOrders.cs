@@ -80,12 +80,13 @@ namespace DVDLBussinessLayer
             return clsOrdersDataLayer.IsThisPersonIDHasAnActiveApplicationForThisLicenseTypeID(PersonID, LicenseTypeID, ref ApplicationID);
         }
 
-        public static bool CancelApplication(int OrderID)
+       
+        public static async Task<bool> UpdateApplicationStatus(int ApplicationID,clsOrdersDataLayer.enWhatToDo whattodo)
         {
-            return clsOrdersDataLayer.CancelOrder(OrderID);
+            return await clsOrdersDataLayer.UpdateApplicationStatus(ApplicationID, whattodo);
         }
 
-        public static clsOrders FindOrder(int OrderID)
+        public static clsOrders FindApplicationByID(int OrderID)
         {
             int PersonID = 0, PassedTest = 0;
             byte OrderCaseID = 0;
@@ -93,7 +94,7 @@ namespace DVDLBussinessLayer
             string AppStatus = "";
             byte ApplicationStatusID = 0;
             DateTime OrderDate = DateTime.MinValue;
-            if (clsOrdersDataLayer.FindOrder(OrderID, ref PersonID, 
+            if (clsOrdersDataLayer.FindApplicationByID(OrderID, ref PersonID, 
                 ref OrderDate, ref OrderNameID,ref ApplicationStatusID))
             {
                 return new clsOrders(OrderID, PersonID, ApplicationStatusID,
@@ -127,10 +128,7 @@ namespace DVDLBussinessLayer
             return clsOrdersDataLayer.GetApplicationFeesUsingName(ServiceName, ref Fees);
         }
 
-        public static bool CompleteOrder(int OrderID)
-        {
-            return clsOrdersDataLayer.CompleteOrder(OrderID);
-        }
+      
         public static DataTable GetAllInternationalApplications()
         {
             return clsOrdersDataLayer.GetAllApplicationForInternationalLicenses();
