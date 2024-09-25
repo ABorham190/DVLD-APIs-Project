@@ -5,7 +5,7 @@ namespace dvld_api.models
     public class clsHandleLDLApp
     {
         clsOrders Application {  get; set; }
-        LDLApp ldlApp { get; set; }
+        public LDLApp ldlApp { get; set; }
 
         public clsHandleLDLApp(int personID, int licenseTypeID)
         {  
@@ -27,6 +27,8 @@ namespace dvld_api.models
 
             //fill ldlApp Object
             this.ldlApp.LicenseTypeID = licenseTypeID;
+
+           
         }
 
         public async Task<bool> Save()
@@ -43,6 +45,7 @@ namespace dvld_api.models
             {
                 return false;
             }
+
 
             return false;
 

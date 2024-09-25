@@ -1,0 +1,73 @@
+2024-09-25 09:57:17.511 +03:00 [WRN] Failed to determine the https port for redirect.
+2024-09-25 09:57:17.570 +03:00 [INF] Starting execute GetAll LDLApp
+2024-09-25 10:02:28.525 +03:00 [WRN] Failed to determine the https port for redirect.
+2024-09-25 10:02:28.589 +03:00 [INF] Starting execute GetAll LDLApp
+2024-09-25 10:02:28.904 +03:00 [INF] Successfully get LDLAppDTOList [{"LDLAppID":51,"LicenseClass":"Class 3 - Ordinary driving license","FullName":"Saadia Mohammed Adel Allam","ApplicationDate":"2024-09-22T18:32:23.9100000","PassedTests":0,"Status":"Cancelled","$type":"LDLAppDTO"},{"LDLAppID":50,"LicenseClass":"Class 3 - Ordinary driving license","FullName":"Rady Mohammed Adel Ali","ApplicationDate":"2024-09-22T14:18:14.5370000","PassedTests":0,"Status":"Cancelled","$type":"LDLAppDTO"},{"LDLAppID":49,"LicenseClass":"Class 2 - Heavy Motorcycle License","FullName":"Ali Samer Saher Saad","ApplicationDate":"2024-09-22T12:08:45.9930000","PassedTests":0,"Status":"Cancelled","$type":"LDLAppDTO"},{"LDLAppID":48,"LicenseClass":"Class 3 - Ordinary driving license","FullName":"Ali Samer Saher Saad","ApplicationDate":"2024-09-22T11:56:31.1170000","PassedTests":3,"Status":"Completed","$type":"LDLAppDTO"},{"LDLAppID":47,"LicenseClass":"Class 3 - Ordinary driving license","FullName":"Hady Ahmad Sleem Samir","ApplicationDate":"2024-09-22T09:52:21.6500000","PassedTests":0,"Status":"Cancelled","$type":"LDLAppDTO"},{"LDLAppID":46,"LicenseClass":"Class 3 - Ordinary driving license","FullName":"Hady Ahmad Sleem Samir","ApplicationDate":"2024-09-22T09:48:58.5600000","PassedTests":0,"Status":"Cancelled","$type":"LDLAppDTO"},{"LDLAppID":45,"LicenseClass":"Class 2 - Heavy Motorcycle License","FullName":"Ahmad Samir Soliman Saher","ApplicationDate":"2024-09-21T19:19:36.8270000","PassedTests":2,"Status":"New","$type":"LDLAppDTO"},{"LDLAppID":44,"LicenseClass":"Class 2 - Heavy Motorcycle License","FullName":"Ahmad Samir Soliman Saher","ApplicationDate":"2024-09-21T19:19:02.1000000","PassedTests":0,"Status":"Cancelled","$type":"LDLAppDTO"},{"LDLAppID":43,"LicenseClass":"Class 3 - Ordinary driving license","FullName":"Ahmad Samir Soliman Saher","ApplicationDate":"2024-09-21T19:18:17.0230000","PassedTests":0,"Status":"New","$type":"LDLAppDTO"},{"LDLAppID":41,"LicenseClass":"Class 3 - Ordinary driving license","FullName":"Mahmoud Omar Ali Almajed","ApplicationDate":"2023-10-09T21:26:21.6270000","PassedTests":3,"Status":"Completed","$type":"LDLAppDTO"},{"LDLAppID":39,"LicenseClass":"Class 3 - Ordinary driving license","FullName":"Mahmoud Omar Ali Almajed","ApplicationDate":"2023-10-09T21:22:40.4370000","PassedTests":0,"Status":"Cancelled","$type":"LDLAppDTO"},{"LDLAppID":38,"LicenseClass":"Class 2 - Heavy Motorcycle License","FullName":"Khalid ALi Maher hamed","ApplicationDate":"2023-10-07T11:16:55.2400000","PassedTests":2,"Status":"New","$type":"LDLAppDTO"},{"LDLAppID":37,"LicenseClass":"Class 3 - Ordinary driving license","FullName":"Khalid ALi Maher hamed","ApplicationDate":"2023-10-07T11:07:05.8100000","PassedTests":3,"Status":"Completed","$type":"LDLAppDTO"},{"LDLAppID":36,"LicenseClass":"Class 1 - Small Motorcycle","FullName":"Mohammed1 Saqer Mussa Abu-Hadhoud","ApplicationDate":"2023-10-07T10:46:17.3700000","PassedTests":3,"Status":"Completed","$type":"LDLAppDTO"}]
+2024-09-25 12:06:44.601 +03:00 [WRN] Failed to determine the https port for redirect.
+2024-09-25 12:06:44.733 +03:00 [INF] Starting execute GetAll LDLApp
+2024-09-25 12:06:44.756 +03:00 [INF] Starting execution of GetAllLDLApps in LDLAppDataLayer
+2024-09-25 12:06:45.054 +03:00 [INF] Successfully get LDLAppDTOList [{"LDLAppID":51,"LicenseClass":"Class 3 - Ordinary driving license","FullName":"Saadia Mohammed Adel Allam","ApplicationDate":"2024-09-22T18:32:23.9100000","PassedTests":0,"Status":"Cancelled","$type":"LDLAppDTO"},{"LDLAppID":50,"LicenseClass":"Class 3 - Ordinary driving license","FullName":"Rady Mohammed Adel Ali","ApplicationDate":"2024-09-22T14:18:14.5370000","PassedTests":0,"Status":"Cancelled","$type":"LDLAppDTO"},{"LDLAppID":49,"LicenseClass":"Class 2 - Heavy Motorcycle License","FullName":"Ali Samer Saher Saad","ApplicationDate":"2024-09-22T12:08:45.9930000","PassedTests":0,"Status":"Cancelled","$type":"LDLAppDTO"},{"LDLAppID":48,"LicenseClass":"Class 3 - Ordinary driving license","FullName":"Ali Samer Saher Saad","ApplicationDate":"2024-09-22T11:56:31.1170000","PassedTests":3,"Status":"Completed","$type":"LDLAppDTO"},{"LDLAppID":47,"LicenseClass":"Class 3 - Ordinary driving license","FullName":"Hady Ahmad Sleem Samir","ApplicationDate":"2024-09-22T09:52:21.6500000","PassedTests":0,"Status":"Cancelled","$type":"LDLAppDTO"},{"LDLAppID":46,"LicenseClass":"Class 3 - Ordinary driving license","FullName":"Hady Ahmad Sleem Samir","ApplicationDate":"2024-09-22T09:48:58.5600000","PassedTests":0,"Status":"Cancelled","$type":"LDLAppDTO"},{"LDLAppID":45,"LicenseClass":"Class 2 - Heavy Motorcycle License","FullName":"Ahmad Samir Soliman Saher","ApplicationDate":"2024-09-21T19:19:36.8270000","PassedTests":2,"Status":"New","$type":"LDLAppDTO"},{"LDLAppID":44,"LicenseClass":"Class 2 - Heavy Motorcycle License","FullName":"Ahmad Samir Soliman Saher","ApplicationDate":"2024-09-21T19:19:02.1000000","PassedTests":0,"Status":"Cancelled","$type":"LDLAppDTO"},{"LDLAppID":43,"LicenseClass":"Class 3 - Ordinary driving license","FullName":"Ahmad Samir Soliman Saher","ApplicationDate":"2024-09-21T19:18:17.0230000","PassedTests":0,"Status":"New","$type":"LDLAppDTO"},{"LDLAppID":41,"LicenseClass":"Class 3 - Ordinary driving license","FullName":"Mahmoud Omar Ali Almajed","ApplicationDate":"2023-10-09T21:26:21.6270000","PassedTests":3,"Status":"Completed","$type":"LDLAppDTO"},{"LDLAppID":39,"LicenseClass":"Class 3 - Ordinary driving license","FullName":"Mahmoud Omar Ali Almajed","ApplicationDate":"2023-10-09T21:22:40.4370000","PassedTests":0,"Status":"Cancelled","$type":"LDLAppDTO"},{"LDLAppID":38,"LicenseClass":"Class 2 - Heavy Motorcycle License","FullName":"Khalid ALi Maher hamed","ApplicationDate":"2023-10-07T11:16:55.2400000","PassedTests":2,"Status":"New","$type":"LDLAppDTO"},{"LDLAppID":37,"LicenseClass":"Class 3 - Ordinary driving license","FullName":"Khalid ALi Maher hamed","ApplicationDate":"2023-10-07T11:07:05.8100000","PassedTests":3,"Status":"Completed","$type":"LDLAppDTO"},{"LDLAppID":36,"LicenseClass":"Class 1 - Small Motorcycle","FullName":"Mohammed1 Saqer Mussa Abu-Hadhoud","ApplicationDate":"2023-10-07T10:46:17.3700000","PassedTests":3,"Status":"Completed","$type":"LDLAppDTO"}]
+2024-09-25 12:08:26.025 +03:00 [WRN] Failed to determine the https port for redirect.
+2024-09-25 12:08:26.088 +03:00 [INF] Starting execute GetAll LDLApp
+2024-09-25 12:08:26.113 +03:00 [INF] Starting execution of GetAllLDLApps in LDLAppDataLayer
+2024-09-25 12:08:26.404 +03:00 [INF] Number Of fetched LDLAppDTO  14
+2024-09-25 12:29:51.367 +03:00 [WRN] Failed to determine the https port for redirect.
+2024-09-25 12:29:51.430 +03:00 [INF] Starting execute GetAll LDLApp
+2024-09-25 12:29:51.455 +03:00 [INF] Starting execution of GetAllLDLApps in LDLAppDataLayer
+2024-09-25 12:29:51.760 +03:00 [INF] Number Of fetched LDLAppDTO  14
+2024-09-25 12:31:44.317 +03:00 [WRN] Failed to determine the https port for redirect.
+2024-09-25 12:31:44.460 +03:00 [INF] Starting execute GetAll LDLApp
+2024-09-25 12:31:44.488 +03:00 [INF] Starting execution of GetAllLDLApps in LDLAppDataLayer
+2024-09-25 12:31:44.791 +03:00 [INF] Number Of fetched LDLAppDTO  14
+2024-09-25 12:34:26.543 +03:00 [WRN] Failed to determine the https port for redirect.
+2024-09-25 12:34:26.926 +03:00 [INF] Starting execute GetAll LDLApp
+2024-09-25 12:34:26.947 +03:00 [INF] Starting execution of GetAllLDLApps in LDLAppDataLayer
+2024-09-25 12:34:27.277 +03:00 [INF] Number Of fetched LDLAppDTO  14
+2024-09-25 12:39:20.792 +03:00 [WRN] Failed to determine the https port for redirect.
+2024-09-25 12:39:20.972 +03:00 [INF] Starting execute GetAll LDLApp
+2024-09-25 12:39:20.993 +03:00 [INF] Starting execution of GetAllLDLApps in LDLAppDataLayer
+2024-09-25 12:39:21.174 +03:00 [INF] Connection to database Stablished successfully
+2024-09-25 12:39:21.297 +03:00 [ERR] Error occurs while executing (SP_GetAllLDLAppWithDetails)
+System.IndexOutOfRangeException: LDLAppD
+   at Microsoft.Data.ProviderBase.FieldNameLookup.GetOrdinal(String fieldName)
+   at Microsoft.Data.SqlClient.SqlDataReader.GetOrdinal(String name)
+   at Microsoft.Data.SqlClient.SqlDataReader.get_Item(String name)
+   at DVLDdataAccessLayer.LDLAppDataLayer.GetAllLDLApps() in E:\programming_main\MyProjects\dvld_api\DVLDdataAccessLayer\LDLAppDataLayer.cs:line 98
+2024-09-25 12:39:21.438 +03:00 [WRN] LDAppDTOList is empty or null
+2024-09-25 12:40:33.697 +03:00 [WRN] Failed to determine the https port for redirect.
+2024-09-25 12:40:33.902 +03:00 [INF] Starting execute GetAll LDLApp
+2024-09-25 12:40:33.923 +03:00 [INF] Starting execution of GetAllLDLApps in LDLAppDataLayer
+2024-09-25 12:40:34.103 +03:00 [INF] Connection to database Stablished successfully
+2024-09-25 12:40:34.222 +03:00 [ERR] LDLAppD
+2024-09-25 12:40:34.224 +03:00 [WRN] LDAppDTOList is empty or null
+2024-09-25 12:42:15.242 +03:00 [WRN] Failed to determine the https port for redirect.
+2024-09-25 12:42:15.464 +03:00 [INF] Starting execute GetAll LDLApp
+2024-09-25 12:42:15.482 +03:00 [INF] Starting execution of GetAllLDLApps in LDLAppDataLayer
+2024-09-25 12:42:15.665 +03:00 [INF] Connection to database Stablished successfully
+2024-09-25 12:42:15.785 +03:00 [ERR] Error occurs while executing (SP_GetAllLDLAppWithDetails)
+System.IndexOutOfRangeException: LDLAppD
+   at Microsoft.Data.ProviderBase.FieldNameLookup.GetOrdinal(String fieldName)
+   at Microsoft.Data.SqlClient.SqlDataReader.GetOrdinal(String name)
+   at Microsoft.Data.SqlClient.SqlDataReader.get_Item(String name)
+   at DVLDdataAccessLayer.LDLAppDataLayer.GetAllLDLApps() in E:\programming_main\MyProjects\dvld_api\DVLDdataAccessLayer\LDLAppDataLayer.cs:line 98
+2024-09-25 12:42:15.801 +03:00 [WRN] LDAppDTOList is empty or null
+2024-09-25 12:46:30.932 +03:00 [WRN] Failed to determine the https port for redirect.
+2024-09-25 12:46:31.125 +03:00 [INF] Starting execute GetAll LDLApp
+2024-09-25 12:46:31.145 +03:00 [INF] Starting execution of GetAllLDLApps in LDLAppDataLayer
+2024-09-25 12:46:31.333 +03:00 [INF] Connection to database Stablished successfully
+2024-09-25 12:46:31.422 +03:00 [INF] (SP_GetAllLDLAppWithDetails) executed successfully and ldlapplist contain 14 items
+2024-09-25 12:46:31.426 +03:00 [INF] Number Of fetched LDLAppDTO  14
+2024-09-25 13:11:26.055 +03:00 [WRN] Failed to determine the https port for redirect.
+2024-09-25 13:11:26.279 +03:00 [INF] Starting execution AddNew ldlapp 
+2024-09-25 13:11:26.282 +03:00 [INF] Valid input user PersonID : 1048 , LicenseTypeID : 3
+2024-09-25 13:11:26.658 +03:00 [INF] Starting execution (AddNewLDLApp) with AppID : 142
+2024-09-25 13:11:26.662 +03:00 [INF] Connection to database stablished successfully
+2024-09-25 13:11:26.681 +03:00 [INF] Number Of Affected Rows : 1
+2024-09-25 13:11:26.681 +03:00 [INF] LDLApp added successfully with ID : 53
+2024-09-25 14:06:11.407 +03:00 [WRN] Failed to determine the https port for redirect.
+2024-09-25 14:06:11.557 +03:00 [INF] Starting execution AddNew ldlapp 
+2024-09-25 14:06:11.559 +03:00 [INF] Valid input user PersonID : 1049 , LicenseTypeID : 3
+2024-09-25 14:06:11.849 +03:00 [ERR] This Person already has an active application to this License with AppID : 141
+2024-09-25 14:36:41.329 +03:00 [WRN] Failed to determine the https port for redirect.
+2024-09-25 14:36:41.472 +03:00 [INF] Starting execution AddNew ldlapp 
+2024-09-25 14:36:41.474 +03:00 [ERR] INVALID user Input PersonID : 0 , LicenseTypeID : 2

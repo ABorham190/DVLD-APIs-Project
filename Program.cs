@@ -1,4 +1,6 @@
 
+using Serilog;
+
 namespace dvld_api
 {
     public class Program
@@ -14,6 +16,11 @@ namespace dvld_api
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
             builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+
+            builder.Host.UseSerilog((context, services, configuration) => configuration
+           .ReadFrom.Configuration(context.Configuration)
+           .ReadFrom.Services(services)
+           .Enrich.FromLogContext());
 
             var app = builder.Build();
 

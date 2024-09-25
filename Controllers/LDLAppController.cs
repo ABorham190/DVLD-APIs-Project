@@ -11,6 +11,12 @@ namespace dvld_api.Controllers
     [ApiController]
     public class LDLAppController : ControllerBase
     {
+        private readonly ILogger<LDLAppController> _logger;
+        public LDLAppController(ILogger<LDLAppController> logger)
+        {
+            _logger = logger;
+        }
+
         [HttpPost("AddNew/{PersonID}/{LicenseTypeID}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
@@ -18,22 +24,30 @@ namespace dvld_api.Controllers
 
         public async Task<IActionResult> AddNew(int PersonID,int LicenseTypeID)
         {
+            _logger.LogInformation("Starting execution AddNew ldlapp ");
+
             try
             {
                 if (PersonID < 1 || LicenseTypeID < 1)
                 {
+                    _logger.LogError("INVALID user Input PersonID : {@PersonID} , LicenseTypeID : {@LicenseTypeID}",
+                        PersonID, LicenseTypeID);
                     return BadRequest(new { error = "Invalid User Input!!" });
                 }
 
-                int licensetypeid = 0;
-                if(clsLicenses.IsThisPersonHasLicenseFromThisType(PersonID,LicenseTypeID,ref licensetypeid))
+                _logger.LogInformation("Valid input user PersonID : {0} , LicenseTypeID : {1}", PersonID, LicenseTypeID);
+
+                int licenseid = 0;
+                if(clsLicenses.IsThisPersonHasLicenseFromThisType(PersonID,LicenseTypeID,ref licenseid))
                 {
-                    return BadRequest($"Person With ID : {PersonID} ,Is Already Has License From This Type With ID : {licensetypeid}");
+                    _logger.LogError("This Person Already has license from this Type with ID : {@Licenseid}", licenseid);
+                    return BadRequest($"Person With ID : {PersonID} ,Is Already Has License From This Type With ID : {licenseid}");
                 }
 
                 int ApplicationID = 0;
                 if(clsOrders.IsThisPersonIDHasAnActiveApplicationToThisLicenseTypeID(PersonID,LicenseTypeID,ref ApplicationID))
                 {
+                    _logger.LogError("This Person already has an active application to this License with AppID : {@ApplicationID}", ApplicationID);
                     return BadRequest($"This person is already has an open application for " +
                         $"this License type , application ID : {ApplicationID}");
                 }
@@ -41,14 +55,18 @@ namespace dvld_api.Controllers
                 clsHandleLDLApp HldlApp = new clsHandleLDLApp(PersonID,LicenseTypeID);
                 if (!await HldlApp.Save())
                 {
+                    _logger.LogCritical("Error in saving Application or LDLApp");
+
                     return StatusCode(500, new { error = "Internal Server Error" });
                 }
+
+                _logger.LogInformation($"LDLApp added successfully with ID : {HldlApp.ldlApp.LDLAppID}  and  ApplicationID : {HldlApp.ldlApp.AppID}");
 
                 return Ok(HldlApp);
             }
             catch (Exception ex)
             {
-                Settings.AddErrorToEventViewer("Error : " , ex.Message);
+                _logger.LogError(ex, "Error in Executing AddNew ldlapp in LDLAppController");
                 return StatusCode(500, new { error = "Internal server Error" });
             }
 
@@ -59,12 +77,16 @@ namespace dvld_api.Controllers
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         public async Task<ActionResult<List<LDLAppDataLayer.LDLAppDTO>>> GetAll()
         {
+            _logger.LogInformation("Starting execute GetAll LDLApp");
             List<LDLAppDataLayer.LDLAppDTO>LDLAppDTOList=await LDLApp.GetAllLDLApps();
 
             if (LDLAppDTOList==null||!LDLAppDTOList.Any())
             {
+                _logger.LogWarning("LDAppDTOList is empty or null");
                 return NotFound("There is no LDLApps right now");
             }
+
+            _logger.LogInformation("Number Of fetched LDLAppDTO  {@Count}", LDLAppDTOList.Count);
 
             return Ok(LDLAppDTOList);
         }

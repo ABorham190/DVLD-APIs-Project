@@ -5,11 +5,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Data.SqlClient;
+using Microsoft.Extensions.Logging;
+using Serilog;
 
 namespace DVLDdataAccessLayer
 {
-    public class LDLAppDataLayer
+    public  class LDLAppDataLayer
     {
+        
         public class LDLAppDTO
         {
             public int LDLAppID { get; set; }
@@ -24,6 +27,7 @@ namespace DVLDdataAccessLayer
 
         public static async Task<int> AddNewLDLApp(int AppID,int LicenseClassID)
         {
+            Log.Information("Starting execution (AddNewLDLApp) with AppID : {@AppID}", AppID);
             int InsertedID = -1;
             try
             {
@@ -32,6 +36,8 @@ namespace DVLDdataAccessLayer
                 {
 
                     Connection.Open();
+
+                    Log.Information("Connection to database stablished successfully");
 
                     using (SqlCommand Command = new SqlCommand("SP_AddNewLocalDrivingLicenseApp", Connection))
                     {
@@ -51,17 +57,23 @@ namespace DVLDdataAccessLayer
                         int NumberOfAffectedRow = 0;
                         if ((NumberOfAffectedRow =await Command.ExecuteNonQueryAsync()) > 0)
                         {
+                            Log.Information("Number Of Affected Rows : {@NumberOfAffectedRow}", NumberOfAffectedRow);
+
                             InsertedID = (int)outPutParam.Value;
                         }
 
 
                     }
                 }
+
+                Log.Information("LDLApp added successfully with ID : {@ID}", InsertedID);
             }
             catch (Exception ex)
             {
+
+                Log.Error("Error Occured while executing (SP_AddNewLocalDrivingLicenseApp)");
                 InsertedID = -1;
-                Settings.AddErrorToEventViewer("Error In Add New LDLApp ", ex.Message);
+                
             }
                 
                
@@ -72,6 +84,7 @@ namespace DVLDdataAccessLayer
 
         public static async Task< List<LDLAppDTO>> GetAllLDLApps()
         {
+            Log.Information("Starting execution of GetAllLDLApps in LDLAppDataLayer");
             
             List<LDLAppDTO>ldlapplist=new List<LDLAppDTO>();
             try
@@ -84,6 +97,9 @@ namespace DVLDdataAccessLayer
                         Command.CommandType = CommandType.StoredProcedure;
 
                         Connection.Open();
+
+                        Log.Information("Connection to database Stablished successfully");
+
                         using (SqlDataReader Reader = await Command.ExecuteReaderAsync())
                         {
                             while (await Reader.ReadAsync())
@@ -102,11 +118,13 @@ namespace DVLDdataAccessLayer
                         }
                     }
                 }
+
+                Log.Information("(SP_GetAllLDLAppWithDetails) executed successfully and ldlapplist contain {@count} items", ldlapplist.Count);
             }
             catch (Exception ex)
             {
 
-                Settings.AddErrorToEventViewer("Error In Get All LDLAppa", ex.Message);
+                Log.Error(ex, "Error occurs while executing (SP_GetAllLDLAppWithDetails)");
 
             }
             return ldlapplist;
