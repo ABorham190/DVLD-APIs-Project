@@ -1,0 +1,15 @@
+2024-09-27 12:17:42.043 +03:00 [WRN] Failed to determine the https port for redirect.
+2024-09-27 14:42:20.454 +03:00 [WRN] Failed to determine the https port for redirect.
+2024-09-27 17:11:31.865 +03:00 [WRN] Failed to determine the https port for redirect.
+2024-09-27 17:14:55.773 +03:00 [WRN] Failed to determine the https port for redirect.
+2024-09-27 17:21:31.078 +03:00 [WRN] Failed to determine the https port for redirect.
+2024-09-27 17:23:45.308 +03:00 [WRN] Failed to determine the https port for redirect.
+2024-09-27 17:23:54.940 +03:00 [INF] Starting AddNew method inside PersonConroller
+2024-09-27 17:24:29.979 +03:00 [INF] All entered parameters are valid {"NationalNumber":"O5510","FirstName":"Ahmad","SecondName":"Mohammed","ThirdName":"Adel","LastName":"Salem","GenderType":"Male","DateOfBirth":"2000-10-10T00:00:00.0000000","Address":"Cairo - Egypt","Phone":"01002206516","Email":"ahmad@gmail.com","NationalityCountryID":51,"PersonPhoto":{"ContentDisposition":"form-data; name=\"PersonPhoto\"; filename=\"75177.jpg\"","ContentType":"image/jpeg","Headers":[{"Key":"Content-Disposition","Value":["form-data; name=\"PersonPhoto\"; filename=\"75177.jpg\""],"$type":"KeyValuePair`2"},{"Key":"Content-Type","Value":["image/jpeg"],"$type":"KeyValuePair`2"}],"Length":13559,"Name":"PersonPhoto","FileName":"75177.jpg","$type":"FormFile"},"$type":"AddNewPersonDTO"}
+2024-09-27 17:25:27.532 +03:00 [INF] Person and newPerson Mapped successfully
+2024-09-27 17:25:47.191 +03:00 [INF] Person Saved successfully With ID : 1051
+2024-09-27 17:30:24.553 +03:00 [WRN] Failed to determine the https port for redirect.
+2024-09-27 17:30:59.532 +03:00 [INF] Starting AddNew method inside PersonConroller
+2024-09-27 17:36:42.821 +03:00 [INF] All entered parameters are valid {"NationalNumber":"D55ff","FirstName":"Ali","SecondName":"Mohammed","ThirdName":"Samy","LastName":"le","GenderType":"Male","DateOfBirth":"2000-10-10T00:00:00.0000000","Address":"Cairo","Phone":"01002206516","Email":"ali@gmail.com","NationalityCountryID":51,"PersonPhoto":{"ContentDisposition":"form-data; name=\"PersonPhoto\"; filename=\"75178.jpg\"","ContentType":"image/jpeg","Headers":[{"Key":"Content-Disposition","Value":["form-data; name=\"PersonPhoto\"; filename=\"75178.jpg\""],"$type":"KeyValuePair`2"},{"Key":"Content-Type","Value":["image/jpeg"],"$type":"KeyValuePair`2"}],"Length":8682,"Name":"PersonPhoto","FileName":"75178.jpg","$type":"FormFile"},"$type":"AddNewPersonDTO"}
+2024-09-27 17:36:43.568 +03:00 [INF] Person and newPerson Mapped successfully
+2024-09-27 17:36:45.832 +03:00 [INF] Person Saved successfully With ID : 1052

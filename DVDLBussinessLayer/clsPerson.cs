@@ -77,10 +77,10 @@ namespace DVDLBussinessLayer
 
         }
 
-        private bool _AddNewPerson()
+        private async Task<bool> _AddNewPerson()
         {
 
-            this.ID= clsPeopleDataLayer.AddNewPerson(this.NationalNumber,
+            this.ID=await clsPeopleDataLayer.AddNewPerson(this.NationalNumber,
                 this.FirstName, this.SecondName, this.ThirdName,
                 this.LastName, this.DateOfBirth, this.Address,
                 this.Phone, this.Email, this.NationalityCountryID ,
@@ -106,19 +106,19 @@ namespace DVDLBussinessLayer
         {
             return clsPeopleDataLayer.GetPersonsList();
         }
-        public static bool IsPersonExistsInSystem(string AccountNumber)
+        public static async Task <bool> IsPersonExistsInSystemAsync(string NationalNumber)
         {
-            return clsPeopleDataLayer.IsPersonExistInDatabase(AccountNumber);
+            return await clsPeopleDataLayer.IsPersonExistInDatabaseAsync(NationalNumber);
         }
 
-        public bool Save()
+        public async Task<bool> Save()
         {
 
             switch (_Mode)
             {
 
                 case enMode.enAddNewMode:
-                    if (_AddNewPerson())
+                    if (await _AddNewPerson())
                     {
                         
                         return true;

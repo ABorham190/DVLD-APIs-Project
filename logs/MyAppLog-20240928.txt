@@ -1,0 +1,8 @@
+2024-09-28 10:26:33.687 +03:00 [WRN] Failed to determine the https port for redirect.
+2024-09-28 10:26:34.536 +03:00 [INF] Starting AddNew method inside PersonConroller
+2024-09-28 10:26:53.812 +03:00 [ERR] There is person with the same NationalNum in the system
+2024-09-28 10:35:12.963 +03:00 [WRN] Failed to determine the https port for redirect.
+2024-09-28 10:36:03.186 +03:00 [INF] Starting AddNew method inside PersonConroller
+2024-09-28 10:36:03.213 +03:00 [INF] Start Executing IsPersonExistInDatabaseAsync func , clsPeopleDataLayer
+2024-09-28 10:36:03.411 +03:00 [INF] Connection to database established successfully
+2024-09-28 10:36:03.470 +03:00 [ERR] There is person with the same NationalNum in the system

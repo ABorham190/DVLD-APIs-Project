@@ -49,10 +49,15 @@ namespace DVLDdataAccessLayer
             int ApplicationTypeID,byte ApplicationStatus,
             DateTime LastStatusDate , Decimal PaidFees,int CreatedByUserID)
         {
+            Log.Information("Starting AddNewApplication func in clsOrdersDataLayer");
+
             int InsertedID = -1;
             try {
                 using (SqlConnection Connection = new SqlConnection(Settings.ConnectionString))
                 {
+                    Connection.Open();
+                    Log.Information("Connection Stablished Successfully");
+
                     using (SqlCommand Command = new SqlCommand("SP_AddNewApplication", Connection))
                     {
 
@@ -72,20 +77,21 @@ namespace DVLDdataAccessLayer
                         };
 
                         Command.Parameters.Add(outputparam);
-
-
-
-                        Connection.Open();
+                        
                         int NumberOfAffectedRows = 0;
                         if ((NumberOfAffectedRows = Command.ExecuteNonQuery()) > 0)
                         {
+                            Log.Information($"Number of affected rows : {NumberOfAffectedRows}");
+
                             InsertedID = (int)outputparam.Value;
                         }
                     }
                 }
+                Log.Information($"Application Added successfully with ID : {InsertedID}");
 
             }catch (Exception ex)
             {
+                Log.Error(ex, "Error Exception in AddNewApplication func clsOrdersDatalayer");
                 InsertedID=-1;
             }
 
@@ -96,11 +102,17 @@ namespace DVLDdataAccessLayer
         public static bool IsThisPersonIDHasAnActiveApplicationForThisLicenseTypeID(int PersonID
             ,int LicenseTypeID,ref int ApplicationID)
         {
-
-            ApplicationID = -1;
+            Log.Information($"starting IsThisPersonIDHasAnActiveApplicationForThisLicenseTypeID with PersonID :{PersonID} , " +
+                $"and LicenseTypeID : {LicenseTypeID}");
+                ApplicationID = -1;
             try {
+
                 using (SqlConnection connection = new SqlConnection(Settings.ConnectionString))
                 {
+                    connection.Open();
+
+                    Log.Information("Connection to database established successfully");
+
                     using (SqlCommand Command = new SqlCommand("SP_GetApplicationIDByPersonIDAndLicenseTypeID", connection))
                     {
 
@@ -108,22 +120,22 @@ namespace DVLDdataAccessLayer
 
                         Command.Parameters.AddWithValue("@PersonID", PersonID);
                         Command.Parameters.AddWithValue("@LicenseTypeID", LicenseTypeID);
-
-
-                        connection.Open();
+                        
                         using (SqlDataReader Reader = Command.ExecuteReader())
                         {
 
                             if (Reader.Read())
                             {
-
                                 ApplicationID = (int)Reader["ApplicationID"];
+                                Log.Information($"Reader reads ApplicationID : {ApplicationID}");
                             }
                         }
                     }
                 }
+                Log.Information("IsThisPersonIDHasAnActiveApplicationForThisLicenseTypeID Executed successfully");
             }catch(Exception ex)
             {
+                Log.Information(ex, "Error in IsThisPersonIDHasAnActiveApplicationForThisLicenseTypeID");
                 ApplicationID=-1;
             }
            
@@ -137,23 +149,9 @@ namespace DVLDdataAccessLayer
             ref DateTime AppDate,
             ref int OrderNameID,ref byte ApplicationStatusID)
         {
-            Log.Information("starting FindApplicationByID in clsOrdersDatalayer");
+            Log.Information($"starting FindApplicationByID in clsOrdersDatalayer using ApplicationID : {ApplicationID}");
             bool IsFound = false;
-            //string AppStatus = "";
             try { 
-
-            string Querey = @"select Applications.ApplicantPersonID,Status  
-                              =   
-                             case
-                             when ApplicationStatus = 1 then 'New'
-                             when ApplicationStatus = 2 then 'Cancelled'
-                             when ApplicationStatus = 3 then  'Completed'
-                             end,
-                              Applications.ApplicationDate,
-                              Applications.ApplicationTypeID,
-                              ApplicationStatus
-                              from Applications 
-                              where Applications.ApplicationID=@OrderID;";
 
                 using (SqlConnection connection = new SqlConnection(Settings.ConnectionString))
                 {

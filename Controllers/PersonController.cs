@@ -15,10 +15,12 @@ namespace dvld_api.Controllers
     public class PersonController : ControllerBase
     {
         private readonly IMapper _mapper;
+        private readonly ILogger<PersonController> _logger;
 
-        public PersonController(IMapper mapper)
+        public PersonController(IMapper mapper, ILogger<PersonController> logger)
         {
             _mapper = mapper;
+            _logger = logger;
         }
 
         [HttpGet("GetAll")]
@@ -119,40 +121,38 @@ namespace dvld_api.Controllers
         [ProducesResponseType(StatusCodes.Status201Created)]
         public async Task<IActionResult> AddNew(AddNewPersonDTO newPerson)
         {
+            _logger.LogInformation("Starting AddNew method inside PersonConroller");
+
+            if (!ModelState.IsValid)
+            {
+                _logger.LogError("One of enterd parameters is empty or equal null : {@newPerson}", newPerson);
+                return BadRequest(ModelState);
+            }
+
             try
             {
-                if (newPerson == null)
+
+                if (await clsPerson.IsPersonExistsInSystemAsync(newPerson.NationalNumber))
                 {
-                    return BadRequest("Invalid input parameters");
+                    _logger.LogError("There is person with the same NationalNum in the system");
+                    return BadRequest("There is person with this National Number in the system!!");
                 }
 
-
-                if (string.IsNullOrEmpty(newPerson.FirstName) || string.IsNullOrEmpty(newPerson.SecondName) ||
-                    string.IsNullOrEmpty(newPerson.LastName) || string.IsNullOrEmpty(newPerson.Address) ||
-                     string.IsNullOrEmpty(newPerson.Phone) || string.IsNullOrEmpty(newPerson.NationalNumber)
-                     || string.IsNullOrEmpty(newPerson.GenderType) ||
-                     newPerson.NationalityCountryID < 1 || newPerson.NationalityCountryID > 193)
-                {
-                    return BadRequest("Invalid User Input");
-                }
-
-                string ImagePath = "";
-                if (newPerson.PersonPhoto == null)
-                {
-                    ImagePath = "";
-                }
-                else
+                string ImagePath = string.Empty;
+                if (newPerson.PersonPhoto != null)
                 {
                     ImagePath = await clsUploadPersonPhoto.Upload(newPerson.PersonPhoto);
-
                 }
+
+                _logger.LogInformation("All entered parameters are valid {@newPerson}", newPerson);
 
                 clsPerson person = _mapper.Map<clsPerson>(newPerson);
 
-
+                _logger.LogInformation("Person and newPerson Mapped successfully");
 
                 if (person == null)
                 {
+                    _logger.LogError("person equal null");
                     return StatusCode(500, new { error = "Internal server Error" });
 
                 }
@@ -160,16 +160,19 @@ namespace dvld_api.Controllers
                 person.Gender = newPerson.GenderType == "Male" ? 1 : 0;
                 person.ImagePath = ImagePath;
 
-                if (!person.Save())
+                if (!await person.Save())
                 {
+                    _logger.LogInformation("Error in saving Person");
                     return StatusCode(500, new { error = "Internal server error" });
                 }
+
+                _logger.LogInformation($"Person Saved successfully With ID : {person.ID}");
 
                 return CreatedAtAction(nameof(GetByID), new { PersonID = person.ID }, newPerson);
             }
             catch (Exception ex)
             {
-                Settings.AddErrorToEventViewer("Error : ", ex.Message);
+                _logger.LogError(ex,"Unexpected error in AddNew method in PersonController");
                 return StatusCode(500, new { error = "Internal server error" });
             }
         }
@@ -214,7 +217,7 @@ namespace dvld_api.Controllers
                 Person.Email = UpdatedPerson.Email;
                 Person.ImagePath = await clsUploadPersonPhoto.Upload(UpdatedPerson.PersonImage);
 
-                if (!Person.Save())
+                if (!await Person.Save())
                 {
                     return StatusCode(500, new { error = "Internal server Error" });
                 }

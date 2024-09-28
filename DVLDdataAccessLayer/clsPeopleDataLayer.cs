@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using Microsoft.Data.SqlClient;
 using System.Drawing;
 using System.IO;
+using Serilog;
 
 
 namespace DVLDdataAccessLayer
@@ -49,23 +50,26 @@ namespace DVLDdataAccessLayer
     
     public static class clsPeopleDataLayer
     {
-        public static int AddNewPerson(string NationalNumber,
+        public static async Task<int> AddNewPerson(string NationalNumber,
             string FirstName, string SecondName,
            string ThirdName, string LastName, DateTime DateOfBirth,
            string Address, string Phone, string Email, int CountryID,
            int Gender, string ImagePath)
         {
+            Log.Information("Starting execution AddNewPerson func (clsPeopleDataLayer)");
 
             int InsertedID=-1;
 
             try {
                 using (SqlConnection Connection = new SqlConnection(Settings.ConnectionString))
                 {
+                    await Connection.OpenAsync();
+                    Log.Information("Connection to database established successfully");
+
                     using (SqlCommand Command = new SqlCommand("SP_AddNewPerson", Connection))
                     {
 
                         Command.CommandType = CommandType.StoredProcedure;
-
 
                         Command.Parameters.AddWithValue("@NationalNumber", NationalNumber);
                         Command.Parameters.AddWithValue("@FirstName", FirstName);
@@ -88,36 +92,29 @@ namespace DVLDdataAccessLayer
                             Command.Parameters.AddWithValue("@ImagePath", System.DBNull.Value);
                         }
 
-
-
                         SqlParameter outputparameter = new SqlParameter("@PersonID", DbType.Int32)
                         {
                             Direction = ParameterDirection.Output
                         };
 
                         Command.Parameters.Add(outputparameter);
-
-
-                        Connection.Open();
+                        
                         int NumberOfAffectedRows = 0;
-                        if ((NumberOfAffectedRows = Command.ExecuteNonQuery()) > 0)
+                        if ((NumberOfAffectedRows =await Command.ExecuteNonQueryAsync()) > 0)
                         {
+                            Log.Information($"Number of affected rows :{NumberOfAffectedRows}");
                             InsertedID = (int)outputparameter.Value;
                         }
                     }
                 }
 
-                
+                Log.Information("AddNewPerson func executed successfully");
             }
-            catch (Exception ex)
+            catch (SqlException ex)
             {
+                Log.Error(ex, "UnExepected SqlError occured", ex.Message);
                 InsertedID = -1;
-                Settings.AddErrorToEventViewer("Error In Add New Person DataLayer Func",
-                    ex.Message);
             }
-            
-
-
             return InsertedID;
 
 
@@ -175,33 +172,37 @@ namespace DVLDdataAccessLayer
         }
 
 
-        public static bool IsPersonExistInDatabase(string NationalNumber)
+        public static async Task<bool> IsPersonExistInDatabaseAsync(string NationalNumber)
         {
+            Log.Information("Start Executing IsPersonExistInDatabaseAsync func , clsPeopleDataLayer");
             bool IsFound = false;
-            string Querey = @"select Found=1 from People 
-                         where NationalNo=@NationalNumber";
-            SqlConnection Connection = new SqlConnection(Settings.ConnectionString);
-            SqlCommand Command = new SqlCommand(Querey, Connection);
-            Command.Parameters.AddWithValue("@NationalNumber", NationalNumber);
-            try
-            {
-                Connection.Open();
-                SqlDataReader Reader = Command.ExecuteReader();
-                if (Reader.HasRows)
+            try {
+                using (SqlConnection Connection = new SqlConnection(Settings.ConnectionString))
                 {
-                    IsFound = true;
+                   await Connection.OpenAsync();
+                    Log.Information("Connection to database established successfully");
+
+                    using (SqlCommand Command = new SqlCommand("SP_IsPersonExistsInDataBase", Connection))
+                    {
+                        Command.CommandType = CommandType.StoredProcedure;
+                        Command.Parameters.AddWithValue("@NationalNumber", NationalNumber);
+                        
+                        using (SqlDataReader Reader =await Command.ExecuteReaderAsync())
+                        {
+                            if (Reader.HasRows)
+                            {
+                                IsFound = true;
+                            }
+                        }
+                    }
                 }
             }
-            catch(Exception ex)
+            catch(SqlException ex)
             {
+                Log.Error(ex, "Unexepected sql error",ex.Message);
                 IsFound = false;
-                Settings.AddErrorToEventViewer("Error In Is Person Exist by (National Number) Datalayer Func",
-                    ex.Message);
             }
-            finally
-            {
-                Connection.Close();
-            }
+            
 
             return IsFound;
         }

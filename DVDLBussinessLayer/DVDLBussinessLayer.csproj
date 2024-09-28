@@ -246,7 +246,6 @@
     <Compile Include="clsLicenses.cs" />
     <Compile Include="clsOrders.cs" />
     <Compile Include="clsPerson.cs" />
-    <Compile Include="clsServices.cs" />
     <Compile Include="clsTests.cs" />
     <Compile Include="clsTestTypes.cs" />
     <Compile Include="clsUsers.cs" />
