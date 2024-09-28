@@ -14,7 +14,7 @@ namespace DVDLBussinessLayer
     public class clsAppointments
     {
         public int AppointmentID {  get; set; }
-        public int DLAppID {  get; set; }
+        public int LDLAppID {  get; set; }
         public int TestTypeID { get; set; }
         public bool IsAppointmentLocked { get; set; }
         public int CreatedByUserID { get; set; }
@@ -30,10 +30,11 @@ namespace DVDLBussinessLayer
         public clsAppointments()
         {
            this. _Mode = enMode.AddNew;
-           this.DLAppID = 0;
+           this.LDLAppID = 0;
             this.TestTypeID = 0;
             this.IsPassed = 0;
             this.IsLocked = 0;
+            this.CreatedByUserID = 0;
             this.AppointmentDate = DateTime.Now;
         }
         private clsAppointments(int appointmentid,int ldlappid,int testtypeid,
@@ -41,7 +42,7 @@ namespace DVDLBussinessLayer
             Decimal paidfees,int retaketestappid)
         {
            this.AppointmentID = appointmentid;
-            this.DLAppID=ldlappid;
+            this.LDLAppID=ldlappid;
             this.AppointmentDate=appointmentdate;
             this.RetakeTestAppID = retaketestappid;
             this.CreatedByUserID = createdbyuserid;
@@ -81,7 +82,7 @@ namespace DVDLBussinessLayer
         private bool _AddNewAppointment()
         {
             this.AppointmentID = clsAppointmentsDataLayer.AddNewAppointment(this.TestTypeID,
-                this.DLAppID,this.AppointmentDate,this.PaidFees,this.CreatedByUserID
+                this.LDLAppID,this.AppointmentDate,this.PaidFees,this.CreatedByUserID
                 ,this.IsAppointmentLocked, this.RetakeTestAppID);
             return this.AppointmentID != -1;
                 

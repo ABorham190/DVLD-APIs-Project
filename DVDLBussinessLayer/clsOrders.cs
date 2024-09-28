@@ -52,11 +52,6 @@ namespace DVDLBussinessLayer
 
         }
 
-        public static DataTable GetAllOrdersInSystem()
-        {
-            return clsOrdersDataLayer.GetAllOrders();
-        }
-
         public bool AddNewApplication()
         {
             this.ApplicationID = clsOrdersDataLayer.AddNewApplication(this.ApplicantID, this.ApplicationDate,

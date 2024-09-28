@@ -206,6 +206,40 @@ namespace DVLDdataAccessLayer
             return IsFound;
         }
 
+        public static async Task<bool>IsLDLAppExists(int LDLAppID)
+        {
+            Log.Information("Start execution IsLDLAppExists (LDLAppDataLayer)");
+            bool IsFound = false;
+
+            try
+            {
+                using (SqlConnection Connection=new SqlConnection(Settings.ConnectionString))
+                {
+                    await Connection.OpenAsync();
+                    Log.Information("Connection to database established successfully");
+
+                    using (SqlCommand Command=new SqlCommand("SP_IsLDLAppExists", Connection))
+                    {
+                        Command.CommandType = CommandType.StoredProcedure;
+
+                        Command.Parameters.AddWithValue("@LDLAppID", LDLAppID);
+
+                        using (SqlDataReader Reader = await Command.ExecuteReaderAsync())
+                        {
+                            IsFound = Reader.HasRows;
+                        }
+                    }
+
+                    Log.Information($"IsFound = {IsFound}");
+                }
+            }catch(SqlException ex)
+            {
+                Log.Error(ex, "Unexpected error occured during fetching data from database", ex.Message);
+                IsFound = false;
+            }
+            return IsFound;
+        }
+
          
 
     }

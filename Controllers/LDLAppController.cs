@@ -78,7 +78,7 @@ namespace dvld_api.Controllers
         public async Task<ActionResult<List<LDLAppDataLayer.LDLAppDTO>>> GetAll()
         {
             _logger.LogInformation("Starting execute GetAll LDLApp");
-            List<LDLAppDataLayer.LDLAppDTO>LDLAppDTOList=await LDLApp.GetAllLDLApps();
+            List<LDLAppDataLayer.LDLAppDTO> LDLAppDTOList = await LDLApp.GetAllLDLApps();
 
             if (LDLAppDTOList==null||!LDLAppDTOList.Any())
             {

@@ -6,3 +6,178 @@
 2024-09-28 10:36:03.213 +03:00 [INF] Start Executing IsPersonExistInDatabaseAsync func , clsPeopleDataLayer
 2024-09-28 10:36:03.411 +03:00 [INF] Connection to database established successfully
 2024-09-28 10:36:03.470 +03:00 [ERR] There is person with the same NationalNum in the system
+2024-09-28 11:49:50.243 +03:00 [WRN] Failed to determine the https port for redirect.
+2024-09-28 11:49:50.445 +03:00 [INF] Starting GetByID Method (LDLAppController)
+2024-09-28 11:49:50.715 +03:00 [INF] LDLApp successfully Found with ID : 54 and ApplicationID : 143
+2024-09-28 11:50:38.000 +03:00 [INF] Starting execute GetAll LDLApp
+2024-09-28 11:50:38.004 +03:00 [INF] Starting execution of GetAllLDLApps in LDLAppDataLayer
+2024-09-28 11:50:38.006 +03:00 [INF] Connection to database Stablished successfully
+2024-09-28 11:50:38.408 +03:00 [INF] (SP_GetAllLDLAppWithDetails) executed successfully and ldlapplist contain 17 items
+2024-09-28 11:50:38.412 +03:00 [INF] Number Of fetched LDLAppDTO  17
+2024-09-28 15:44:31.343 +03:00 [WRN] Failed to determine the https port for redirect.
+2024-09-28 15:44:31.896 +03:00 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: Each parameter in the deserialization constructor on type 'dvld_api.models.AppointmentDTO' must bind to an object property or field on deserialization. Each parameter name must match with a property or field on the object. Fields are only considered when 'JsonSerializerOptions.IncludeFields' is enabled. The match can be case-insensitive.
+   at System.Text.Json.ThrowHelper.ThrowInvalidOperationException_ConstructorParameterIncompleteBinding(Type parentType)
+   at System.Text.Json.Serialization.Converters.ObjectWithParameterizedConstructorConverter`1.OnTryRead(Utf8JsonReader& reader, Type typeToConvert, JsonSerializerOptions options, ReadStack& state, T& value)
+   at System.Text.Json.Serialization.JsonConverter`1.TryRead(Utf8JsonReader& reader, Type typeToConvert, JsonSerializerOptions options, ReadStack& state, T& value, Boolean& isPopulatedValue)
+   at System.Text.Json.Serialization.JsonConverter`1.ReadCore(Utf8JsonReader& reader, JsonSerializerOptions options, ReadStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonTypeInfo`1.ContinueDeserialize(ReadBufferState& bufferState, JsonReaderState& jsonReaderState, ReadStack& readStack)
+   at System.Text.Json.Serialization.Metadata.JsonTypeInfo`1.DeserializeAsync(Stream utf8Json, CancellationToken cancellationToken)
+   at System.Text.Json.Serialization.Metadata.JsonTypeInfo`1.DeserializeAsObjectAsync(Stream utf8Json, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonInputFormatter.ReadRequestBodyAsync(InputFormatterContext context, Encoding encoding)
+   at Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonInputFormatter.ReadRequestBodyAsync(InputFormatterContext context, Encoding encoding)
+   at Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BodyModelBinder.BindModelAsync(ModelBindingContext bindingContext)
+   at Microsoft.AspNetCore.Mvc.ModelBinding.ParameterBinder.BindModelAsync(ActionContext actionContext, IModelBinder modelBinder, IValueProvider valueProvider, ParameterDescriptor parameter, ModelMetadata metadata, Object value, Object container)
+   at Microsoft.AspNetCore.Mvc.Controllers.ControllerBinderDelegateProvider.<>c__DisplayClass0_0.<<CreateBinderDelegate>g__Bind|0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2024-09-28 16:05:32.558 +03:00 [WRN] Failed to determine the https port for redirect.
+2024-09-28 16:05:33.164 +03:00 [INF] Start execution IsLDLAppExists (LDLAppDataLayer)
+2024-09-28 16:05:33.799 +03:00 [INF] Connection to database established successfully
+2024-09-28 16:05:33.909 +03:00 [INF] IsFound = False
+2024-09-28 16:05:33.916 +03:00 [ERR] There is no LALApp with LDLAppID : 0
+2024-09-28 19:13:25.587 +03:00 [WRN] Failed to determine the https port for redirect.
+2024-09-28 19:14:55.830 +03:00 [WRN] Failed to determine the https port for redirect.
+2024-09-28 19:16:05.184 +03:00 [WRN] Failed to determine the https port for redirect.
+2024-09-28 19:16:43.807 +03:00 [INF] Start AddAnAppointment method in AppointmentController 
+2024-09-28 19:16:43.814 +03:00 [INF] Start IsThisLDLAppIDAllowedToBookTest (LDLApp) to check if 48 Allowed to book test or not 
+2024-09-28 19:16:44.137 +03:00 [INF] starting FindApplicationByID in clsOrdersDatalayer using ApplicationID : 137
+2024-09-28 19:16:44.139 +03:00 [INF] Connection to database established successfully
+2024-09-28 19:16:44.144 +03:00 [INF] Reader is reading
+2024-09-28 19:16:44.147 +03:00 [INF] FindApplicationByID executed successfully
+2024-09-28 19:16:44.148 +03:00 [ERR] This LDLApp Is Follw Cancelled or Completed Application with ID : 137
+2024-09-28 19:16:44.148 +03:00 [ERR] Not Allowed To Book This Test
+2024-09-28 19:17:45.235 +03:00 [INF] Start AddAnAppointment method in AppointmentController 
+2024-09-28 19:17:50.340 +03:00 [INF] Start IsThisLDLAppIDAllowedToBookTest (LDLApp) to check if 48 Allowed to book test or not 
+2024-09-28 19:18:43.644 +03:00 [INF] starting FindApplicationByID in clsOrdersDatalayer using ApplicationID : 137
+2024-09-28 19:18:45.002 +03:00 [INF] Connection to database established successfully
+2024-09-28 19:18:47.636 +03:00 [INF] Reader is reading
+2024-09-28 19:18:49.923 +03:00 [INF] FindApplicationByID executed successfully
+2024-09-28 19:19:16.837 +03:00 [ERR] This LDLApp Is Follw Cancelled or Completed Application with ID : 137
+2024-09-28 19:19:19.782 +03:00 [ERR] Not Allowed To Book This Test
+2024-09-28 19:21:04.863 +03:00 [WRN] Failed to determine the https port for redirect.
+2024-09-28 19:21:07.985 +03:00 [INF] Start AddAnAppointment method in AppointmentController 
+2024-09-28 19:21:20.168 +03:00 [INF] Start IsThisLDLAppIDAllowedToBookTest (LDLApp) to check if 48 Allowed to book test or not 
+2024-09-28 19:21:40.180 +03:00 [INF] starting FindApplicationByID in clsOrdersDatalayer using ApplicationID : 137
+2024-09-28 19:21:41.807 +03:00 [INF] Connection to database established successfully
+2024-09-28 19:21:43.721 +03:00 [INF] Reader is reading
+2024-09-28 19:21:47.620 +03:00 [INF] FindApplicationByID executed successfully
+2024-09-28 19:22:28.736 +03:00 [ERR] This LDLApp Is Follw Cancelled or Completed Application with ID : 137
+2024-09-28 19:22:34.484 +03:00 [ERR] Not Allowed To Book This Test
+2024-09-28 19:23:40.935 +03:00 [WRN] Failed to determine the https port for redirect.
+2024-09-28 19:23:44.213 +03:00 [INF] Start AddAnAppointment method in AppointmentController 
+2024-09-28 19:23:48.687 +03:00 [INF] Start IsThisLDLAppIDAllowedToBookTest (LDLApp) to check if 45 Allowed to book test or not 
+2024-09-28 19:23:48.961 +03:00 [INF] starting FindApplicationByID in clsOrdersDatalayer using ApplicationID : 134
+2024-09-28 19:23:48.963 +03:00 [INF] Connection to database established successfully
+2024-09-28 19:23:48.967 +03:00 [INF] Reader is reading
+2024-09-28 19:23:48.969 +03:00 [INF] FindApplicationByID executed successfully
+2024-09-28 19:23:48.970 +03:00 [ERR] This LDLApp Is Follw Cancelled or Completed Application with ID : 134
+2024-09-28 19:23:52.675 +03:00 [ERR] Not Allowed To Book This Test
+2024-09-28 19:25:59.570 +03:00 [WRN] Failed to determine the https port for redirect.
+2024-09-28 19:38:49.209 +03:00 [WRN] Failed to determine the https port for redirect.
+2024-09-28 19:40:22.410 +03:00 [WRN] Failed to determine the https port for redirect.
+2024-09-28 19:45:16.212 +03:00 [WRN] Failed to determine the https port for redirect.
+2024-09-28 19:53:24.724 +03:00 [WRN] Failed to determine the https port for redirect.
+2024-09-28 20:06:56.806 +03:00 [WRN] Failed to determine the https port for redirect.
+2024-09-28 20:06:59.768 +03:00 [INF] Start AddAnAppointment method in AppointmentController 
+2024-09-28 20:07:08.033 +03:00 [INF] Start IsThisLDLAppIDAllowedToBookTest (LDLApp) to check if 55 Allowed to book test or not 
+2024-09-28 20:07:08.319 +03:00 [INF] starting FindApplicationByID in clsOrdersDatalayer using ApplicationID : 144
+2024-09-28 20:07:08.321 +03:00 [INF] Connection to database established successfully
+2024-09-28 20:07:08.326 +03:00 [INF] Reader is reading
+2024-09-28 20:07:08.329 +03:00 [INF] FindApplicationByID executed successfully
+2024-09-28 20:07:08.421 +03:00 [ERR] An unhandled exception has occurred while executing the request.
+System.IO.FileNotFoundException: Could not load file or assembly 'System.Data.SqlClient, Version=0.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a'. The system cannot find the file specified.
+File name: 'System.Data.SqlClient, Version=0.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a'
+   at DVLDdataAccessLayer.clsAppointmentsDataLayer.IsThisLDLAppIDPassedTest(Int32 LDLAppID, Int32 TestTypeID)
+   at DVDLBussinessLayer.clsAppointments.IsThisLDAppIDPassedTest(Int32 LDLAppID, Int32 TestTypeID) in E:\programming_main\MyProjects\dvld_api\DVDLBussinessLayer\clsAppointments.cs:line 171
+   at DVDLBussinessLayer.LDLApp.IsThisLDLAppIDAllowedToBookTest(Int32 LDLAppID, Int32 TestTypeID) in E:\programming_main\MyProjects\dvld_api\DVDLBussinessLayer\LDLApp.cs:line 110
+   at dvld_api.Controllers.AppointmentController.AddAnAppointment(AppointmentDTO appointmentDTO) in E:\programming_main\MyProjects\dvld_api\Controllers\AppointmentController.cs:line 41
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2024-09-28 20:07:31.089 +03:00 [INF] Start AddAnAppointment method in AppointmentController 
+2024-09-28 20:07:35.557 +03:00 [INF] Start IsThisLDLAppIDAllowedToBookTest (LDLApp) to check if 55 Allowed to book test or not 
+2024-09-28 20:07:56.506 +03:00 [INF] starting FindApplicationByID in clsOrdersDatalayer using ApplicationID : 144
+2024-09-28 20:08:02.166 +03:00 [INF] Connection to database established successfully
+2024-09-28 20:08:03.717 +03:00 [INF] Reader is reading
+2024-09-28 20:08:06.041 +03:00 [INF] FindApplicationByID executed successfully
+2024-09-28 20:08:27.106 +03:00 [ERR] An unhandled exception has occurred while executing the request.
+System.IO.FileNotFoundException: Could not load file or assembly 'System.Data.SqlClient, Version=0.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a'. The system cannot find the file specified.
+File name: 'System.Data.SqlClient, Version=0.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a'
+   at DVLDdataAccessLayer.clsAppointmentsDataLayer.IsThisLDLAppIDPassedTest(Int32 LDLAppID, Int32 TestTypeID)
+   at DVDLBussinessLayer.clsAppointments.IsThisLDAppIDPassedTest(Int32 LDLAppID, Int32 TestTypeID) in E:\programming_main\MyProjects\dvld_api\DVDLBussinessLayer\clsAppointments.cs:line 171
+   at DVDLBussinessLayer.LDLApp.IsThisLDLAppIDAllowedToBookTest(Int32 LDLAppID, Int32 TestTypeID) in E:\programming_main\MyProjects\dvld_api\DVDLBussinessLayer\LDLApp.cs:line 110
+   at dvld_api.Controllers.AppointmentController.AddAnAppointment(AppointmentDTO appointmentDTO) in E:\programming_main\MyProjects\dvld_api\Controllers\AppointmentController.cs:line 41
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2024-09-28 23:51:07.301 +03:00 [WRN] Failed to determine the https port for redirect.
+2024-09-28 23:51:12.989 +03:00 [INF] Start AddAnAppointment method in AppointmentController 
+2024-09-28 23:51:30.036 +03:00 [INF] Start IsThisLDLAppIDAllowedToBookTest (LDLApp) to check if 55 Allowed to book test or not 
+2024-09-28 23:53:54.901 +03:00 [INF] starting FindApplicationByID in clsOrdersDatalayer using ApplicationID : 144
+2024-09-28 23:53:54.904 +03:00 [INF] Connection to database established successfully
+2024-09-28 23:53:54.911 +03:00 [INF] Reader is reading
+2024-09-28 23:53:54.912 +03:00 [INF] FindApplicationByID executed successfully
+2024-09-28 23:54:19.666 +03:00 [ERR] An unhandled exception has occurred while executing the request.
+System.IO.FileNotFoundException: Could not load file or assembly 'System.Data.SqlClient, Version=0.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a'. The system cannot find the file specified.
+File name: 'System.Data.SqlClient, Version=0.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a'
+   at DVLDdataAccessLayer.clsAppointmentsDataLayer.IsThisLDLAppIDPassedTest(Int32 LDLAppID, Int32 TestTypeID)
+   at DVDLBussinessLayer.clsAppointments.IsThisLDAppIDPassedTest(Int32 LDLAppID, Int32 TestTypeID) in E:\programming_main\MyProjects\dvld_api\DVDLBussinessLayer\clsAppointments.cs:line 171
+   at DVDLBussinessLayer.LDLApp.IsThisLDLAppIDAllowedToBookTest(Int32 LDLAppID, Int32 TestTypeID) in E:\programming_main\MyProjects\dvld_api\DVDLBussinessLayer\LDLApp.cs:line 110
+   at dvld_api.Controllers.AppointmentController.AddAnAppointment(AppointmentDTO appointmentDTO) in E:\programming_main\MyProjects\dvld_api\Controllers\AppointmentController.cs:line 41
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2024-09-28 23:58:03.070 +03:00 [WRN] Failed to determine the https port for redirect.
+2024-09-28 23:58:08.293 +03:00 [INF] Start AddAnAppointment method in AppointmentController 
+2024-09-28 23:58:13.042 +03:00 [INF] Start IsThisLDLAppIDAllowedToBookTest (LDLApp) to check if 55 Allowed to book test or not 
+2024-09-28 23:58:14.466 +03:00 [INF] starting FindApplicationByID in clsOrdersDatalayer using ApplicationID : 144
+2024-09-28 23:58:14.468 +03:00 [INF] Connection to database established successfully
+2024-09-28 23:58:14.475 +03:00 [INF] Reader is reading
+2024-09-28 23:58:14.477 +03:00 [INF] FindApplicationByID executed successfully
+2024-09-28 23:59:31.924 +03:00 [ERR] This LDLAppID must be pass Vision Test Firstly
+2024-09-28 23:59:56.096 +03:00 [ERR] Not Allowed To Book This Test

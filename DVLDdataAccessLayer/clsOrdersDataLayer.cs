@@ -15,34 +15,6 @@ namespace DVLDdataAccessLayer
         public enum enWhatToDo { Cancel=2,Complete=3};
        
 
-        public static DataTable GetAllOrders()
-        {
-            DataTable dt= new DataTable();
-            string Querey = @"select OrderID ,LicenseTypes.LicenseType,NationalNumber,(FirstName+' '+SecondName+' '+ThirdName+' '+
-                          LastName) as fullName , DateOfOrder,PassedTests,OrderCase from 
-                          Orders inner join LicenseTypes on Orders.LicenseTypeID=LicenseTypes.LicenseTypeID
-                          inner join Persons on Orders.PersonID=Persons.PersonID
-                          inner join OrderCase on Orders.OrderCaseID=OrderCase.OrderCaseID;
-                          ";
-            SqlConnection Connection=new SqlConnection( Settings.ConnectionString );
-            SqlCommand Command =new SqlCommand( Querey,Connection);
-            try
-            {
-                Connection.Open();
-                SqlDataReader Reader=Command.ExecuteReader();
-
-                if (Reader.HasRows)
-                {
-                    dt.Load(Reader);
-                }
-                Reader.Close();
-            }catch (Exception ex)
-            {
-
-            }finally { Connection.Close(); }
-            return dt;
-
-        }
 
         public static int AddNewApplication(int ApplicantPersonID,
             DateTime ApplicationDate,

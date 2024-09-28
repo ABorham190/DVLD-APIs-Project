@@ -1,0 +1,68 @@
+2024-09-29 00:03:44.990 +03:00 [WRN] Failed to determine the https port for redirect.
+2024-09-29 00:04:50.280 +03:00 [WRN] Failed to determine the https port for redirect.
+2024-09-29 00:04:50.552 +03:00 [INF] Start AddAnAppointment method in AppointmentController 
+2024-09-29 00:04:50.555 +03:00 [INF] Start IsThisLDLAppIDAllowedToBookTest (LDLApp) to check if 55 Allowed to book test or not 
+2024-09-29 00:04:50.837 +03:00 [INF] starting FindApplicationByID in clsOrdersDatalayer using ApplicationID : 144
+2024-09-29 00:04:50.841 +03:00 [INF] Connection to database established successfully
+2024-09-29 00:04:50.848 +03:00 [INF] Reader is reading
+2024-09-29 00:04:50.850 +03:00 [INF] FindApplicationByID executed successfully
+2024-09-29 00:04:50.863 +03:00 [ERR] This LDLAppID must be pass Vision Test Firstly
+2024-09-29 00:04:50.864 +03:00 [ERR] Not Allowed To Book This Test
+2024-09-29 00:05:17.655 +03:00 [INF] Start AddAnAppointment method in AppointmentController 
+2024-09-29 00:05:28.543 +03:00 [INF] Start IsThisLDLAppIDAllowedToBookTest (LDLApp) to check if 55 Allowed to book test or not 
+2024-09-29 00:05:28.555 +03:00 [INF] starting FindApplicationByID in clsOrdersDatalayer using ApplicationID : 144
+2024-09-29 00:05:28.556 +03:00 [INF] Connection to database established successfully
+2024-09-29 00:05:28.563 +03:00 [INF] Reader is reading
+2024-09-29 00:05:28.565 +03:00 [INF] FindApplicationByID executed successfully
+2024-09-29 00:05:28.655 +03:00 [ERR] Error in Saving Appointment
+2024-09-29 00:06:28.296 +03:00 [INF] Start AddAnAppointment method in AppointmentController 
+2024-09-29 00:06:43.050 +03:00 [INF] Start IsThisLDLAppIDAllowedToBookTest (LDLApp) to check if 55 Allowed to book test or not 
+2024-09-29 00:06:44.435 +03:00 [INF] starting FindApplicationByID in clsOrdersDatalayer using ApplicationID : 144
+2024-09-29 00:06:44.444 +03:00 [INF] Connection to database established successfully
+2024-09-29 00:06:44.448 +03:00 [INF] Reader is reading
+2024-09-29 00:06:44.448 +03:00 [INF] FindApplicationByID executed successfully
+2024-09-29 00:14:54.126 +03:00 [WRN] Failed to determine the https port for redirect.
+2024-09-29 00:14:58.428 +03:00 [INF] Start AddAnAppointment method in AppointmentController 
+2024-09-29 00:15:02.530 +03:00 [INF] Start IsThisLDLAppIDAllowedToBookTest (LDLApp) to check if 55 Allowed to book test or not 
+2024-09-29 00:15:02.804 +03:00 [INF] starting FindApplicationByID in clsOrdersDatalayer using ApplicationID : 144
+2024-09-29 00:15:02.806 +03:00 [INF] Connection to database established successfully
+2024-09-29 00:15:02.811 +03:00 [INF] Reader is reading
+2024-09-29 00:15:02.812 +03:00 [INF] FindApplicationByID executed successfully
+2024-09-29 00:17:15.710 +03:00 [WRN] Failed to determine the https port for redirect.
+2024-09-29 00:17:20.593 +03:00 [INF] Start AddAnAppointment method in AppointmentController 
+2024-09-29 00:17:25.284 +03:00 [INF] Start IsThisLDLAppIDAllowedToBookTest (LDLApp) to check if 55 Allowed to book test or not 
+2024-09-29 00:17:25.590 +03:00 [INF] starting FindApplicationByID in clsOrdersDatalayer using ApplicationID : 144
+2024-09-29 00:17:25.591 +03:00 [INF] Connection to database established successfully
+2024-09-29 00:17:25.597 +03:00 [INF] Reader is reading
+2024-09-29 00:17:25.599 +03:00 [INF] FindApplicationByID executed successfully
+2024-09-29 00:18:59.358 +03:00 [WRN] Failed to determine the https port for redirect.
+2024-09-29 00:19:03.683 +03:00 [INF] Start AddAnAppointment method in AppointmentController 
+2024-09-29 00:19:09.126 +03:00 [INF] Start IsThisLDLAppIDAllowedToBookTest (LDLApp) to check if 55 Allowed to book test or not 
+2024-09-29 00:19:09.391 +03:00 [INF] starting FindApplicationByID in clsOrdersDatalayer using ApplicationID : 144
+2024-09-29 00:19:09.394 +03:00 [INF] Connection to database established successfully
+2024-09-29 00:19:09.398 +03:00 [INF] Reader is reading
+2024-09-29 00:19:09.400 +03:00 [INF] FindApplicationByID executed successfully
+2024-09-29 00:19:09.409 +03:00 [ERR] This LDLAppID must be pass Vision Test Firstly
+2024-09-29 00:19:56.390 +03:00 [WRN] Failed to determine the https port for redirect.
+2024-09-29 00:20:02.892 +03:00 [INF] Start AddAnAppointment method in AppointmentController 
+2024-09-29 00:20:11.803 +03:00 [INF] Start IsThisLDLAppIDAllowedToBookTest (LDLApp) to check if 55 Allowed to book test or not 
+2024-09-29 00:20:13.715 +03:00 [INF] starting FindApplicationByID in clsOrdersDatalayer using ApplicationID : 144
+2024-09-29 00:20:13.717 +03:00 [INF] Connection to database established successfully
+2024-09-29 00:20:13.722 +03:00 [INF] Reader is reading
+2024-09-29 00:20:13.724 +03:00 [INF] FindApplicationByID executed successfully
+2024-09-29 00:20:29.609 +03:00 [ERR] This LDLAppID must be pass Vision Test Firstly
+2024-09-29 00:20:32.190 +03:00 [ERR] Not Allowed To Book This Test
+2024-09-29 00:20:53.861 +03:00 [INF] Start AddAnAppointment method in AppointmentController 
+2024-09-29 00:20:56.686 +03:00 [INF] Start IsThisLDLAppIDAllowedToBookTest (LDLApp) to check if 55 Allowed to book test or not 
+2024-09-29 00:20:56.697 +03:00 [INF] starting FindApplicationByID in clsOrdersDatalayer using ApplicationID : 144
+2024-09-29 00:20:56.698 +03:00 [INF] Connection to database established successfully
+2024-09-29 00:20:56.702 +03:00 [INF] Reader is reading
+2024-09-29 00:20:56.702 +03:00 [INF] FindApplicationByID executed successfully
+2024-09-29 00:22:14.487 +03:00 [WRN] Failed to determine the https port for redirect.
+2024-09-29 00:22:20.578 +03:00 [INF] Start AddAnAppointment method in AppointmentController 
+2024-09-29 00:22:22.098 +03:00 [INF] Start IsThisLDLAppIDAllowedToBookTest (LDLApp) to check if 55 Allowed to book test or not 
+2024-09-29 00:22:22.378 +03:00 [INF] starting FindApplicationByID in clsOrdersDatalayer using ApplicationID : 144
+2024-09-29 00:22:22.380 +03:00 [INF] Connection to database established successfully
+2024-09-29 00:22:22.386 +03:00 [INF] Reader is reading
+2024-09-29 00:22:22.388 +03:00 [INF] FindApplicationByID executed successfully
+2024-09-29 00:22:28.635 +03:00 [INF] Appointment added successfully with ID : 135

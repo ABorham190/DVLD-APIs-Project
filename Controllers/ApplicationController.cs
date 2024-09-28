@@ -123,6 +123,11 @@ namespace dvld_api.Controllers
                         return BadRequest("This Application Already Completed");
                 }
 
+                if (order.PassedTests < 3)
+                {
+                    _logger.LogError($"Cant Complete this application , it pass only {order.PassedTests} Test(s) from 3");
+                }
+
 
                 if (!await clsOrders.UpdateApplicationStatus(AppID, clsOrdersDataLayer.enWhatToDo.Complete))
                 {
