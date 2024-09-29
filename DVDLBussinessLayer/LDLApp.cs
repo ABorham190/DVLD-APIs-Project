@@ -18,6 +18,7 @@ namespace DVDLBussinessLayer
        public int AppID { get; set; }
        public int LicenseTypeID { get; set; }
         public clsOrders Application {  get; set; }
+        public int PassedTests {  get; set; }
 
         enum enMode { AddNewMode = 0,UpdateMode=1 }
         enMode _Mode;
@@ -88,7 +89,17 @@ namespace DVDLBussinessLayer
                 return null;
             }
         }
-
+        //public static async Task<int>GetNumberOfPassedTestsForLDLApp(int LDLAppID)
+        //{
+        //    int NumberOfPassedTest = 0;
+        //    bool IsSuccess=false;
+        //    (NumberOfPassedTest,IsSuccess)= await LDLAppDataLayer.GetNumberOfPassedTestsForLDLApp(LDLAppID);
+        //    if (IsSuccess)
+        //    {
+        //        return NumberOfPassedTest;
+        //    }
+        //    else { return -1; }
+        //}
         enum enTests { Vision=1,Written=2,Street=3}
         public static async Task<bool> IsThisLDLAppIDAllowedToBookTest(int LDLAppID, int TestTypeID)
         {
@@ -100,26 +111,27 @@ namespace DVDLBussinessLayer
                 Log.Error($"There is no LALApp with LDLAppID : {LDLAppID}");
                 return false;
             }
-
+            //Check if application status cancelled or completed
             if (ldlapp.Application.ApplicationStatus == 2 || ldlapp.Application.ApplicationStatus == 3)
             {
                 Log.Error($"This LDLApp Is Follw Cancelled or Completed Application with ID : {ldlapp.Application.ApplicationID}");
                 return false;
             }
             //you may delete this check , dont need it as you check in line 116 
-            if (clsAppointments.IsThisLDAppIDPassedTest(LDLAppID, TestTypeID))
+            if (await clsAppointments.IsThisLDAppIDPassedTest(LDLAppID, TestTypeID))
             {
                 Log.Error($"This LDLAppID is already passed {(enTests)TestTypeID} test");
                 return false;
             }
+            ldlapp.PassedTests = await LDLAppDataLayer.GetNumberOfPassedTestsForLDLApp(ldlapp.LDLAppID);
 
-            if (TestTypeID <= ldlapp.Application.PassedTests)
+            if (TestTypeID <= ldlapp.PassedTests)
             {
                 Log.Error($"This LDLApp is already pass this test");
                 return false;
             }
-
-            if (TestTypeID > ldlapp.Application.PassedTests + 1)
+            //set number of passed test properity to current ldlapp
+            if (TestTypeID > ldlapp.PassedTests + 1)
             {
                 Log.Error($"This LDLAppID must be pass {(enTests)(ldlapp.Application.PassedTests+1)} Test Firstly");
                 return false;

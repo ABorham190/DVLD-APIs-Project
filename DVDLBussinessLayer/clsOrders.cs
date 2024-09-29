@@ -39,6 +39,7 @@ namespace DVDLBussinessLayer
 
             ApplicationDate = applicationDate;
             ApplicationTypeID = OrderNameID;
+            
 
         }
         public clsOrders()

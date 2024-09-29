@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using GlobalStructs;
 using Microsoft.Data.SqlClient;
+using Serilog;
 
 namespace DVLDdataAccessLayer
 {
@@ -472,78 +473,79 @@ namespace DVLDdataAccessLayer
             }
             return dt;
         }
-        public static bool IsThisLDLAppIDPassedTest(int LDLAppID,int TestTypeID)
+        public static async Task<bool> IsThisLDLAppIDPassedTest(int LDLAppID,int TestTypeID)
         {
+            Log.Information("Start IsThisLDLAppIDPassedTest func clsAppointmentsDataLayer");
             bool IsFound = false;
-            string Querey = @"select found=1 from 
-                             Tests inner join TestAppointments on
-                             Tests.TestAppointmentID=
-                             TestAppointments.TestAppointmentID
-                             inner join LocalDrivingLicenseApplications
-                             on TestAppointments.LocalDrivingLicenseApplicationID=
-                             LocalDrivingLicenseApplications.LocalDrivingLicenseApplicationID
-                             where TestAppointments.LocalDrivingLicenseApplicationID=@DLAppID 
-                             and TestAppointments.TestTypeID=@TestTypeID and Tests.TestResult=1;
-                             ";
+            try {
+                using (SqlConnection Connection = new SqlConnection(Settings.ConnectionString))
+                {
+                    await Connection.OpenAsync();
+                    Log.Information("Connection to databse established successfully");
 
-            SqlConnection Connection = new SqlConnection(Settings.ConnectionString);
-            SqlCommand Command = new SqlCommand(Querey, Connection);
+                    using (SqlCommand Command = new SqlCommand("SP_IsThisLDLAppIDPassedTest", Connection))
+                    {
+                        Command.CommandType = CommandType.StoredProcedure;
 
-            Command.Parameters.AddWithValue("@DLAppID", LDLAppID);
-            Command.Parameters.AddWithValue("@TestTypeID", TestTypeID);
-            try
-            {
-                Connection.Open();
-                SqlDataReader Reader = Command.ExecuteReader();
-                IsFound = Reader.HasRows;
-                Reader.Close();
+                        Command.Parameters.AddWithValue("@LDLAppID", LDLAppID);
+                        Command.Parameters.AddWithValue("@TestTypeID", TestTypeID);
+
+                        using (SqlDataReader Reader = await Command.ExecuteReaderAsync())
+                        {
+                            Log.Information("Reader has rows");
+                            IsFound = Reader.HasRows;
+                        }
+                    }
+                }
+                Log.Information("IsThisLDLAppIDPassedTest func (clsAppointmentsDataLayer) Executed successfully");
             }
-            catch (Exception ex)
+            catch (SqlException ex)
             {
+                Log.Error(ex, "Unexpected error occred ", ex.Message);
                 IsFound = false;
-            }
-            finally
-            {
-                Connection.Close();
             }
             return IsFound;
         }
 
         public static bool IsThisLDLAppIDHasAnyActiveAppointments(int LDLAppID,int TestTypeID,ref int AppointmentID)
         {
+            Log.Information("Start IsThisLDLAppIDHasAnyActiveAppointments func in clsAppointmentsDataLayer");
             bool IsFound = false;
-            string Querey = @"select Found=1 , TestAppointmentID 
-                              from TestAppointments
-                             where LocalDrivingLicenseApplicationID
-                             = @LDLAppID and TestAppointments.TestTypeID=@TestTypeID and
-                             TestAppointments.IsLocked= 0
-                             ;
-                             ";
-
-            SqlConnection Connection = new SqlConnection(Settings.ConnectionString);
-            SqlCommand Command = new SqlCommand(Querey, Connection);
-            Command.Parameters.AddWithValue("@LDLAppID", LDLAppID);
-            Command.Parameters.AddWithValue("@TestTypeID", TestTypeID);
-
-            try
-            {
-                Connection.Open();
-                SqlDataReader Reader = Command.ExecuteReader();
-                if (Reader.Read())
+            try {
+                using (SqlConnection Connection = new SqlConnection(Settings.ConnectionString))
                 {
-                    IsFound = true;
-                    AppointmentID = (int)Reader["TestAppointmentID"];
+                    Connection.Open();
+                    Log.Information("Connection established successfully");
+
+                    using (SqlCommand Command = new SqlCommand("SP_IsThisLDLAppIDHasAnyActiveAppointments", Connection))
+                    {
+
+                        Command.CommandType = CommandType.StoredProcedure;
+
+                        Command.Parameters.AddWithValue("@LDLAppID", LDLAppID);
+                        Command.Parameters.AddWithValue("@TestTypeID", TestTypeID);
+                        using (SqlDataReader Reader =Command.ExecuteReader())
+                        {
+                            if (Reader.Read())
+                            {
+                                Log.Information("Reader has read");
+                                IsFound = true;
+                                AppointmentID = (int)Reader["TestAppointmentID"];
+                            }
+                            
+                        }
+                    }
                 }
-                Reader.Close();
+
+                Log.Information("IsThisLDLAppIDHasAnyActiveAppointments func in clsAppointmentsDataLayer  executed successfully");
+
             }
-            catch (Exception ex)
+            catch (SqlException ex)
             {
+                Log.Error(ex, "unexepected error ", ex.Message);
                 IsFound = false;
             }
-            finally
-            {
-                Connection.Close();
-            }
+           
             return IsFound;
         }
 

@@ -4,6 +4,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using Microsoft.Data.SqlClient;
 using Microsoft.Extensions.Logging;
 using Serilog;
@@ -172,24 +173,27 @@ namespace DVLDdataAccessLayer
 
         public static bool FindLDLApp(int LDLAppID,ref int AppID,ref int LicenseTypeID)
         {
+            Log.Information($"Starting FindLDLApp in LDLAppDataLayer with LDLAppID : {LDLAppID}");
+
             bool IsFound = false;
             try
             {
                 using (SqlConnection Connection = new SqlConnection(Settings.ConnectionString))
                 {
+                    Connection.Open();
+                    Log.Information("Connection To database established successfully");
+
                     using (SqlCommand Command = new SqlCommand("SP_GetLDLAppByLDLAppID", Connection))
                     {
                         Command.CommandType = CommandType.StoredProcedure;
 
                         Command.Parameters.AddWithValue("@LDLAppID", LDLAppID);
 
-
-
-                        Connection.Open();
                         using (SqlDataReader Reader = Command.ExecuteReader())
                         {
                             if (Reader.Read())
                             {
+                                Log.Information("Reader is Read");
                                 IsFound = true;
                                 AppID = (int)Reader["ApplicationID"];
                                 LicenseTypeID = (int)Reader["LicenseClassID"];
@@ -198,8 +202,11 @@ namespace DVLDdataAccessLayer
                     }
                 }
 
-            }catch (Exception ex)
+                Log.Information("FindLDLApp (LDLAppDataLAyer)  executed successfully");
+
+            }catch (SqlException ex)
             {
+                Log.Error(ex, "Error occured while fetching data from database");
                 IsFound = false;
             }
            
@@ -240,6 +247,49 @@ namespace DVLDdataAccessLayer
             return IsFound;
         }
 
+        public static async Task<int>GetNumberOfPassedTestsForLDLApp(int LDLAppID)
+        {
+            Log.Information("Start GetNumberOfPassedTestsForLDLApp in LDLAppDataLayer");
+            
+            int NumberOfPassedTests = -1;
+            try
+            {
+                using (SqlConnection Connection = new SqlConnection(Settings.ConnectionString))
+                {
+                    await Connection.OpenAsync();
+                    Log.Information("Connection To database established successfully");
+
+                    using (SqlCommand Command = new SqlCommand("SP_GetNumberOfTestsPassedForLDLAppID", Connection))
+                    {
+                        Command.CommandType = CommandType.StoredProcedure;
+
+                        Command.Parameters.AddWithValue("@LDLAppID", LDLAppID);
+
+                        SqlParameter outputparam = new SqlParameter("@NumberOfPassedTests", DbType.Int32)
+                        {
+                            Direction = ParameterDirection.Output,
+                        };
+                        Command.Parameters.Add(outputparam);
+
+                        object result =await Command.ExecuteScalarAsync();
+                        if (result != null && int.TryParse(result.ToString(), out int numofpasstests))
+                        {
+                            NumberOfPassedTests = numofpasstests;
+                        }
+                    }
+                }
+
+                Log.Information("GetNumberOfPassedTestsForLDLApp in LDLAppDataLayer executed successfully");
+            }
+            catch (SqlException ex)
+            {
+                Log.Error(ex, "Unexpected error occurs ", ex.Message);
+                NumberOfPassedTests = -1;
+            }
+
+            return NumberOfPassedTests;
+
+        }
          
 
     }

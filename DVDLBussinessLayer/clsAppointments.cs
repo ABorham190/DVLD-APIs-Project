@@ -167,9 +167,9 @@ namespace DVDLBussinessLayer
         {
             return clsAppointmentsDataLayer.GetAllWrittenTestAppointmentsForThisLDLAppID(LDLAppID);
         }
-        public static bool IsThisLDAppIDPassedTest(int LDLAppID,int TestTypeID)
+        public static async Task<bool> IsThisLDAppIDPassedTest(int LDLAppID,int TestTypeID)
         {
-            return clsAppointmentsDataLayer.IsThisLDLAppIDPassedTest(LDLAppID, TestTypeID);
+            return await clsAppointmentsDataLayer.IsThisLDLAppIDPassedTest(LDLAppID, TestTypeID);
         }
         public static bool IsThisLDAppIDHasAnyActiveAppointments(int LDLAppID,int TestTypeID,ref int AppointmentID)
         {
