@@ -1,0 +1,12 @@
+2024-09-30 21:21:21.321 +03:00 [WRN] Failed to determine the https port for redirect.
+2024-09-30 21:21:22.018 +03:00 [INF] Start GetByID method (AppointmentController)
+2024-09-30 21:21:23.355 +03:00 [INF] Appointment founded and mapped successfully {"AppointmentID":108,"LDLAppID":0,"TestTypeID":1,"CreatedByUserID":1,"AppointmentDate":"2023-10-07T10:46:00.0000000","IsLocked":0,"$type":"GetAppointmentDTO"}
+2024-09-30 21:23:36.945 +03:00 [INF] Start GetByID method (AppointmentController)
+2024-09-30 21:26:01.464 +03:00 [INF] Appointment founded and mapped successfully {"AppointmentID":108,"LDLAppID":0,"TestTypeID":1,"CreatedByUserID":1,"AppointmentDate":"2023-10-07T10:46:00.0000000","IsLocked":0,"$type":"GetAppointmentDTO"}
+2024-09-30 21:26:22.764 +03:00 [INF] Start GetByID method (AppointmentController)
+2024-09-30 21:30:11.592 +03:00 [WRN] Failed to determine the https port for redirect.
+2024-09-30 21:30:11.949 +03:00 [INF] Start GetByID method (AppointmentController)
+2024-09-30 21:30:12.379 +03:00 [INF] Appointment founded and mapped successfully {"AppointmentID":108,"LDLAppID":0,"TestTypeID":1,"IsAppointmentLocked":true,"CreatedByUserID":1,"AppointmentDate":"2023-10-07T10:46:00.0000000","$type":"GetAppointmentDTO"}
+2024-09-30 21:31:46.947 +03:00 [WRN] Failed to determine the https port for redirect.
+2024-09-30 21:31:47.377 +03:00 [INF] Start GetByID method (AppointmentController)
+2024-09-30 21:31:47.800 +03:00 [INF] Appointment founded and mapped successfully {"AppointmentID":108,"LDLAppID":36,"TestTypeID":1,"IsAppointmentLocked":true,"CreatedByUserID":1,"AppointmentDate":"2023-10-07T10:46:00.0000000","$type":"GetAppointmentDTO"}

@@ -11,7 +11,8 @@ namespace dvld_api.models
             CreateMap<AddNewPersonDTO, clsPerson>();
             CreateMap<clsPerson,PersonDTO>();
             CreateMap<clsOrders,clsApplicationDTO>();
-            CreateMap<AppointmentDTO, clsAppointments>();
+            CreateMap<AddAppointmentDTO, clsAppointments>();
+            CreateMap<clsAppointments, GetAppointmentDTO>();
             
         }
     }

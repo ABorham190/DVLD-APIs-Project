@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace dvld_api.models
 {
-    public class AppointmentDTO
+    public class AddAppointmentDTO
     {
         [Required(ErrorMessage ="LDLAppID required")]
         [Range(1,int.MaxValue,ErrorMessage ="LDLAppID must contain only numbers from 1 to 9 ")]

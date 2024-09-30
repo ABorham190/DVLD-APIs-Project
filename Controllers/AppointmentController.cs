@@ -19,12 +19,40 @@ namespace dvld_api.Controllers
             _mapper = mapper;
         }
 
+        [HttpGet("GetByID/{ID}")]
+
+        public IActionResult GetByID(int ID)
+        {
+            _logger.LogInformation("Start GetByID method (AppointmentController)");
+            if (ID < 1)
+            {
+                _logger.LogError($"Invalid User input {ID}");
+                var response = new { message = $"Invalid User input {ID}" };
+                return BadRequest(response);
+            }
+
+            clsAppointments Appointment = clsAppointments.Find(ID);
+
+            if (Appointment == null)
+            {
+                _logger.LogError($"Appointment with ID : {ID} is not found");
+                return NotFound($"There is no Appointment with ID : {ID}");
+            }
+
+            GetAppointmentDTO getAppointmentDTO=_mapper.Map<GetAppointmentDTO>(Appointment)!;
+            _logger.LogInformation("Appointment founded and mapped successfully {@getAppointmentDTO}",getAppointmentDTO);
+
+            return Ok(getAppointmentDTO);
+
+
+        }
+
 
 
         [HttpPost("AddAnApointment")]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status201Created)]
-        public async Task<IActionResult> AddAnAppointment([FromBody] AppointmentDTO appointmentDTO)
+        public async Task<IActionResult> AddAnAppointment([FromBody] AddAppointmentDTO appointmentDTO)
         {
             _logger.LogInformation("Start AddAnAppointment method in AppointmentController ");
 

@@ -59,7 +59,7 @@ namespace DVDLBussinessLayer
 
         public static clsAppointments Find(int AppointmentID)
         {
-            int DLAppID = 0, TestTypeID = 0,LDLAppID =0,CreatedByUserID=0,
+            int  TestTypeID = 0,LDLAppID =0,CreatedByUserID=0,
                 RetakeTestApplicationID=0 ;
             DateTime AppointmentDate = DateTime.Now;
             Decimal PaidFees = 0;
@@ -69,7 +69,7 @@ namespace DVDLBussinessLayer
                 ref PaidFees,ref CreatedByUserID,ref IsAppointmentLocked,
                 ref RetakeTestApplicationID))
             {
-                return new clsAppointments(AppointmentID,DLAppID,
+                return new clsAppointments(AppointmentID,LDLAppID,
                     TestTypeID,IsAppointmentLocked,CreatedByUserID,
                     AppointmentDate,PaidFees,RetakeTestApplicationID);
             }
