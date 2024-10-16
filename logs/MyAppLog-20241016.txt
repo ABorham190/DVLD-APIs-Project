@@ -1,0 +1,6 @@
+2024-10-16 19:05:41.791 +03:00 [WRN] Failed to determine the https port for redirect.
+2024-10-16 19:05:42.777 +03:00 [INF] Starting execute GetAll LDLApp
+2024-10-16 19:05:43.402 +03:00 [INF] Starting execution of GetAllLDLApps in LDLAppDataLayer
+2024-10-16 19:05:44.498 +03:00 [INF] Connection to database Stablished successfully
+2024-10-16 19:05:44.662 +03:00 [INF] (SP_GetAllLDLAppWithDetails) executed successfully and ldlapplist contain 20 items
+2024-10-16 19:05:44.672 +03:00 [INF] Number Of fetched LDLAppDTO  20

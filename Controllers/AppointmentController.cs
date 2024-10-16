@@ -19,7 +19,11 @@ namespace dvld_api.Controllers
             _mapper = mapper;
         }
 
-        [HttpGet("GetByID/{ID}")]
+        [HttpGet("GetByID/{ID}",Name ="GetAppointmentByID")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
 
         public IActionResult GetByID(int ID)
         {
@@ -31,18 +35,32 @@ namespace dvld_api.Controllers
                 return BadRequest(response);
             }
 
-            clsAppointments Appointment = clsAppointments.Find(ID);
-
-            if (Appointment == null)
+            try
             {
-                _logger.LogError($"Appointment with ID : {ID} is not found");
-                return NotFound($"There is no Appointment with ID : {ID}");
+                clsAppointments Appointment = clsAppointments.Find(ID);
+
+                if (Appointment == null)
+                {
+                    _logger.LogError($"Appointment with ID : {ID} is not found");
+                    return NotFound($"There is no Appointment with ID : {ID}");
+                }
+
+                GetAppointmentDTO getAppointmentDTO = _mapper.Map<GetAppointmentDTO>(Appointment)!;
+                if (getAppointmentDTO == null)
+                {
+                    _logger.LogError("Mapping failed for Appointment ID: {ID}", ID);
+                    return StatusCode(500, new { error = "Mapping error" });
+                }
+
+                _logger.LogInformation("Appointment founded and mapped successfully {@getAppointmentDTO}", getAppointmentDTO);
+
+                return Ok(getAppointmentDTO);
             }
-
-            GetAppointmentDTO getAppointmentDTO=_mapper.Map<GetAppointmentDTO>(Appointment)!;
-            _logger.LogInformation("Appointment founded and mapped successfully {@getAppointmentDTO}",getAppointmentDTO);
-
-            return Ok(getAppointmentDTO);
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Unexepected Error occured "+ ex.Message);
+                return StatusCode(500, new { error = "internal server Error" });
+            }
 
 
         }
@@ -70,8 +88,14 @@ namespace dvld_api.Controllers
                 }
 
                 clsAppointments Appointment = _mapper.Map<clsAppointments>(appointmentDTO);
+                if (Appointment == null)
+                {
+                    _logger.LogError("Mapping Error");
 
-                if (!Appointment.Save())
+                    return StatusCode(500, new { error = "Mapping Error" });
+                }
+
+                if (!Appointment!.Save())
                 {
                     _logger.LogError("Error in Saving Appointment");
                     return StatusCode(500, new { error = "Error in saving Appointment" });
@@ -79,7 +103,7 @@ namespace dvld_api.Controllers
 
                 _logger.LogInformation($"Appointment added successfully with ID : {Appointment.AppointmentID}");
 
-                return Created();
+                return CreatedAtRoute("GetAppointmentByID", new {ID=Appointment.AppointmentID},Appointment);
             }
             catch (Exception ex)
             {

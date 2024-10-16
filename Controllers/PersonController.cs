@@ -49,7 +49,7 @@ namespace dvld_api.Controllers
             
         }
 
-        [HttpGet("GetByID/{PersonID}",Name ="GetByID")]
+        [HttpGet("GetByID/{PersonID}",Name ="GetPersonByID")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
 

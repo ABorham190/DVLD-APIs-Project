@@ -201,47 +201,49 @@ namespace DVLDdataAccessLayer
             ref int CreatedByUserID,ref bool IsAppointmentLocked,
             ref int RetakeTestApplicationID)
         {
+            Log.Information("Start FindAppointmentApp  (clsAppointmentsDataLayer)");
             bool IsFound = false;
-            string Querey = @"select * from TestAppointments where
-                              TestAppointments.TestAppointmentID=@AppointmentID;
-                              ;";
-
-            SqlConnection Connection =new SqlConnection(Settings.ConnectionString); 
-            SqlCommand Command=new SqlCommand(Querey, Connection);
-
-            Command.Parameters.AddWithValue("@AppointmentID", AppointmentID);
-
-            try
-            {
-                Connection.Open();
-                SqlDataReader Reader = Command.ExecuteReader();
-                if (Reader.Read())
+            try {
+                using (SqlConnection Connection = new SqlConnection(Settings.ConnectionString))
                 {
-                    IsFound = true;
-                    TestTypeID = (int)Reader["TestTypeID"];
-                    LocalDrivingLicenseAppID = (int)Reader["LocalDrivingLicenseApplicationID"];
-                    AppointmentDate = (DateTime)Reader["AppointmentDate"];
-                    PaidFees = (Decimal)Reader["PaidFees"];
-                    CreatedByUserID = (int)Reader["CreatedByUserID"];
-                    IsAppointmentLocked = (bool)Reader["IsLocked"];
-                    if (Reader["RetakeTestApplicationID"] == DBNull.Value)
+                    using (SqlCommand Command = new SqlCommand("SP_GetAppointmentByID", Connection))
                     {
-                        RetakeTestApplicationID = -1;
-                    }
-                    else
-                    {
-                        RetakeTestApplicationID = (int)Reader["RetakeTestApplicationID"];
-                    }
+                        Command.CommandType = CommandType.StoredProcedure;
+                        Command.Parameters.AddWithValue("@AppointmentID", AppointmentID);
 
+                        Connection.Open();
+                        Log.Information("Connection To database established successfully");
+                        using (SqlDataReader Reader = Command.ExecuteReader())
+                        {
+                            if (Reader.Read())
+                            {
+                                Log.Information("Reader has read");
+                                IsFound = true;
+                                TestTypeID = (int)Reader["TestTypeID"];
+                                LocalDrivingLicenseAppID = (int)Reader["LocalDrivingLicenseApplicationID"];
+                                AppointmentDate = (DateTime)Reader["AppointmentDate"];
+                                PaidFees = (Decimal)Reader["PaidFees"];
+                                CreatedByUserID = (int)Reader["CreatedByUserID"];
+                                IsAppointmentLocked = (bool)Reader["IsLocked"];
+                                if (Reader["RetakeTestApplicationID"] == DBNull.Value)
+                                {
+                                    RetakeTestApplicationID = -1;
+                                }
+                                else
+                                {
+                                    RetakeTestApplicationID = (int)Reader["RetakeTestApplicationID"];
+                                }
+
+                            }
+                        }
+                    }
                 }
-                Reader.Close();
+                Log.Information("FindAppointmentApp executed Successfully");
+                
             }catch (Exception ex)
             {
+                Log.Error(ex,$"UnExepected Error: {ex.Message} ");
                 IsFound=false;
-            }
-            finally 
-            { 
-                Connection.Close(); 
             }
             return IsFound;
         }
