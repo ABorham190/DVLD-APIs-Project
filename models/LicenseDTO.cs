@@ -21,6 +21,8 @@
         public string Name { get; set; }=null!;
         public byte Gender { get; set; }
 
+        public string? ApplicantName { get; }
+
 
     }
 }

@@ -278,3 +278,10 @@ System.InvalidOperationException: Unable to resolve service for type 'Microsoft.
 2024-10-21 20:35:05.684 +03:00 [INF] Connection to database stablished successfully
 2024-10-21 20:35:05.937 +03:00 [INF] Application updated successfully to 3
 2024-10-21 20:35:07.899 +03:00 [INF] AddNew method in LocalLicenseController Executed successfully
+2024-10-21 20:56:42.565 +03:00 [WRN] Failed to determine the https port for redirect.
+2024-10-21 20:56:42.813 +03:00 [INF] Start Executing GetByID Method in LocalLicenseController
+2024-10-21 20:56:43.107 +03:00 [INF] license Found Successfully,dvld_api.models.LicenseDTO
+2024-10-21 21:02:27.388 +03:00 [INF] Start Executing GetByID Method in LocalLicenseController
+2024-10-21 21:10:32.656 +03:00 [WRN] Failed to determine the https port for redirect.
+2024-10-21 21:10:33.247 +03:00 [INF] Start Executing GetByID Method in LocalLicenseController
+2024-10-21 21:10:33.818 +03:00 [INF] license Found Successfully,dvld_api.models.LicenseDTO

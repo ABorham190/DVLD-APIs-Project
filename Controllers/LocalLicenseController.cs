@@ -122,5 +122,47 @@ namespace dvld_api.Controllers
                 return StatusCode(500, "Internal server Error");
             }
         }
+
+        [HttpGet("GetByID")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+
+        public async Task<IActionResult> GetByID(int LicenseID)
+        {
+            _logger.LogInformation("Start Executing GetByID Method in LocalLicenseController");
+
+            if (LicenseID < 1)
+            {
+                _logger.LogError($"Invalid User Input {LicenseID}");
+                return BadRequest($"Invalid User Input {LicenseID}");
+            }
+
+            try
+            {
+                var license = clsLicenses.GetLicenseDetailsByLLicenseID(LicenseID);
+                if (license == null)
+                {
+                    _logger.LogError($"There is no Licesne with ID : {LicenseID}");
+                    return NotFound($"There is no Licesne with ID : {LicenseID}");
+                }
+
+                LicenseDTO licenseDTO = _mapper.Map<LicenseDTO>(license);
+                if (licenseDTO != null) {
+                    _logger.LogInformation($"license Found Successfully,{licenseDTO}");
+                    return Ok(licenseDTO);
+                }
+                else
+                {
+                    _logger.LogError("licenseDTO is null here");
+                    return StatusCode(500, "Internal Server Error");
+                }
+
+            }catch(Exception ex)
+            {
+                _logger.LogError(ex.Message);
+                return StatusCode(500, "Internal server error");
+            }
+        }
     }
 }

@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Microsoft.Data.SqlClient;
+using Serilog;
 
 namespace DVLDdataAccessLayer
 {
@@ -294,66 +295,59 @@ namespace DVLDdataAccessLayer
             ref string Notes, ref bool IsActive, ref DateTime DateOfBirth,
             ref byte Gendor, ref int DriverID, ref DateTime ExpirationDate)
         {
+            Log.Information("Start executing GetLicenseDetailsUsingLicenseID clsLicenseDataLayer");
             bool IsFound = false;
-            string Querey = @"select LicenseClasses.ClassName,
-                            (People.FirstName + ' ' + People.SecondName + ' '
-                                                        + People.ThirdName + ' ' + People.LastName) AS Name,
-                            People.NationalNo,People.ImagePath,Licenses.IssueDate,
-                            Licenses.IssueReason,Licenses.Notes,Licenses.IsActive,People.DateOfBirth,
-                            People.Gendor
-                            ,Licenses.DriverID,Licenses.ExpirationDate from 
-                            Licenses inner join LicenseClasses on 
-                            Licenses.LicenseClass=LicenseClasses.LicenseClassID
-                            inner join Applications on Licenses.ApplicationID=
-                            Applications.ApplicationID inner join People
-                            on Applications.ApplicantPersonID=
-                            People.PersonID
-                            where Licenses.LicenseID=@LicenseID;";
-            SqlConnection Connection=new SqlConnection(Settings.ConnectionString);  
-            SqlCommand Command=new SqlCommand( Querey, Connection);
-            Command.Parameters.AddWithValue("@LicenseID", LicenseID);
             try
             {
-                Connection.Open();
-                SqlDataReader Reader= Command.ExecuteReader();
-                if (Reader.Read()) {
+                using (SqlConnection Connection = new SqlConnection(Settings.ConnectionString))
+                {
+                    using (SqlCommand Command = new SqlCommand("SP_GetLicenseDetailsByLicenseID", Connection))
+                    {
+                        Command.CommandType = CommandType.StoredProcedure;
+                        Command.Parameters.AddWithValue("@LicenseID", LicenseID);
 
-                    IsFound = true;
-                    LicenseClass = (string)Reader["ClassName"];
-                    Name = (string)Reader["Name"];
-                   
-                    NationalNo = (string)Reader["NationalNo"];
-                    if (Reader["ImagePath"] != DBNull.Value)
-                        ImagePath = (string)Reader["ImagePath"];
-                    else
-                        ImagePath = "";
-                    IssueDate = (DateTime)Reader["IssueDate"];
-                    IssueReason = (byte)Reader["IssueReason"];
+                        Connection.Open();
 
-                    if (Reader["Notes"] != DBNull.Value)
-                        Notes = (string)Reader["Notes"];
-                    else
-                        Notes = "No Notes";
+                        Log.Information("connection to database established successfully");
+                        using (SqlDataReader Reader = Command.ExecuteReader())
+                        {
+                            if (Reader.Read())
+                            {
+                                Log.Information("Reader read");
+                                IsFound = true;
+                                LicenseClass = (string)Reader["ClassName"];
+                                Name = (string)Reader["Name"];
 
-                    IsActive = (bool)Reader["IsActive"];
-                    DateOfBirth = (DateTime)Reader["DateOfBirth"];
-                    DriverID = (int)Reader["DriverID"];
-                    ExpirationDate = (DateTime)Reader["ExpirationDate"];
-                    Gendor = (byte)Reader["Gendor"];
+                                NationalNo = (string)Reader["NationalNo"];
+                                if (Reader["ImagePath"] != DBNull.Value)
+                                    ImagePath = (string)Reader["ImagePath"];
+                                else
+                                    ImagePath = "";
+                                IssueDate = (DateTime)Reader["IssueDate"];
+                                IssueReason = (byte)Reader["IssueReason"];
 
+                                if (Reader["Notes"] != DBNull.Value)
+                                    Notes = (string)Reader["Notes"];
+                                else
+                                    Notes = "No Notes";
+
+                                IsActive = (bool)Reader["IsActive"];
+                                DateOfBirth = (DateTime)Reader["DateOfBirth"];
+                                DriverID = (int)Reader["DriverID"];
+                                ExpirationDate = (DateTime)Reader["ExpirationDate"];
+                                Gendor = (byte)Reader["Gendor"];
+
+                            }
+                        }
+                    }
                 }
-
-                Reader.Close();
+                Log.Information("GetLicenseDetailsUsingLicenseID executed successfully");
 
             }catch (Exception ex)
             {
                 IsFound = false;
+                Log.Error(ex, "Unexcepected Error", ex.Message);
             }
-            finally
-            {
-                Connection.Close();
-            }
-
             return IsFound;
         }
 
