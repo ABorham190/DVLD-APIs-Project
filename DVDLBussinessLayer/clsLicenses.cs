@@ -112,7 +112,6 @@ namespace DVDLBussinessLayer
             Decimal PaidFees = 0;
             bool IsActive=false;
             byte IssueReason = 0;
-            
             string ImagePath="";
             string ClassName="";
             string NationalNo = "";

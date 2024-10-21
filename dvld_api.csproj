@@ -10,15 +10,19 @@
     <Compile Remove="DVDLBussinessLayer\**" />
     <Compile Remove="DVLDdataAccessLayer\**" />
     <Compile Remove="GlobalStructs\**" />
+    <Compile Remove="logs\**" />
     <Content Remove="DVDLBussinessLayer\**" />
     <Content Remove="DVLDdataAccessLayer\**" />
     <Content Remove="GlobalStructs\**" />
+    <Content Remove="logs\**" />
     <EmbeddedResource Remove="DVDLBussinessLayer\**" />
     <EmbeddedResource Remove="DVLDdataAccessLayer\**" />
     <EmbeddedResource Remove="GlobalStructs\**" />
+    <EmbeddedResource Remove="logs\**" />
     <None Remove="DVDLBussinessLayer\**" />
     <None Remove="DVLDdataAccessLayer\**" />
     <None Remove="GlobalStructs\**" />
+    <None Remove="logs\**" />
   </ItemGroup>
 
   <ItemGroup>

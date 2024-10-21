@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Data;
 using System.Linq;
 using System.Text;
@@ -131,45 +132,46 @@ namespace DVLDdataAccessLayer
             return ldlapplist;
         }
 
-        public static async Task <string> GetLicenseTypeUsingLDLAppID(int LDLAppID)
+        public static async Task <string> GetLicenseTypeUsingLicenseClassID(int LicenseClassID)
         {
-            string LicenseType = "";
+            Log.Information("Start executing GetLicenseTypeUsingLIcenseClassID");
+            string LicenseType = string.Empty;
             try {
                 using (SqlConnection connection = new SqlConnection(Settings.ConnectionString))
                 {
-                    using (SqlCommand Command = new SqlCommand("SP_GetLicenseTypeByLDLAppID", connection))
+                    using (SqlCommand Command = new SqlCommand("SP_GetLicenseTypeByLicenseClassID", connection))
                     {
                         Command.CommandType = CommandType.StoredProcedure;
 
-                        Command.Parameters.AddWithValue("@LDLAppID", LDLAppID);
+                        Command.Parameters.AddWithValue("@LicenseClassID", LicenseClassID);
 
-                        SqlParameter outputparam = new SqlParameter("@LicenseType", DbType.String)
+                        SqlParameter outputparam = new SqlParameter("@LicenseType", SqlDbType.NVarChar,50)
                         {
                             Direction = ParameterDirection.Output,
                         };
 
                         Command.Parameters.Add(outputparam);
 
-                        connection.Open();
-                        using (SqlDataReader Reader = await Command.ExecuteReaderAsync())
-                        {
-                            if (Reader.Read())
-                            {
-                                LicenseType = (string)outputparam.Value;
+                        await connection.OpenAsync();
 
+                        Log.Information("Connection To database established successfully");
+                    
+                        await Command.ExecuteNonQueryAsync();
 
-                            }
-                        }
+                        LicenseType=(string)outputparam.Value;
                     }
                 }
+
+                Log.Information($"GetLicenseTypeUsingLicenseTypeID Executed successfully value : {LicenseType}");
             }catch (Exception ex)
             {
-                LicenseType = "";
-                Settings.AddErrorToEventViewer("Error in Get LicenstypeByLDLAppID ",ex.Message);
+                LicenseType =string.Empty;
+                Log.Error(ex, "Unexepected Sql exception", ex.Message);
             }
             
             return LicenseType;
         }
+
 
         public static bool FindLDLApp(int LDLAppID,ref int AppID,ref int LicenseTypeID)
         {

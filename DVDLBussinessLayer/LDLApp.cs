@@ -19,6 +19,8 @@ namespace DVDLBussinessLayer
        public int LicenseTypeID { get; set; }
         public clsOrders Application {  get; set; }
         public int PassedTests {  get; set; }
+        
+
 
         enum enMode { AddNewMode = 0,UpdateMode=1 }
         enMode _Mode;
@@ -29,6 +31,7 @@ namespace DVDLBussinessLayer
             AppID = appID;
             LicenseTypeID = licenseTypeID;
             Application = clsOrders.FindApplicationByID(appID);
+
             _Mode = enMode.UpdateMode;
         }
 
@@ -72,9 +75,9 @@ namespace DVDLBussinessLayer
             return await LDLAppDataLayer.GetAllLDLApps();
         } 
 
-        public static async Task<string> GetLicenseType(int LDLAppID)
+        public static async Task<string> GetLicenseTypeByLicenseClassID(int LicenseClassID)
         {
-            return await LDLAppDataLayer.GetLicenseTypeUsingLDLAppID(LDLAppID);
+            return await LDLAppDataLayer.GetLicenseTypeUsingLicenseClassID(LicenseClassID);
         }
 
         public static LDLApp FindLDLApp(int LDLAppID)

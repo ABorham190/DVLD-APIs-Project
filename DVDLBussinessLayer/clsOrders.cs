@@ -24,8 +24,10 @@ namespace DVDLBussinessLayer
         public DateTime LastStatusDate { get; set; }
         public Decimal PaidFees { get; set; }
 
+        public clsPerson  Person { get; set; }
         public int CreatedByUserID { get; set; }
         public string AppStatus { get; set; }
+
 
 
 
@@ -39,6 +41,8 @@ namespace DVDLBussinessLayer
 
             ApplicationDate = applicationDate;
             ApplicationTypeID = OrderNameID;
+
+            Person=clsPerson.FindPerson(ApplicantID);
             
 
         }

@@ -1,0 +1,280 @@
+2024-10-21 10:32:12.504 +03:00 [WRN] Failed to determine the https port for redirect.
+2024-10-21 10:32:13.863 +03:00 [INF] Starting FindLDLApp in LDLAppDataLayer with LDLAppID : 58
+2024-10-21 10:32:14.878 +03:00 [INF] Connection To database established successfully
+2024-10-21 10:32:15.032 +03:00 [INF] Reader is Read
+2024-10-21 10:32:15.063 +03:00 [INF] FindLDLApp (LDLAppDataLAyer)  executed successfully
+2024-10-21 10:32:15.067 +03:00 [INF] starting FindApplicationByID in clsOrdersDatalayer using ApplicationID : 147
+2024-10-21 10:32:15.071 +03:00 [INF] Connection to database established successfully
+2024-10-21 10:32:15.082 +03:00 [INF] Reader is reading
+2024-10-21 10:32:15.085 +03:00 [INF] FindApplicationByID executed successfully
+2024-10-21 10:33:02.279 +03:00 [INF] Starting FindLDLApp in LDLAppDataLayer with LDLAppID : 58
+2024-10-21 10:33:27.733 +03:00 [INF] Connection To database established successfully
+2024-10-21 10:33:34.201 +03:00 [INF] Reader is Read
+2024-10-21 10:33:49.658 +03:00 [INF] FindLDLApp (LDLAppDataLAyer)  executed successfully
+2024-10-21 10:34:09.114 +03:00 [INF] starting FindApplicationByID in clsOrdersDatalayer using ApplicationID : 147
+2024-10-21 10:34:12.629 +03:00 [INF] Connection to database established successfully
+2024-10-21 10:34:15.524 +03:00 [INF] Reader is reading
+2024-10-21 10:34:28.113 +03:00 [INF] FindApplicationByID executed successfully
+2024-10-21 10:35:58.686 +03:00 [WRN] Failed to determine the https port for redirect.
+2024-10-21 10:37:16.765 +03:00 [INF] Starting FindLDLApp in LDLAppDataLayer with LDLAppID : 58
+2024-10-21 10:37:17.081 +03:00 [INF] Connection To database established successfully
+2024-10-21 10:37:17.163 +03:00 [INF] Reader is Read
+2024-10-21 10:37:17.191 +03:00 [INF] FindLDLApp (LDLAppDataLAyer)  executed successfully
+2024-10-21 10:37:17.195 +03:00 [INF] starting FindApplicationByID in clsOrdersDatalayer using ApplicationID : 147
+2024-10-21 10:37:17.198 +03:00 [INF] Connection to database established successfully
+2024-10-21 10:37:17.204 +03:00 [INF] Reader is reading
+2024-10-21 10:37:17.207 +03:00 [INF] FindApplicationByID executed successfully
+2024-10-21 10:38:32.922 +03:00 [WRN] Failed to determine the https port for redirect.
+2024-10-21 10:39:02.976 +03:00 [INF] Starting FindLDLApp in LDLAppDataLayer with LDLAppID : 58
+2024-10-21 10:39:03.340 +03:00 [INF] Connection To database established successfully
+2024-10-21 10:39:03.406 +03:00 [INF] Reader is Read
+2024-10-21 10:39:03.420 +03:00 [INF] FindLDLApp (LDLAppDataLAyer)  executed successfully
+2024-10-21 10:39:03.422 +03:00 [INF] starting FindApplicationByID in clsOrdersDatalayer using ApplicationID : 147
+2024-10-21 10:39:03.425 +03:00 [INF] Connection to database established successfully
+2024-10-21 10:39:03.431 +03:00 [INF] Reader is reading
+2024-10-21 10:39:03.434 +03:00 [INF] FindApplicationByID executed successfully
+2024-10-21 10:40:15.964 +03:00 [WRN] Failed to determine the https port for redirect.
+2024-10-21 10:40:53.143 +03:00 [INF] Starting FindLDLApp in LDLAppDataLayer with LDLAppID : 58
+2024-10-21 10:40:55.195 +03:00 [INF] Connection To database established successfully
+2024-10-21 10:41:00.022 +03:00 [INF] Reader is Read
+2024-10-21 10:41:04.995 +03:00 [INF] FindLDLApp (LDLAppDataLAyer)  executed successfully
+2024-10-21 10:41:21.652 +03:00 [INF] starting FindApplicationByID in clsOrdersDatalayer using ApplicationID : 147
+2024-10-21 10:41:23.481 +03:00 [INF] Connection to database established successfully
+2024-10-21 10:41:25.898 +03:00 [INF] Reader is reading
+2024-10-21 10:41:28.962 +03:00 [INF] FindApplicationByID executed successfully
+2024-10-21 10:44:04.814 +03:00 [WRN] Failed to determine the https port for redirect.
+2024-10-21 10:44:08.758 +03:00 [INF] Starting FindLDLApp in LDLAppDataLayer with LDLAppID : 58
+2024-10-21 10:44:09.062 +03:00 [INF] Connection To database established successfully
+2024-10-21 10:44:09.129 +03:00 [INF] Reader is Read
+2024-10-21 10:44:09.153 +03:00 [INF] FindLDLApp (LDLAppDataLAyer)  executed successfully
+2024-10-21 10:44:09.158 +03:00 [INF] starting FindApplicationByID in clsOrdersDatalayer using ApplicationID : 147
+2024-10-21 10:44:09.163 +03:00 [INF] Connection to database established successfully
+2024-10-21 10:44:09.173 +03:00 [INF] Reader is reading
+2024-10-21 10:44:09.177 +03:00 [INF] FindApplicationByID executed successfully
+2024-10-21 10:45:22.819 +03:00 [WRN] Failed to determine the https port for redirect.
+2024-10-21 10:45:44.408 +03:00 [INF] Starting FindLDLApp in LDLAppDataLayer with LDLAppID : 58
+2024-10-21 10:45:49.649 +03:00 [INF] Connection To database established successfully
+2024-10-21 10:45:53.050 +03:00 [INF] Reader is Read
+2024-10-21 10:45:58.815 +03:00 [INF] FindLDLApp (LDLAppDataLAyer)  executed successfully
+2024-10-21 10:46:20.400 +03:00 [INF] starting FindApplicationByID in clsOrdersDatalayer using ApplicationID : 147
+2024-10-21 10:46:22.717 +03:00 [INF] Connection to database established successfully
+2024-10-21 10:46:27.183 +03:00 [INF] Reader is reading
+2024-10-21 10:46:31.519 +03:00 [INF] FindApplicationByID executed successfully
+2024-10-21 11:00:36.996 +03:00 [WRN] Failed to determine the https port for redirect.
+2024-10-21 11:00:37.202 +03:00 [INF] Starting FindLDLApp in LDLAppDataLayer with LDLAppID : 58
+2024-10-21 11:00:37.500 +03:00 [INF] Connection To database established successfully
+2024-10-21 11:00:37.575 +03:00 [INF] Reader is Read
+2024-10-21 11:00:37.595 +03:00 [INF] FindLDLApp (LDLAppDataLAyer)  executed successfully
+2024-10-21 11:00:37.597 +03:00 [INF] starting FindApplicationByID in clsOrdersDatalayer using ApplicationID : 147
+2024-10-21 11:00:37.601 +03:00 [INF] Connection to database established successfully
+2024-10-21 11:00:37.610 +03:00 [INF] Reader is reading
+2024-10-21 11:00:37.615 +03:00 [INF] FindApplicationByID executed successfully
+2024-10-21 11:11:32.079 +03:00 [WRN] Failed to determine the https port for redirect.
+2024-10-21 11:11:32.351 +03:00 [INF] Starting FindLDLApp in LDLAppDataLayer with LDLAppID : 58
+2024-10-21 11:11:32.639 +03:00 [INF] Connection To database established successfully
+2024-10-21 11:11:32.697 +03:00 [INF] Reader is Read
+2024-10-21 11:11:32.716 +03:00 [INF] FindLDLApp (LDLAppDataLAyer)  executed successfully
+2024-10-21 11:11:32.718 +03:00 [INF] starting FindApplicationByID in clsOrdersDatalayer using ApplicationID : 147
+2024-10-21 11:11:32.719 +03:00 [INF] Connection to database established successfully
+2024-10-21 11:11:32.727 +03:00 [INF] Reader is reading
+2024-10-21 11:11:32.731 +03:00 [INF] FindApplicationByID executed successfully
+2024-10-21 11:11:32.803 +03:00 [INF] Start UpdateApplicationStatus func in clsOrdersDataLayer with ApplicationID : 147 , Complete
+2024-10-21 11:11:32.807 +03:00 [INF] Connection to database stablished successfully
+2024-10-21 11:16:40.123 +03:00 [WRN] Failed to determine the https port for redirect.
+2024-10-21 11:16:40.284 +03:00 [INF] Starting FindLDLApp in LDLAppDataLayer with LDLAppID : 58
+2024-10-21 11:16:40.472 +03:00 [INF] Connection To database established successfully
+2024-10-21 11:16:40.512 +03:00 [INF] Reader is Read
+2024-10-21 11:16:40.522 +03:00 [INF] FindLDLApp (LDLAppDataLAyer)  executed successfully
+2024-10-21 11:16:40.524 +03:00 [INF] starting FindApplicationByID in clsOrdersDatalayer using ApplicationID : 147
+2024-10-21 11:16:40.525 +03:00 [INF] Connection to database established successfully
+2024-10-21 11:16:40.533 +03:00 [INF] Reader is reading
+2024-10-21 11:16:40.536 +03:00 [INF] FindApplicationByID executed successfully
+2024-10-21 11:17:27.946 +03:00 [INF] Start UpdateApplicationStatus func in clsOrdersDataLayer with ApplicationID : 147 , Complete
+2024-10-21 11:17:32.396 +03:00 [INF] Connection to database stablished successfully
+2024-10-21 11:20:13.319 +03:00 [WRN] Failed to determine the https port for redirect.
+2024-10-21 11:20:13.558 +03:00 [INF] Starting FindLDLApp in LDLAppDataLayer with LDLAppID : 58
+2024-10-21 11:20:13.853 +03:00 [INF] Connection To database established successfully
+2024-10-21 11:20:13.917 +03:00 [INF] Reader is Read
+2024-10-21 11:20:13.932 +03:00 [INF] FindLDLApp (LDLAppDataLAyer)  executed successfully
+2024-10-21 11:20:13.934 +03:00 [INF] starting FindApplicationByID in clsOrdersDatalayer using ApplicationID : 147
+2024-10-21 11:20:13.937 +03:00 [INF] Connection to database established successfully
+2024-10-21 11:20:13.945 +03:00 [INF] Reader is reading
+2024-10-21 11:20:13.947 +03:00 [INF] FindApplicationByID executed successfully
+2024-10-21 11:20:14.008 +03:00 [INF] Start UpdateApplicationStatus func in clsOrdersDataLayer with ApplicationID : 147 , Complete
+2024-10-21 11:20:14.011 +03:00 [INF] Connection to database stablished successfully
+2024-10-21 12:29:57.175 +03:00 [WRN] Failed to determine the https port for redirect.
+2024-10-21 12:29:57.465 +03:00 [INF] Starting FindLDLApp in LDLAppDataLayer with LDLAppID : 58
+2024-10-21 12:29:57.761 +03:00 [INF] Connection To database established successfully
+2024-10-21 12:29:57.839 +03:00 [INF] Reader is Read
+2024-10-21 12:29:57.867 +03:00 [INF] FindLDLApp (LDLAppDataLAyer)  executed successfully
+2024-10-21 12:29:57.870 +03:00 [INF] starting FindApplicationByID in clsOrdersDatalayer using ApplicationID : 147
+2024-10-21 12:29:57.873 +03:00 [INF] Connection to database established successfully
+2024-10-21 12:29:57.876 +03:00 [INF] Reader is reading
+2024-10-21 12:29:57.878 +03:00 [INF] FindApplicationByID executed successfully
+2024-10-21 12:30:08.816 +03:00 [INF] Start UpdateApplicationStatus func in clsOrdersDataLayer with ApplicationID : 147 , Complete
+2024-10-21 12:30:14.926 +03:00 [INF] Connection to database stablished successfully
+2024-10-21 12:39:59.034 +03:00 [WRN] Failed to determine the https port for redirect.
+2024-10-21 12:39:59.194 +03:00 [INF] Starting FindLDLApp in LDLAppDataLayer with LDLAppID : 58
+2024-10-21 12:39:59.383 +03:00 [INF] Connection To database established successfully
+2024-10-21 12:39:59.422 +03:00 [INF] Reader is Read
+2024-10-21 12:39:59.434 +03:00 [INF] FindLDLApp (LDLAppDataLAyer)  executed successfully
+2024-10-21 12:39:59.437 +03:00 [INF] starting FindApplicationByID in clsOrdersDatalayer using ApplicationID : 147
+2024-10-21 12:39:59.439 +03:00 [INF] Connection to database established successfully
+2024-10-21 12:39:59.441 +03:00 [INF] Reader is reading
+2024-10-21 12:39:59.443 +03:00 [INF] FindApplicationByID executed successfully
+2024-10-21 12:39:59.603 +03:00 [INF] Start UpdateApplicationStatus func in clsOrdersDataLayer with ApplicationID : 147 , Complete
+2024-10-21 12:39:59.606 +03:00 [INF] Connection to database stablished successfully
+2024-10-21 12:45:07.903 +03:00 [WRN] Failed to determine the https port for redirect.
+2024-10-21 12:45:08.192 +03:00 [INF] Starting FindLDLApp in LDLAppDataLayer with LDLAppID : 58
+2024-10-21 12:45:08.578 +03:00 [INF] Connection To database established successfully
+2024-10-21 12:45:08.640 +03:00 [INF] Reader is Read
+2024-10-21 12:45:08.665 +03:00 [INF] FindLDLApp (LDLAppDataLAyer)  executed successfully
+2024-10-21 12:45:08.668 +03:00 [INF] starting FindApplicationByID in clsOrdersDatalayer using ApplicationID : 147
+2024-10-21 12:45:08.673 +03:00 [INF] Connection to database established successfully
+2024-10-21 12:45:08.678 +03:00 [INF] Reader is reading
+2024-10-21 12:45:08.683 +03:00 [INF] FindApplicationByID executed successfully
+2024-10-21 12:45:08.818 +03:00 [INF] Start UpdateApplicationStatus func in clsOrdersDataLayer with ApplicationID : 147 , Complete
+2024-10-21 12:45:08.821 +03:00 [INF] Connection to database stablished successfully
+2024-10-21 12:58:02.371 +03:00 [WRN] Failed to determine the https port for redirect.
+2024-10-21 12:58:03.154 +03:00 [INF] Starting FindLDLApp in LDLAppDataLayer with LDLAppID : 58
+2024-10-21 12:58:03.482 +03:00 [INF] Connection To database established successfully
+2024-10-21 12:58:03.547 +03:00 [INF] Reader is Read
+2024-10-21 12:58:03.563 +03:00 [INF] FindLDLApp (LDLAppDataLAyer)  executed successfully
+2024-10-21 12:58:03.565 +03:00 [INF] starting FindApplicationByID in clsOrdersDatalayer using ApplicationID : 147
+2024-10-21 12:58:03.567 +03:00 [INF] Connection to database established successfully
+2024-10-21 12:58:03.570 +03:00 [INF] Reader is reading
+2024-10-21 12:58:03.572 +03:00 [INF] FindApplicationByID executed successfully
+2024-10-21 12:58:03.681 +03:00 [INF] Start UpdateApplicationStatus func in clsOrdersDataLayer with ApplicationID : 147 , Complete
+2024-10-21 12:58:03.683 +03:00 [INF] Connection to database stablished successfully
+2024-10-21 13:44:01.429 +03:00 [WRN] Failed to determine the https port for redirect.
+2024-10-21 13:44:01.957 +03:00 [INF] Starting FindLDLApp in LDLAppDataLayer with LDLAppID : 58
+2024-10-21 13:44:02.237 +03:00 [INF] Connection To database established successfully
+2024-10-21 13:44:02.304 +03:00 [INF] Reader is Read
+2024-10-21 13:44:02.319 +03:00 [INF] FindLDLApp (LDLAppDataLAyer)  executed successfully
+2024-10-21 13:44:02.321 +03:00 [INF] starting FindApplicationByID in clsOrdersDatalayer using ApplicationID : 147
+2024-10-21 13:44:02.322 +03:00 [INF] Connection to database established successfully
+2024-10-21 13:44:02.330 +03:00 [INF] Reader is reading
+2024-10-21 13:44:02.333 +03:00 [INF] FindApplicationByID executed successfully
+2024-10-21 13:44:02.473 +03:00 [INF] Start UpdateApplicationStatus func in clsOrdersDataLayer with ApplicationID : 147 , Complete
+2024-10-21 13:44:02.477 +03:00 [INF] Connection to database stablished successfully
+2024-10-21 13:47:26.349 +03:00 [WRN] Failed to determine the https port for redirect.
+2024-10-21 13:48:25.492 +03:00 [INF] Starting FindLDLApp in LDLAppDataLayer with LDLAppID : 58
+2024-10-21 13:48:25.759 +03:00 [INF] Connection To database established successfully
+2024-10-21 13:48:25.820 +03:00 [INF] Reader is Read
+2024-10-21 13:48:25.843 +03:00 [INF] FindLDLApp (LDLAppDataLAyer)  executed successfully
+2024-10-21 13:48:27.123 +03:00 [INF] starting FindApplicationByID in clsOrdersDatalayer using ApplicationID : 147
+2024-10-21 13:48:27.126 +03:00 [INF] Connection to database established successfully
+2024-10-21 13:48:27.132 +03:00 [INF] Reader is reading
+2024-10-21 13:48:27.134 +03:00 [INF] FindApplicationByID executed successfully
+2024-10-21 17:29:45.764 +03:00 [WRN] Failed to determine the https port for redirect.
+2024-10-21 17:30:00.802 +03:00 [INF] Starting FindLDLApp in LDLAppDataLayer with LDLAppID : 58
+2024-10-21 17:30:01.186 +03:00 [INF] Connection To database established successfully
+2024-10-21 17:30:01.244 +03:00 [INF] Reader is Read
+2024-10-21 17:30:01.262 +03:00 [INF] FindLDLApp (LDLAppDataLAyer)  executed successfully
+2024-10-21 17:30:01.264 +03:00 [INF] starting FindApplicationByID in clsOrdersDatalayer using ApplicationID : 147
+2024-10-21 17:30:01.266 +03:00 [INF] Connection to database established successfully
+2024-10-21 17:30:01.272 +03:00 [INF] Reader is reading
+2024-10-21 17:30:01.274 +03:00 [INF] FindApplicationByID executed successfully
+2024-10-21 17:38:49.145 +03:00 [WRN] Failed to determine the https port for redirect.
+2024-10-21 17:38:49.678 +03:00 [INF] Starting FindLDLApp in LDLAppDataLayer with LDLAppID : 58
+2024-10-21 17:38:50.042 +03:00 [INF] Connection To database established successfully
+2024-10-21 17:38:50.104 +03:00 [INF] Reader is Read
+2024-10-21 17:38:50.122 +03:00 [INF] FindLDLApp (LDLAppDataLAyer)  executed successfully
+2024-10-21 17:38:50.124 +03:00 [INF] starting FindApplicationByID in clsOrdersDatalayer using ApplicationID : 147
+2024-10-21 17:38:50.126 +03:00 [INF] Connection to database established successfully
+2024-10-21 17:38:50.133 +03:00 [INF] Reader is reading
+2024-10-21 17:38:50.136 +03:00 [INF] FindApplicationByID executed successfully
+2024-10-21 17:38:50.240 +03:00 [INF] Start UpdateApplicationStatus func in clsOrdersDataLayer with ApplicationID : 147 , Complete
+2024-10-21 17:38:50.242 +03:00 [INF] Connection to database stablished successfully
+2024-10-21 17:44:31.693 +03:00 [WRN] Failed to determine the https port for redirect.
+2024-10-21 17:55:44.965 +03:00 [WRN] Failed to determine the https port for redirect.
+2024-10-21 17:56:36.936 +03:00 [WRN] Failed to determine the https port for redirect.
+2024-10-21 17:57:39.338 +03:00 [WRN] Failed to determine the https port for redirect.
+2024-10-21 18:00:12.496 +03:00 [WRN] Failed to determine the https port for redirect.
+2024-10-21 18:00:12.961 +03:00 [INF] Starting FindLDLApp in LDLAppDataLayer with LDLAppID : 58
+2024-10-21 18:00:13.309 +03:00 [INF] Connection To database established successfully
+2024-10-21 18:00:13.398 +03:00 [INF] Reader is Read
+2024-10-21 18:00:13.428 +03:00 [INF] FindLDLApp (LDLAppDataLAyer)  executed successfully
+2024-10-21 18:00:13.432 +03:00 [INF] starting FindApplicationByID in clsOrdersDatalayer using ApplicationID : 147
+2024-10-21 18:00:13.436 +03:00 [INF] Connection to database established successfully
+2024-10-21 18:00:13.447 +03:00 [INF] Reader is reading
+2024-10-21 18:00:13.450 +03:00 [INF] FindApplicationByID executed successfully
+2024-10-21 18:00:13.567 +03:00 [INF] Start UpdateApplicationStatus func in clsOrdersDataLayer with ApplicationID : 147 , Complete
+2024-10-21 18:00:13.569 +03:00 [INF] Connection to database stablished successfully
+2024-10-21 18:11:30.346 +03:00 [WRN] Failed to determine the https port for redirect.
+2024-10-21 18:17:15.476 +03:00 [WRN] Failed to determine the https port for redirect.
+2024-10-21 18:20:20.025 +03:00 [WRN] Failed to determine the https port for redirect.
+2024-10-21 18:58:49.937 +03:00 [WRN] Failed to determine the https port for redirect.
+2024-10-21 18:59:58.428 +03:00 [WRN] Failed to determine the https port for redirect.
+2024-10-21 19:00:24.153 +03:00 [WRN] Failed to determine the https port for redirect.
+2024-10-21 19:02:37.120 +03:00 [WRN] Failed to determine the https port for redirect.
+2024-10-21 19:05:02.585 +03:00 [WRN] Failed to determine the https port for redirect.
+2024-10-21 19:17:51.237 +03:00 [WRN] Failed to determine the https port for redirect.
+2024-10-21 19:19:10.849 +03:00 [WRN] Failed to determine the https port for redirect.
+2024-10-21 19:20:32.061 +03:00 [WRN] Failed to determine the https port for redirect.
+2024-10-21 19:25:07.188 +03:00 [WRN] Failed to determine the https port for redirect.
+2024-10-21 19:25:07.737 +03:00 [INF] Starting FindLDLApp in LDLAppDataLayer with LDLAppID : 58
+2024-10-21 19:25:08.109 +03:00 [INF] Connection To database established successfully
+2024-10-21 19:25:08.190 +03:00 [INF] Reader is Read
+2024-10-21 19:25:08.218 +03:00 [INF] FindLDLApp (LDLAppDataLAyer)  executed successfully
+2024-10-21 19:25:08.221 +03:00 [INF] starting FindApplicationByID in clsOrdersDatalayer using ApplicationID : 147
+2024-10-21 19:25:08.225 +03:00 [INF] Connection to database established successfully
+2024-10-21 19:25:08.232 +03:00 [INF] Reader is reading
+2024-10-21 19:25:08.240 +03:00 [INF] FindApplicationByID executed successfully
+2024-10-21 19:25:08.374 +03:00 [INF] Start UpdateApplicationStatus func in clsOrdersDataLayer with ApplicationID : 147 , Complete
+2024-10-21 19:25:08.374 +03:00 [INF] Connection to database stablished successfully
+2024-10-21 20:32:23.461 +03:00 [WRN] Failed to determine the https port for redirect.
+2024-10-21 20:32:23.944 +03:00 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: Unable to resolve service for type 'Microsoft.Extensions.Logging.ILogger' while attempting to activate 'dvld_api.Controllers.LocalLicenseController'.
+   at Microsoft.Extensions.DependencyInjection.ActivatorUtilities.ThrowHelperUnableToResolveService(Type type, Type requiredBy)
+   at lambda_method9(Closure, IServiceProvider, Object[])
+   at Microsoft.AspNetCore.Mvc.Controllers.ControllerFactoryProvider.<>c__DisplayClass6_0.<CreateControllerFactory>g__CreateController|0(ControllerContext controllerContext)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2024-10-21 20:33:28.634 +03:00 [WRN] Failed to determine the https port for redirect.
+2024-10-21 20:33:28.893 +03:00 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: Unable to resolve service for type 'Microsoft.Extensions.Logging.ILogger' while attempting to activate 'dvld_api.Controllers.LocalLicenseController'.
+   at Microsoft.Extensions.DependencyInjection.ActivatorUtilities.ThrowHelperUnableToResolveService(Type type, Type requiredBy)
+   at lambda_method9(Closure, IServiceProvider, Object[])
+   at Microsoft.AspNetCore.Mvc.Controllers.ControllerFactoryProvider.<>c__DisplayClass6_0.<CreateControllerFactory>g__CreateController|0(ControllerContext controllerContext)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2024-10-21 20:34:56.418 +03:00 [WRN] Failed to determine the https port for redirect.
+2024-10-21 20:34:59.799 +03:00 [INF] Start execution AddNew method in LocalLicenseController
+2024-10-21 20:35:00.795 +03:00 [INF] Creating instances from clsLiceses and clsDriver classes
+2024-10-21 20:35:01.456 +03:00 [INF] Starting FindLDLApp in LDLAppDataLayer with LDLAppID : 58
+2024-10-21 20:35:01.723 +03:00 [INF] Connection To database established successfully
+2024-10-21 20:35:01.805 +03:00 [INF] Reader is Read
+2024-10-21 20:35:01.829 +03:00 [INF] FindLDLApp (LDLAppDataLAyer)  executed successfully
+2024-10-21 20:35:01.832 +03:00 [INF] starting FindApplicationByID in clsOrdersDatalayer using ApplicationID : 147
+2024-10-21 20:35:01.834 +03:00 [INF] Connection to database established successfully
+2024-10-21 20:35:01.842 +03:00 [INF] Reader is reading
+2024-10-21 20:35:01.847 +03:00 [INF] FindApplicationByID executed successfully
+2024-10-21 20:35:03.067 +03:00 [INF] Applicant person is not a driver
+2024-10-21 20:35:03.935 +03:00 [INF] Driver added successfully with ID : 25
+2024-10-21 20:35:04.369 +03:00 [INF] Start executing GetLicenseTypeUsingLIcenseClassID
+2024-10-21 20:35:04.373 +03:00 [INF] Connection To database established successfully
+2024-10-21 20:35:04.419 +03:00 [INF] GetLicenseTypeUsingLicenseTypeID Executed successfully value : Class 3 - Ordinary driving license
+2024-10-21 20:35:05.052 +03:00 [INF] License Added Successfully with ID : 42
+2024-10-21 20:35:05.682 +03:00 [INF] Start UpdateApplicationStatus func in clsOrdersDataLayer with ApplicationID : 147 , Complete
+2024-10-21 20:35:05.684 +03:00 [INF] Connection to database stablished successfully
+2024-10-21 20:35:05.937 +03:00 [INF] Application updated successfully to 3
+2024-10-21 20:35:07.899 +03:00 [INF] AddNew method in LocalLicenseController Executed successfully

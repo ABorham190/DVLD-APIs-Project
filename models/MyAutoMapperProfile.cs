@@ -13,6 +13,7 @@ namespace dvld_api.models
             CreateMap<clsOrders,clsApplicationDTO>();
             CreateMap<AddAppointmentDTO, clsAppointments>();
             CreateMap<clsAppointments, GetAppointmentDTO>();
+            CreateMap<clsLicenses, LicenseDTO>();
             
         }
     }
