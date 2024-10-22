@@ -1,4 +1,5 @@
 ﻿using DVLDdataAccessLayer;
+using Serilog;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -65,8 +66,11 @@ namespace DVDLBussinessLayer
                 return null;
             }
         }
+
+        
         private async Task< bool> _AddNewDetain()
         {
+
             
             this.DetainID =await clsDetainDataLayer.AddNewDetain(this.LicenseID,
                 this.DetainDate, this.FineFees, this.CreatedByUserID,
@@ -108,6 +112,41 @@ namespace DVDLBussinessLayer
             return await clsDetainDataLayer.GetAllDetainedLicenses();
         }
         
+        public static async Task<bool>ReleaseDetainedLicense(int LicenseID,int CreatedByUserID)
+        {
+            Log.Information("Start execution of ReleaseDetainedLicense method in clsDetain");
+            
+            clsLicenses DetainedLicense=clsLicenses.GetLicenseDetailsByLLicenseID(LicenseID);
+            if (DetainedLicense == null)
+            {
+                Log.Error($"License with LicenseID : {LicenseID} is not found");
+                return false;
+            }
 
+            if (DetainedLicense.detain == null)
+            {
+                Log.Error($"License with LicenseID : {DetainedLicense.LicenseID} is not detained");
+                return false;
+            }
+
+            clsOrders ReleaseApp=new clsOrders 
+            {
+                ApplicantID=DetainedLicense.Person.ID,
+                ApplicationTypeID=5,
+                ApplicationDate=DateTime.Now,
+                PaidFees=15,
+                CreatedByUserID=1,
+                LastStatusDate=DateTime.Now,
+                
+            };
+
+            if (!ReleaseApp.Save())
+            {
+                Log.Error("Release Application NOT added successfully");
+                return false;
+            }
+
+            return await clsDetainDataLayer.ReleaseDetainedLicense(LicenseID, ReleaseApp.ApplicationID, CreatedByUserID) > 0;
+        }
     }
 }

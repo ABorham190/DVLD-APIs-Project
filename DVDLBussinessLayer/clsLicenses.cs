@@ -29,6 +29,8 @@ namespace DVDLBussinessLayer
         public DateTime DateOfBirth;
         public string Name;
         public byte Gender;
+        public clsPerson Person {  get; set; }
+        public clsDetain detain {  get; set; }
         enum enMode { UpdateMode = 1, AddNewMode = 2 }
         enMode _Mode;
        public clsLicenses()
@@ -77,6 +79,8 @@ namespace DVDLBussinessLayer
             ImagePath = imagePath;
             ClassName = className;
             NationalNo = nationalNo;
+            Person = clsPerson.FindPerson(NationalNo);
+            detain = clsDetain.FindDetain(LicenseID);
             
             _Mode = enMode.UpdateMode;
         }
@@ -229,6 +233,7 @@ namespace DVDLBussinessLayer
         {
             return clsLicensesDataLayer.DeActivateLicenseByID(LicenseID);
         }
+
 
     }
 }

@@ -107,7 +107,6 @@ namespace DVLDdataAccessLayer
             }
             return IsFound ;
         }
-
         public static bool UpdateDetain(int DetainID,bool IsReleased,
             DateTime ReleaseDate,int ReleaseByUserID,
             int ReleaseApplicationID)
@@ -138,6 +137,35 @@ namespace DVLDdataAccessLayer
 
             return NumberOfAffectedRows > 0;
         }
+
+        public static async Task<int>ReleaseDetainedLicense(int LicenseID,int ReleaseApplicationID,int ReleasedByUserID)
+        {
+            int NumberOfAffectedRows = 0;
+            try
+            {
+                using (SqlConnection Connection = new SqlConnection(Settings.ConnectionString))
+                {
+                    using (SqlCommand Command = new SqlCommand("SP_ReleaseDetainedLicense", Connection))
+                    {
+                        Command.CommandType = CommandType.StoredProcedure;
+
+                        Command.Parameters.AddWithValue("@LicenseID", LicenseID);
+                        Command.Parameters.AddWithValue("@ReleasedByUserID", ReleasedByUserID);
+                        Command.Parameters.AddWithValue("@ReleaseApplicationID", ReleaseApplicationID);
+
+                        await Connection.OpenAsync();
+
+                        NumberOfAffectedRows = await Command.ExecuteNonQueryAsync();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                NumberOfAffectedRows = 0;
+            }
+
+            return NumberOfAffectedRows;
+        }
         public static async Task<List<GetDetianedLicenseDTO>> GetAllDetainedLicenses()
         {
             Log.Information("Start Executing GetAllDetainedLicenses func in clsDetainedDatalayer");
@@ -156,8 +184,6 @@ namespace DVLDdataAccessLayer
                         {
                             while (await Reader.ReadAsync())
                             {
-                                Log.Information("Reader reads");
-
                                 var detainedlicenseDTO = new GetDetianedLicenseDTO();
 
                                 detainedlicenseDTO.DetainID = (int)Reader["DetainID"];

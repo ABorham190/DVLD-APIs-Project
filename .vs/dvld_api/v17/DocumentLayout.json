@@ -15,12 +15,16 @@
       "RelativeMoniker": "D:0:0:{7FB7444F-9E5B-4846-AA5F-FA933807947D}|DVDLBussinessLayer\\DVDLBussinessLayer.csproj|solutionrelative:dvdlbussinesslayer\\clsdetain.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7FB7444F-9E5B-4846-AA5F-FA933807947D}|DVDLBussinessLayer\\DVDLBussinessLayer.csproj|E:\\programming_main\\MyProjects\\dvld_api\\dvdlbussinesslayer\\ldlapp.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7FB7444F-9E5B-4846-AA5F-FA933807947D}|DVDLBussinessLayer\\DVDLBussinessLayer.csproj|solutionrelative:dvdlbussinesslayer\\ldlapp.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{7FB7444F-9E5B-4846-AA5F-FA933807947D}|DVDLBussinessLayer\\DVDLBussinessLayer.csproj|e:\\programming_main\\myprojects\\dvld_api\\dvdlbussinesslayer\\clslicenses.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7FB7444F-9E5B-4846-AA5F-FA933807947D}|DVDLBussinessLayer\\DVDLBussinessLayer.csproj|solutionrelative:dvdlbussinesslayer\\clslicenses.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{7FB7444F-9E5B-4846-AA5F-FA933807947D}|DVDLBussinessLayer\\DVDLBussinessLayer.csproj|E:\\programming_main\\MyProjects\\dvld_api\\dvdlbussinesslayer\\clsorders.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{7FB7444F-9E5B-4846-AA5F-FA933807947D}|DVDLBussinessLayer\\DVDLBussinessLayer.csproj|solutionrelative:dvdlbussinesslayer\\clsorders.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7FB7444F-9E5B-4846-AA5F-FA933807947D}|DVDLBussinessLayer\\DVDLBussinessLayer.csproj|E:\\programming_main\\MyProjects\\dvld_api\\dvdlbussinesslayer\\ldlapp.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7FB7444F-9E5B-4846-AA5F-FA933807947D}|DVDLBussinessLayer\\DVDLBussinessLayer.csproj|solutionrelative:dvdlbussinesslayer\\ldlapp.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -30,17 +34,30 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "clsLicenses.cs",
+              "DocumentMoniker": "E:\\programming_main\\MyProjects\\dvld_api\\DVDLBussinessLayer\\clsLicenses.cs",
+              "RelativeDocumentMoniker": "DVDLBussinessLayer\\clsLicenses.cs",
+              "ToolTip": "E:\\programming_main\\MyProjects\\dvld_api\\DVDLBussinessLayer\\clsLicenses.cs",
+              "RelativeToolTip": "DVDLBussinessLayer\\clsLicenses.cs",
+              "ViewState": "AQIAALwAAAAAAAAAAIAwwM4AAAAIAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-22T10:46:08.991Z",
+              "EditorCaption": ""
+            },
             {
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "DetainLicenseController.cs",
               "DocumentMoniker": "E:\\programming_main\\MyProjects\\dvld_api\\Controllers\\DetainLicenseController.cs",
               "RelativeDocumentMoniker": "Controllers\\DetainLicenseController.cs",
-              "ToolTip": "E:\\programming_main\\MyProjects\\dvld_api\\Controllers\\DetainLicenseController.cs*",
-              "RelativeToolTip": "Controllers\\DetainLicenseController.cs*",
-              "ViewState": "AQIAAD4AAAAAAAAAAAAiwE8AAAANAAAA",
+              "ToolTip": "E:\\programming_main\\MyProjects\\dvld_api\\Controllers\\DetainLicenseController.cs",
+              "RelativeToolTip": "Controllers\\DetainLicenseController.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAFoAAAAIAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-10-22T07:36:47.928Z",
               "EditorCaption": ""
@@ -53,7 +70,7 @@
               "RelativeDocumentMoniker": "DVLDdataAccessLayer\\clsDetainDataLayer.cs",
               "ToolTip": "E:\\programming_main\\MyProjects\\dvld_api\\DVLDdataAccessLayer\\clsDetainDataLayer.cs",
               "RelativeToolTip": "DVLDdataAccessLayer\\clsDetainDataLayer.cs",
-              "ViewState": "AQIAAIUAAAAAAAAAAAAUwIwAAABCAAAA",
+              "ViewState": "AQIAAGoAAAAAAAAAAAAgwEoAAAAbAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-10-22T06:48:56.446Z",
               "EditorCaption": ""
@@ -64,16 +81,16 @@
               "Title": "clsDetain.cs",
               "DocumentMoniker": "E:\\programming_main\\MyProjects\\dvld_api\\DVDLBussinessLayer\\clsDetain.cs",
               "RelativeDocumentMoniker": "DVDLBussinessLayer\\clsDetain.cs",
-              "ToolTip": "E:\\programming_main\\MyProjects\\dvld_api\\DVDLBussinessLayer\\clsDetain.cs",
-              "RelativeToolTip": "DVDLBussinessLayer\\clsDetain.cs",
-              "ViewState": "AQIAAGAAAAAAAAAAAAAiwGoAAAAJAAAA",
+              "ToolTip": "E:\\programming_main\\MyProjects\\dvld_api\\DVDLBussinessLayer\\clsDetain.cs*",
+              "RelativeToolTip": "DVDLBussinessLayer\\clsDetain.cs*",
+              "ViewState": "AQIAAHcAAAAAAAAAAAAmwJMAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-10-22T04:39:57.415Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 5,
               "Title": "LDLApp.cs",
               "DocumentMoniker": "E:\\programming_main\\MyProjects\\dvld_api\\DVDLBussinessLayer\\LDLApp.cs",
               "RelativeDocumentMoniker": "DVDLBussinessLayer\\LDLApp.cs",
@@ -92,9 +109,10 @@
               "RelativeDocumentMoniker": "DVDLBussinessLayer\\clsOrders.cs",
               "ToolTip": "E:\\programming_main\\MyProjects\\dvld_api\\DVDLBussinessLayer\\clsOrders.cs",
               "RelativeToolTip": "DVDLBussinessLayer\\clsOrders.cs",
-              "ViewState": "AQIAACAAAAAAAAAAAAAWwFYAAAAIAAAA",
+              "ViewState": "AQIAADYAAAAAAAAAAAArwFYAAAAIAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-21T06:06:21.634Z"
+              "WhenOpened": "2024-10-21T06:06:21.634Z",
+              "EditorCaption": ""
             }
           ]
         }

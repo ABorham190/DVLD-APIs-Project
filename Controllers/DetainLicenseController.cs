@@ -13,7 +13,7 @@ namespace dvld_api.Controllers
         private readonly ILogger<DetainLicenseController> _logger;
         private readonly IMapper _mapper;
 
-        public DetainLicenseController(ILogger<DetainLicenseController> logger,IMapper mapper)
+        public DetainLicenseController(ILogger<DetainLicenseController> logger, IMapper mapper)
         {
             _logger = logger;
             _mapper = mapper;
@@ -36,7 +36,7 @@ namespace dvld_api.Controllers
             {
                 var NewDetainID = HandleAddNewDetain.AddNewDetain(detainLicenseDTO);
 
-                if (await NewDetainID!=-1)
+                if (await NewDetainID != -1)
                 {
                     _logger.LogInformation($"Detain added successfully with ID : {NewDetainID}");
                     return Ok(NewDetainID);
@@ -47,9 +47,10 @@ namespace dvld_api.Controllers
                     return StatusCode(500, "Internal server error");
                 }
 
-            } catch (Exception ex) 
+            }
+            catch (Exception ex)
             {
-                _logger.LogError(ex,"UnExcepected Error "+ex.Message);
+                _logger.LogError(ex, "UnExcepected Error " + ex.Message);
                 var response = new
                 {
                     error = "Internal server Error",
@@ -58,7 +59,12 @@ namespace dvld_api.Controllers
                 return StatusCode(500, response);
             }
         }
+
         [HttpGet("GetAll")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+
         public async Task<IActionResult> GetAll()
         {
             _logger.LogInformation("Start executing GetAll DetainedLicenseController");
@@ -77,6 +83,33 @@ namespace dvld_api.Controllers
             {
                 _logger.LogError("Unexcepected error occurs");
                 return StatusCode(500, "Internal server error");
+            }
+        }
+
+        [HttpPatch("ReleaseDetainedLicense")]
+        public async Task<IActionResult> ReleaseDetianedLicense(int LicenseID, int CreatedByUserID)
+        {
+            _logger.LogInformation("Start executing ReleaseDetainedLicense DetainLicense controller");
+
+            if (LicenseID < 1 || CreatedByUserID < 1)
+            {
+                _logger.LogError($"Invalid User Input LicenseID {LicenseID} , CreatedByUserID {CreatedByUserID}");
+                return BadRequest($"Invalid User Input LicenseID {LicenseID} , CreatedByUserID {CreatedByUserID}");
+            }
+            try
+            {
+                if (await clsDetain.ReleaseDetainedLicense(LicenseID, CreatedByUserID))
+                {
+                    _logger.LogInformation("License Released successfully");
+                    return Ok("License Released successfully");
+                }
+                _logger.LogError("License not Released successfully");
+                return StatusCode(500, "Internal  server error");
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex.Message, "Error in ReleaseDetainedLicense method ");
+                return StatusCode(500, "Internal  server error");
             }
         }
     }

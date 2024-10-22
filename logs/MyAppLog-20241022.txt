@@ -70,3 +70,38 @@ File name: 'System.Data.SqlClient, Version=0.0.0.0, Culture=neutral, PublicKeyTo
 2024-10-22 12:25:44.312 +03:00 [INF] Reader reads
 2024-10-22 12:25:44.314 +03:00 [INF] Reader reads
 2024-10-22 12:25:44.327 +03:00 [INF] Number of All detained license : 4
+2024-10-22 13:33:12.540 +03:00 [WRN] Failed to determine the https port for redirect.
+2024-10-22 14:01:34.675 +03:00 [WRN] Failed to determine the https port for redirect.
+2024-10-22 14:01:35.178 +03:00 [INF] Start executing GetLicenseDetailsUsingLicenseID clsLicenseDataLayer
+2024-10-22 14:01:35.460 +03:00 [INF] connection to database established successfully
+2024-10-22 14:01:35.525 +03:00 [INF] Reader read
+2024-10-22 14:01:35.545 +03:00 [INF] GetLicenseDetailsUsingLicenseID executed successfully
+2024-10-22 14:01:35.562 +03:00 [INF] Starting AddNewApplication func in clsOrdersDataLayer
+2024-10-22 14:01:35.563 +03:00 [INF] Connection Stablished Successfully
+2024-10-22 14:01:35.578 +03:00 [INF] Number of affected rows : 1
+2024-10-22 14:01:35.580 +03:00 [INF] Application Added successfully with ID : 148
+2024-10-22 14:16:29.239 +03:00 [WRN] Failed to determine the https port for redirect.
+2024-10-22 14:16:29.794 +03:00 [INF] Start executing ReleaseDetainedLicense DetainLicense controller
+2024-10-22 14:16:29.837 +03:00 [INF] Start executing GetLicenseDetailsUsingLicenseID clsLicenseDataLayer
+2024-10-22 14:16:30.121 +03:00 [INF] connection to database established successfully
+2024-10-22 14:16:30.207 +03:00 [INF] Reader read
+2024-10-22 14:16:30.236 +03:00 [INF] GetLicenseDetailsUsingLicenseID executed successfully
+2024-10-22 14:16:30.263 +03:00 [ERR] License not Released successfully
+2024-10-22 14:16:49.437 +03:00 [INF] Start executing ReleaseDetainedLicense DetainLicense controller
+2024-10-22 14:16:49.438 +03:00 [INF] Start executing GetLicenseDetailsUsingLicenseID clsLicenseDataLayer
+2024-10-22 14:16:49.440 +03:00 [INF] connection to database established successfully
+2024-10-22 14:16:49.441 +03:00 [INF] Reader read
+2024-10-22 14:16:49.442 +03:00 [INF] GetLicenseDetailsUsingLicenseID executed successfully
+2024-10-22 14:16:49.443 +03:00 [ERR] License not Released successfully
+2024-10-22 14:16:52.150 +03:00 [INF] Start executing ReleaseDetainedLicense DetainLicense controller
+2024-10-22 14:16:52.152 +03:00 [INF] Start executing GetLicenseDetailsUsingLicenseID clsLicenseDataLayer
+2024-10-22 14:16:52.153 +03:00 [INF] connection to database established successfully
+2024-10-22 14:16:52.154 +03:00 [INF] Reader read
+2024-10-22 14:16:52.155 +03:00 [INF] GetLicenseDetailsUsingLicenseID executed successfully
+2024-10-22 14:16:52.157 +03:00 [ERR] License not Released successfully
+2024-10-22 14:17:14.271 +03:00 [INF] Start executing ReleaseDetainedLicense DetainLicense controller
+2024-10-22 14:17:31.328 +03:00 [INF] Start executing GetLicenseDetailsUsingLicenseID clsLicenseDataLayer
+2024-10-22 14:17:35.035 +03:00 [INF] connection to database established successfully
+2024-10-22 14:17:36.119 +03:00 [INF] Reader read
+2024-10-22 14:17:40.893 +03:00 [INF] GetLicenseDetailsUsingLicenseID executed successfully
+2024-10-22 14:19:13.545 +03:00 [ERR] License not Released successfully
