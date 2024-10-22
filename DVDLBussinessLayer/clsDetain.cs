@@ -36,7 +36,6 @@ namespace DVDLBussinessLayer
             IsRelease = false;
 
             _Mode=enMode.AddNew;
-
         }
 
         clsDetain(int detainID,DateTime Detaindate,Decimal FineFees,
@@ -48,8 +47,6 @@ namespace DVDLBussinessLayer
             this.CreatedByUserID = Createdbyuserid;
 
             _Mode = enMode.Update;
-
-
         }
 
         public static clsDetain FindDetain(int LicenseID)
@@ -67,17 +64,11 @@ namespace DVDLBussinessLayer
             {
                 return null;
             }
-
-
         }
-
-
-
-
-        private bool _AddNewDetain()
+        private async Task< bool> _AddNewDetain()
         {
             
-            this.DetainID = clsDetainDataLayer.AddNewDetain(this.LicenseID,
+            this.DetainID =await clsDetainDataLayer.AddNewDetain(this.LicenseID,
                 this.DetainDate, this.FineFees, this.CreatedByUserID,
                 this.IsRelease);
             return this.DetainID != 0;
@@ -89,12 +80,12 @@ namespace DVDLBussinessLayer
                 this.ReleaseDate, this.ReleasedByUserId, this.ReleasedAppID);
         }
 
-        public bool Save()
+        public async Task<bool> Save()
         {
             switch (_Mode)
             {
                 case enMode.AddNew:
-                    if (_AddNewDetain())
+                    if (await _AddNewDetain())
                     {
                         _Mode = enMode.Update;
                         return true;

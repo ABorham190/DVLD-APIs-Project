@@ -1,0 +1,53 @@
+2024-10-22 08:51:48.478 +03:00 [WRN] Failed to determine the https port for redirect.
+2024-10-22 08:51:49.541 +03:00 [INF] Start executing AddNew DetainLicenseController
+2024-10-22 08:51:49.683 +03:00 [ERR] UnExcepected Error Could not load file or assembly 'System.Data.SqlClient, Version=0.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a'. The system cannot find the file specified.
+System.IO.FileNotFoundException: Could not load file or assembly 'System.Data.SqlClient, Version=0.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a'. The system cannot find the file specified.
+File name: 'System.Data.SqlClient, Version=0.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a'
+   at DVLDdataAccessLayer.clsDetainDataLayer.UpdateDetain(Int32 DetainID, Boolean IsReleased, DateTime ReleaseDate, Int32 ReleaseByUserID, Int32 ReleaseApplicationID)
+   at DVDLBussinessLayer.clsDetain._UpdateDetain() in E:\programming_main\MyProjects\dvld_api\DVDLBussinessLayer\clsDetain.cs:line 88
+   at DVDLBussinessLayer.clsDetain.Save() in E:\programming_main\MyProjects\dvld_api\DVDLBussinessLayer\clsDetain.cs:line 105
+   at dvld_api.Controllers.DetainLicenseController.AddNew(DetainLicenseDTO detainLicenseDTO) in E:\programming_main\MyProjects\dvld_api\Controllers\DetainLicenseController.cs:line 41
+2024-10-22 08:52:14.581 +03:00 [INF] Start executing AddNew DetainLicenseController
+2024-10-22 08:54:33.902 +03:00 [WRN] Failed to determine the https port for redirect.
+2024-10-22 08:54:36.905 +03:00 [INF] Start executing AddNew DetainLicenseController
+2024-10-22 08:55:37.874 +03:00 [ERR] UnExcepected Error Could not load file or assembly 'System.Data.SqlClient, Version=0.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a'. The system cannot find the file specified.
+System.IO.FileNotFoundException: Could not load file or assembly 'System.Data.SqlClient, Version=0.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a'. The system cannot find the file specified.
+File name: 'System.Data.SqlClient, Version=0.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a'
+   at DVLDdataAccessLayer.clsDetainDataLayer.UpdateDetain(Int32 DetainID, Boolean IsReleased, DateTime ReleaseDate, Int32 ReleaseByUserID, Int32 ReleaseApplicationID)
+   at DVDLBussinessLayer.clsDetain._UpdateDetain() in E:\programming_main\MyProjects\dvld_api\DVDLBussinessLayer\clsDetain.cs:line 88
+   at DVDLBussinessLayer.clsDetain.Save() in E:\programming_main\MyProjects\dvld_api\DVDLBussinessLayer\clsDetain.cs:line 105
+   at dvld_api.Controllers.DetainLicenseController.AddNew(DetainLicenseDTO detainLicenseDTO) in E:\programming_main\MyProjects\dvld_api\Controllers\DetainLicenseController.cs:line 44
+2024-10-22 08:56:48.028 +03:00 [WRN] Failed to determine the https port for redirect.
+2024-10-22 08:56:51.060 +03:00 [INF] Start executing AddNew DetainLicenseController
+2024-10-22 09:03:55.624 +03:00 [WRN] Failed to determine the https port for redirect.
+2024-10-22 09:03:56.127 +03:00 [INF] Start executing AddNew DetainLicenseController
+2024-10-22 09:03:56.221 +03:00 [ERR] UnExcepected Error Could not load file or assembly 'System.Data.SqlClient, Version=0.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a'. The system cannot find the file specified.
+System.IO.FileNotFoundException: Could not load file or assembly 'System.Data.SqlClient, Version=0.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a'. The system cannot find the file specified.
+File name: 'System.Data.SqlClient, Version=0.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a'
+   at DVLDdataAccessLayer.clsDetainDataLayer.UpdateDetain(Int32 DetainID, Boolean IsReleased, DateTime ReleaseDate, Int32 ReleaseByUserID, Int32 ReleaseApplicationID)
+   at DVDLBussinessLayer.clsDetain._UpdateDetain() in E:\programming_main\MyProjects\dvld_api\DVDLBussinessLayer\clsDetain.cs:line 88
+   at DVDLBussinessLayer.clsDetain.Save() in E:\programming_main\MyProjects\dvld_api\DVDLBussinessLayer\clsDetain.cs:line 105
+   at dvld_api.Controllers.DetainLicenseController.AddNew(DetainLicenseDTO detainLicenseDTO) in E:\programming_main\MyProjects\dvld_api\Controllers\DetainLicenseController.cs:line 44
+2024-10-22 09:04:16.528 +03:00 [INF] Start executing AddNew DetainLicenseController
+2024-10-22 09:22:59.174 +03:00 [WRN] Failed to determine the https port for redirect.
+2024-10-22 09:23:02.982 +03:00 [INF] Start executing AddNew DetainLicenseController
+2024-10-22 09:23:57.069 +03:00 [WRN] Failed to determine the https port for redirect.
+2024-10-22 09:23:59.374 +03:00 [INF] Start executing AddNew DetainLicenseController
+2024-10-22 09:47:52.490 +03:00 [WRN] Failed to determine the https port for redirect.
+2024-10-22 09:47:53.019 +03:00 [INF] Start executing AddNew DetainLicenseController
+2024-10-22 09:47:53.095 +03:00 [ERR] UnExcepected Error Could not load file or assembly 'System.Data.SqlClient, Version=0.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a'. The system cannot find the file specified.
+System.IO.FileNotFoundException: Could not load file or assembly 'System.Data.SqlClient, Version=0.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a'. The system cannot find the file specified.
+File name: 'System.Data.SqlClient, Version=0.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a'
+   at DVLDdataAccessLayer.clsDetainDataLayer.AddNewDetain(Int32 LicenseID, DateTime DetainDate, Decimal FineFees, Int32 CreatedByUserID, Boolean IsRelease)
+   at DVDLBussinessLayer.clsDetain._AddNewDetain() in E:\programming_main\MyProjects\dvld_api\DVDLBussinessLayer\clsDetain.cs:line 71
+   at DVDLBussinessLayer.clsDetain.Save() in E:\programming_main\MyProjects\dvld_api\DVDLBussinessLayer\clsDetain.cs:line 88
+   at dvld_api.models.HandleAddNewDetain.AddNewDetain(DetainLicenseDTO detainLicenseDTO) in E:\programming_main\MyProjects\dvld_api\models\HandleAddNewDetain.cs:line 18
+   at dvld_api.Controllers.DetainLicenseController.AddNew(DetainLicenseDTO detainLicenseDTO) in E:\programming_main\MyProjects\dvld_api\Controllers\DetainLicenseController.cs:line 34
+2024-10-22 09:48:09.630 +03:00 [INF] Start executing AddNew DetainLicenseController
+2024-10-22 09:49:40.231 +03:00 [WRN] Failed to determine the https port for redirect.
+2024-10-22 09:49:45.573 +03:00 [INF] Start executing AddNew DetainLicenseController
+2024-10-22 09:52:20.299 +03:00 [WRN] Failed to determine the https port for redirect.
+2024-10-22 09:52:22.395 +03:00 [INF] Start executing AddNew DetainLicenseController
+2024-10-22 09:54:52.080 +03:00 [WRN] Failed to determine the https port for redirect.
+2024-10-22 09:54:58.335 +03:00 [INF] Start executing AddNew DetainLicenseController
+2024-10-22 09:55:43.219 +03:00 [INF] Detain added successfully with ID : 15

@@ -4,50 +4,56 @@ using System.Data.SqlTypes;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Data.SqlClient;
-using System.Windows.Forms;
 using System.Data;
+using Microsoft.Data.SqlClient;
+using Serilog;
 
 namespace DVLDdataAccessLayer
 {
     public  class clsDetainDataLayer
     {
-        public static int AddNewDetain(int LicenseID,DateTime DetainDate,
+        public static async Task<int> AddNewDetain(int LicenseID,DateTime DetainDate,
             Decimal FineFees,int CreatedByUserID,bool IsRelease
             )
         {
+            Log.Information("Start Executing AddNewDetain clsDetainDataLayer");
             int InsertedID = 0;
-            string Querey = @"Insert into DetainedLicenses (LicenseID,DetainDate,
+            try { 
+                 string Querey = @"Insert into DetainedLicenses (LicenseID,DetainDate,
                               FineFees,CreatedByUserID,IsReleased)  values (@LicenseID,@DetainDate,
                               @FineFees,@CreatedByUserID,@IsReleased);
                               select scope_identity();";
 
-            SqlConnection connection = new SqlConnection(Settings.ConnectionString);
-            SqlCommand Command=new SqlCommand( Querey, connection );
-            Command.Parameters.AddWithValue("@LicenseID", LicenseID);
-            Command.Parameters.AddWithValue("@DetainDate", DetainDate);
-            Command.Parameters.AddWithValue("@FineFees", FineFees);
-            Command.Parameters.AddWithValue("@CreatedByUserID", CreatedByUserID);
-            Command.Parameters.AddWithValue("@IsReleased", IsRelease);
-
-            try
-            {
-                connection.Open();
-                object Result = Command.ExecuteScalar();
-                if (Result != null&&int.TryParse(Result.ToString(),out int ID))
+                using (SqlConnection connection = new SqlConnection(Settings.ConnectionString))
                 {
-                    InsertedID = ID;
+                    using (SqlCommand Command = new SqlCommand(Querey, connection))
+                    {
+                        Command.Parameters.AddWithValue("@LicenseID", LicenseID);
+                        Command.Parameters.AddWithValue("@DetainDate", DetainDate);
+                        Command.Parameters.AddWithValue("@FineFees", FineFees);
+                        Command.Parameters.AddWithValue("@CreatedByUserID", CreatedByUserID);
+                        Command.Parameters.AddWithValue("@IsReleased", IsRelease);
+
+
+
+                        await connection.OpenAsync();
+                        Log.Information("Connection to databse established successfully");
+                        object Result =await  Command.ExecuteScalarAsync();
+
+                        if (Result != null && int.TryParse(Result.ToString(), out int ID))
+                        {
+                            InsertedID = ID;
+                        }
+                    }
                 }
 
+                Log.Information("AddNewDetain clsDetainDataLayer Executed successfully");
             }
             catch(Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                Log.Error(ex, "Unexepected Error ", ex.Message);
             }
-            finally
-            {
-                connection.Close();
-            }
+
             return InsertedID ;
 
         }
@@ -80,7 +86,6 @@ namespace DVLDdataAccessLayer
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
             }
             finally
             {
@@ -115,7 +120,6 @@ namespace DVLDdataAccessLayer
             }catch (Exception ex)
             {
                 NumberOfAffectedRows = 0;
-                MessageBox.Show(ex.Message);
             }finally { Connection.Close(); }
 
             return NumberOfAffectedRows > 0;
@@ -154,7 +158,6 @@ namespace DVLDdataAccessLayer
                 Reader.Close();
             }catch(Exception ex)
             {
-                MessageBox.Show(ex.Message);
             }
             finally
             {
