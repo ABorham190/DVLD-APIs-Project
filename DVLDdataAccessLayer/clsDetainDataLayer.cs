@@ -7,11 +7,25 @@ using System.Threading.Tasks;
 using System.Data;
 using Microsoft.Data.SqlClient;
 using Serilog;
+using System.ComponentModel;
 
 namespace DVLDdataAccessLayer
 {
     public  class clsDetainDataLayer
     {
+        public class GetDetianedLicenseDTO
+        {
+            public int DetainID { get; set; }
+            public int LicenseID { get; set; }
+            public DateTime DetainDate { get; set; }
+            public bool IsReleased { get; set; }
+            public Decimal FineFees { get; set; }
+            public string NationalNo { get; set; }
+            public string Name { get; set; }
+            public DateTime? ReleaseDate { get; set; }
+            public int? ReleaseApplicationID { get; set; }
+
+        }
         public static async Task<int> AddNewDetain(int LicenseID,DateTime DetainDate,
             Decimal FineFees,int CreatedByUserID,bool IsRelease
             )
@@ -124,46 +138,55 @@ namespace DVLDdataAccessLayer
 
             return NumberOfAffectedRows > 0;
         }
-
-        public static DataTable GetAllDetainedLicenses()
+        public static async Task<List<GetDetianedLicenseDTO>> GetAllDetainedLicenses()
         {
-            DataTable DetainedLicenses = new DataTable();
-            string Querey = @"select DetainedLicenses.DetainID,
-                             DetainedLicenses.LicenseID,
-                             DetainedLicenses.DetainDate,
-                             DetainedLicenses.IsReleased,
-                             DetainedLicenses.FineFees,
-                             DetainedLicenses.ReleaseDate,
-                             People.NationalNo,
-                             People.FirstName+' '+People.SecondName+
-                             ' '+People.ThirdName+' '+People.LastName 
-                             as Name ,DetainedLicenses.ReleaseApplicationID from 
-                             DetainedLicenses inner join Licenses
-                             on DetainedLicenses.LicenseID=
-                             Licenses.LicenseID inner join 
-                             Drivers on Licenses.DriverID=Drivers.DriverID
-                             inner join People 
-                             on Drivers.PersonID=People.PersonID;";
-            SqlConnection Connection =new SqlConnection(Settings.ConnectionString);
-            SqlCommand Command = new SqlCommand( Querey, Connection);
-
-            try
-            {
-                Connection.Open();
-                SqlDataReader Reader = Command.ExecuteReader();
-                if (Reader.HasRows)
+            Log.Information("Start Executing GetAllDetainedLicenses func in clsDetainedDatalayer");
+            List<GetDetianedLicenseDTO>detainedLicenses=new List<GetDetianedLicenseDTO> ();
+            try {
+                using (SqlConnection Connection = new SqlConnection(Settings.ConnectionString))
                 {
-                    DetainedLicenses.Load(Reader);
+                    using (SqlCommand Command = new SqlCommand("SP_GetAllDetainedLicenses", Connection))
+                    {
+                        Command.CommandType = CommandType.StoredProcedure;
+
+                        await Connection.OpenAsync();
+                        Log.Information("Connection with database established successfully");
+
+                        using (SqlDataReader Reader = await Command.ExecuteReaderAsync())
+                        {
+                            while (await Reader.ReadAsync())
+                            {
+                                Log.Information("Reader reads");
+
+                                var detainedlicenseDTO = new GetDetianedLicenseDTO();
+
+                                detainedlicenseDTO.DetainID = (int)Reader["DetainID"];
+                                detainedlicenseDTO.LicenseID = (int)Reader["LicenseID"];
+                                detainedlicenseDTO.DetainDate = (DateTime)Reader["DetainDate"];
+                                detainedlicenseDTO.FineFees = (Decimal)Reader["FineFees"];
+                                detainedlicenseDTO.Name = (string)Reader["Name"];
+                                detainedlicenseDTO.NationalNo = (string)Reader["NationalNo"];
+                                detainedlicenseDTO.IsReleased = (bool)Reader["IsReleased"];
+
+                                if (Reader["ReleaseApplicationID"] != DBNull.Value)
+                                    detainedlicenseDTO.ReleaseApplicationID = (int)Reader["ReleaseApplicationID"];
+
+                                if (Reader["ReleaseDate"] != DBNull.Value)
+                                {
+                                    detainedlicenseDTO.ReleaseDate = (DateTime)Reader["ReleaseDate"];
+                                }
+
+                                detainedLicenses.Add(detainedlicenseDTO);
+                            }
+                        }
+                    }
                 }
-                Reader.Close();
+                
             }catch(Exception ex)
             {
+                Log.Error(ex,"unexcepected Error in Sql",ex.Message);
             }
-            finally
-            {
-                Connection.Close();
-            }
-            return DetainedLicenses;
+            return detainedLicenses;
         }
     }
 }

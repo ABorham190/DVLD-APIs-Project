@@ -103,9 +103,9 @@ namespace DVDLBussinessLayer
             return false;
         }
 
-        public static DataTable GetAllDetainedLicenses()
+        public static async Task<List<clsDetainDataLayer.GetDetianedLicenseDTO>> GetAllDetainedLicenses()
         {
-            return clsDetainDataLayer.GetAllDetainedLicenses();
+            return await clsDetainDataLayer.GetAllDetainedLicenses();
         }
         
 

@@ -58,5 +58,26 @@ namespace dvld_api.Controllers
                 return StatusCode(500, response);
             }
         }
+        [HttpGet("GetAll")]
+        public async Task<IActionResult> GetAll()
+        {
+            _logger.LogInformation("Start executing GetAll DetainedLicenseController");
+            try
+            {
+                var detainedLicenses = await clsDetain.GetAllDetainedLicenses();
+                if (!detainedLicenses.Any())
+                {
+                    _logger.LogWarning("No detained licenses found");
+                    return NotFound("No detained licenses found");
+                }
+                _logger.LogInformation($"Number of All detained license : {detainedLicenses.Count}");
+                return Ok(detainedLicenses);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError("Unexcepected error occurs");
+                return StatusCode(500, "Internal server error");
+            }
+        }
     }
 }
