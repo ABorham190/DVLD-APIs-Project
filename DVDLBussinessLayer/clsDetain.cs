@@ -70,7 +70,11 @@ namespace DVDLBussinessLayer
         
         private async Task< bool> _AddNewDetain()
         {
-
+            clsLicenses licenses = clsLicenses.GetLicenseDetailsByLLicenseID(this.LicenseID);
+            if (licenses.detain != null)
+            {
+                return false;
+            }
             
             this.DetainID =await clsDetainDataLayer.AddNewDetain(this.LicenseID,
                 this.DetainDate, this.FineFees, this.CreatedByUserID,

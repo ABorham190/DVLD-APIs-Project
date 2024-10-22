@@ -105,3 +105,16 @@ File name: 'System.Data.SqlClient, Version=0.0.0.0, Culture=neutral, PublicKeyTo
 2024-10-22 14:17:36.119 +03:00 [INF] Reader read
 2024-10-22 14:17:40.893 +03:00 [INF] GetLicenseDetailsUsingLicenseID executed successfully
 2024-10-22 14:19:13.545 +03:00 [ERR] License not Released successfully
+2024-10-22 14:29:17.372 +03:00 [WRN] Failed to determine the https port for redirect.
+2024-10-22 14:29:17.741 +03:00 [INF] Start executing AddNew DetainLicenseController
+2024-10-22 14:29:17.768 +03:00 [INF] Start executing GetLicenseDetailsUsingLicenseID clsLicenseDataLayer
+2024-10-22 14:29:17.973 +03:00 [INF] connection to database established successfully
+2024-10-22 14:29:18.020 +03:00 [INF] Reader read
+2024-10-22 14:29:18.036 +03:00 [INF] GetLicenseDetailsUsingLicenseID executed successfully
+2024-10-22 14:29:18.050 +03:00 [ERR] Error in saving new detain
+2024-10-22 14:29:38.764 +03:00 [INF] Start executing AddNew DetainLicenseController
+2024-10-22 14:30:04.994 +03:00 [INF] Start executing GetLicenseDetailsUsingLicenseID clsLicenseDataLayer
+2024-10-22 14:30:07.235 +03:00 [INF] connection to database established successfully
+2024-10-22 14:30:08.392 +03:00 [INF] Reader read
+2024-10-22 14:30:14.825 +03:00 [INF] GetLicenseDetailsUsingLicenseID executed successfully
+2024-10-22 14:31:17.648 +03:00 [ERR] Error in saving new detain
