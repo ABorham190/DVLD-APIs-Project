@@ -118,3 +118,4 @@ File name: 'System.Data.SqlClient, Version=0.0.0.0, Culture=neutral, PublicKeyTo
 2024-10-22 14:30:08.392 +03:00 [INF] Reader read
 2024-10-22 14:30:14.825 +03:00 [INF] GetLicenseDetailsUsingLicenseID executed successfully
 2024-10-22 14:31:17.648 +03:00 [ERR] Error in saving new detain
+2024-10-22 19:32:07.376 +03:00 [WRN] Failed to determine the https port for redirect.
