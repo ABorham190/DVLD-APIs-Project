@@ -1,4 +1,9 @@
 
+using dvld_api.Auth;
+using dvld_api.Auth.Data;
+using dvld_api.Extensions;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 using Serilog;
 
 namespace dvld_api
@@ -14,9 +19,14 @@ namespace dvld_api
             builder.Services.AddControllers();
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
-            builder.Services.AddSwaggerGen();
+            builder.Services.AddSwagerGenJwtAuth();
             builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+            builder.Services.AddDbContext<AppDbContext>
+                (o => o.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConStr")));
+            builder.Services.AddIdentity<AppUser,IdentityRole>()
+                .AddEntityFrameworkStores<AppDbContext>();
 
+            builder.Services.AddCustomJWTAuth(builder.Configuration);
             builder.Host.UseSerilog((context, services, configuration) => configuration
            .ReadFrom.Configuration(context.Configuration)
            .ReadFrom.Services(services)
@@ -32,7 +42,7 @@ namespace dvld_api
             }
 
             app.UseHttpsRedirection();
-
+            app.UseAuthentication();
             app.UseAuthorization();
 
 

@@ -5,11 +5,13 @@ using Microsoft.AspNetCore.Mvc;
 using System.Net;
 using Microsoft.Data.SqlClient;
 using System.Reflection.Metadata.Ecma335;
+using Microsoft.AspNetCore.Authorization;
 
 namespace dvld_api.Controllers
 {
     [Route("api/User")]
     [ApiController]
+    [Authorize]
     public class UserController : ControllerBase
     {
         [HttpGet("GetAll")]
