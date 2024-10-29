@@ -1,0 +1,26 @@
+2024-10-25 14:58:51.515 +03:00 [WRN] Failed to determine the https port for redirect.
+2024-10-25 14:59:19.687 +03:00 [INF] Start executing GetAll DetainedLicenseController
+2024-10-25 14:59:19.690 +03:00 [INF] Start Executing GetAllDetainedLicenses func in clsDetainedDatalayer
+2024-10-25 14:59:19.697 +03:00 [INF] Connection with database established successfully
+2024-10-25 14:59:19.742 +03:00 [INF] Number of All detained license : 4
+2024-10-25 15:09:39.468 +03:00 [WRN] Failed to determine the https port for redirect.
+2024-10-25 15:10:37.142 +03:00 [INF] Starting execute GetAll LDLApp
+2024-10-25 15:10:37.150 +03:00 [INF] Starting execution of GetAllLDLApps in LDLAppDataLayer
+2024-10-25 15:10:37.155 +03:00 [INF] Connection to database Stablished successfully
+2024-10-25 15:10:37.243 +03:00 [INF] (SP_GetAllLDLAppWithDetails) executed successfully and ldlapplist contain 21 items
+2024-10-25 15:10:37.253 +03:00 [INF] Number Of fetched LDLAppDTO  21
+2024-10-25 15:10:54.278 +03:00 [INF] Start executing GetAll DetainedLicenseController
+2024-10-25 15:10:54.283 +03:00 [INF] Start Executing GetAllDetainedLicenses func in clsDetainedDatalayer
+2024-10-25 15:10:54.286 +03:00 [INF] Connection with database established successfully
+2024-10-25 15:10:54.297 +03:00 [INF] Number of All detained license : 4
+2024-10-25 15:16:58.244 +03:00 [WRN] Failed to determine the https port for redirect.
+2024-10-25 15:18:18.172 +03:00 [WRN] Failed to determine the https port for redirect.
+2024-10-25 15:19:00.622 +03:00 [INF] Starting execute GetAll LDLApp
+2024-10-25 15:19:00.626 +03:00 [INF] Starting execution of GetAllLDLApps in LDLAppDataLayer
+2024-10-25 15:19:00.627 +03:00 [INF] Connection to database Stablished successfully
+2024-10-25 15:19:00.689 +03:00 [INF] (SP_GetAllLDLAppWithDetails) executed successfully and ldlapplist contain 21 items
+2024-10-25 15:19:00.702 +03:00 [INF] Number Of fetched LDLAppDTO  21
+2024-10-25 15:19:13.643 +03:00 [INF] Start executing GetAll DetainedLicenseController
+2024-10-25 15:19:13.650 +03:00 [INF] Start Executing GetAllDetainedLicenses func in clsDetainedDatalayer
+2024-10-25 15:19:13.653 +03:00 [INF] Connection with database established successfully
+2024-10-25 15:19:13.663 +03:00 [INF] Number of All detained license : 4
