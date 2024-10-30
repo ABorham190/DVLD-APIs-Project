@@ -49,3 +49,4 @@ System.InvalidOperationException: Unable to resolve service for type 'Microsoft.
 2024-10-29 14:48:37.154 +03:00 [WRN] Failed to determine the https port for redirect.
 2024-10-29 14:51:45.956 +03:00 [WRN] Failed to determine the https port for redirect.
 2024-10-29 14:56:37.096 +03:00 [WRN] Failed to determine the https port for redirect.
+2024-10-29 16:40:59.334 +03:00 [WRN] Failed to determine the https port for redirect.

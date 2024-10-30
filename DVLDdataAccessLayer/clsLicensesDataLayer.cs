@@ -4,12 +4,27 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Forms;
 using Microsoft.Data.SqlClient;
 using Serilog;
+using static DVLDdataAccessLayer.clsDetainDataLayer;
 
 namespace DVLDdataAccessLayer
 {
+    public class FindLicenseDto
+    {
+        public int LicenseID { get; set; }
+        public int ApplicationID { get; set; }
+        public int DriverID { get; set; }
+        public int LicenseClassID { get; set; }
+        public DateTime IssueDate { get; set; }
+        public DateTime ExpirationDate { get; set; }
+        public string Notes { get; set; }
+        public decimal PaidFees { get; set; }
+        public bool IsActive { get; set; }
+        public byte IssueReason { get; set; }
+        public int CreatedByUserID { get; set; }
+    }
+
     public class clsLicensesDataLayer
     {
         public static DataTable GetLicenseClasses()
@@ -17,7 +32,7 @@ namespace DVLDdataAccessLayer
             DataTable table = new DataTable();
             string Querey = @"select ClassName from LicenseClasses;";
             SqlConnection Connection = new SqlConnection(Settings.ConnectionString);
-            SqlCommand Command=new SqlCommand(Querey,Connection);
+            SqlCommand Command = new SqlCommand(Querey, Connection);
             try
             {
                 Connection.Open();
@@ -27,7 +42,8 @@ namespace DVLDdataAccessLayer
                     table.Load(Reader);
                 }
                 Reader.Close();
-            }catch (Exception ex)
+            }
+            catch (Exception ex)
             {
 
             }
@@ -39,13 +55,13 @@ namespace DVLDdataAccessLayer
 
         }
 
-        public static bool GetLicenseClass(int LicenseClassTypeID,ref string LicenseType)
+        public static bool GetLicenseClass(int LicenseClassTypeID, ref string LicenseType)
         {
-            bool IsFound=false;
+            bool IsFound = false;
             string Querey = @"select ClassName from LicenseClasses
                              where LicenseClassID=@LicenseClassTypeID;";
-            SqlConnection Connection =new SqlConnection(Settings.ConnectionString); 
-            SqlCommand Command =new SqlCommand( Querey,Connection);
+            SqlConnection Connection = new SqlConnection(Settings.ConnectionString);
+            SqlCommand Command = new SqlCommand(Querey, Connection);
             Command.Parameters.AddWithValue("@LicenseClassTypeID", LicenseClassTypeID);
 
             try
@@ -58,19 +74,21 @@ namespace DVLDdataAccessLayer
                     LicenseType = (string)Reader["ClassName"];
                 }
                 Reader.Close();
-            }catch(Exception ex)
+            }
+            catch (Exception ex)
             {
                 IsFound = false;
-            }finally 
+            }
+            finally
             {
                 Connection.Close();
             }
 
             return IsFound;
         }
-        public static int IssueLDLFirstTime(int ApplicationID,int DriverID,
-            int LicenseClassID,DateTime IssueDate,DateTime ExpirationDate,
-            string Notes,Decimal PaidFees,bool IsActive,byte IssueReason,
+        public static int IssueLDLFirstTime(int ApplicationID, int DriverID,
+            int LicenseClassID, DateTime IssueDate, DateTime ExpirationDate,
+            string Notes, Decimal PaidFees, bool IsActive, byte IssueReason,
             int CreatedByUserID)
         {
             int InsertedID = 0;
@@ -81,8 +99,8 @@ namespace DVLDdataAccessLayer
                              @Notes,@PaidFees,@IsActive,@IssueReason,@CreatedByUserID);
                              Select scope_identity();";
 
-            SqlConnection Connection=new SqlConnection(Settings.ConnectionString);  
-            SqlCommand Command =new SqlCommand(Querey,Connection);
+            SqlConnection Connection = new SqlConnection(Settings.ConnectionString);
+            SqlCommand Command = new SqlCommand(Querey, Connection);
             Command.Parameters.AddWithValue("@ApplicationID", ApplicationID);
             Command.Parameters.AddWithValue("@DriverID", DriverID);
             Command.Parameters.AddWithValue("@LicenseClass", LicenseClassID);
@@ -101,13 +119,14 @@ namespace DVLDdataAccessLayer
             {
                 Connection.Open();
                 Object Result = Command.ExecuteScalar();
-                if(Result!=null&&int.TryParse(Result.ToString(),out int ID))
+                if (Result != null && int.TryParse(Result.ToString(), out int ID))
                 {
                     InsertedID = ID;
                 }
-            }catch (Exception ex)
+            }
+            catch (Exception ex)
             {
-                InsertedID=0;
+                InsertedID = 0;
             }
             finally
             {
@@ -118,10 +137,10 @@ namespace DVLDdataAccessLayer
         }
 
         public static bool GetLicenseDetailsUsingLDLAppID(int LDLAppID,
-            ref string LicenseClass,ref string Name,ref int LicenseID,
-            ref string NationalNo,ref string ImagePath,ref DateTime IssueDate,ref byte IssueReason,
-            ref string Notes,ref bool IsActive,ref DateTime DateOfBirth,
-            ref byte Gender,ref int DriverID,ref DateTime ExpirationDate)
+            ref string LicenseClass, ref string Name, ref int LicenseID,
+            ref string NationalNo, ref string ImagePath, ref DateTime IssueDate, ref byte IssueReason,
+            ref string Notes, ref bool IsActive, ref DateTime DateOfBirth,
+            ref byte Gender, ref int DriverID, ref DateTime ExpirationDate)
         {
             bool IsFound = false;
             string Querey = @"select Licenses.LicenseID,
@@ -144,7 +163,7 @@ namespace DVLDdataAccessLayer
                             
                             ";
             SqlConnection Connection = new SqlConnection(Settings.ConnectionString);
-            SqlCommand Command=new SqlCommand(Querey,Connection);
+            SqlCommand Command = new SqlCommand(Querey, Connection);
             Command.Parameters.AddWithValue("@LDLAppId", LDLAppID);
             try
             {
@@ -164,7 +183,7 @@ namespace DVLDdataAccessLayer
                     IssueDate = (DateTime)Reader["IssueDate"];
                     IssueReason = (byte)Reader["IssueReason"];
 
-                    if (Reader["Notes"] !=DBNull.Value)
+                    if (Reader["Notes"] != DBNull.Value)
                         Notes = (string)Reader["Notes"];
                     else
                         Notes = "No Notes";
@@ -176,9 +195,10 @@ namespace DVLDdataAccessLayer
                     Gender = (byte)Reader["Gendor"];
                 }
                 Reader.Close();
-            }catch (Exception ex)
+            }
+            catch (Exception ex)
             {
-                IsFound=false;
+                IsFound = false;
             }
             finally
             {
@@ -193,7 +213,7 @@ namespace DVLDdataAccessLayer
             string Querey = @"select found=1 from DetainedLicenses
                             where LicenseID=@LicenseID and IsReleased=0;";
             SqlConnection Connection = new SqlConnection(Settings.ConnectionString);
-            SqlCommand Command=new SqlCommand(Querey, Connection);
+            SqlCommand Command = new SqlCommand(Querey, Connection);
 
             Command.Parameters.AddWithValue("@LicenseID", LicenseID);
             try
@@ -204,13 +224,14 @@ namespace DVLDdataAccessLayer
                 IsFound = Reader.HasRows;
 
                 Reader.Close();
-            }catch(Exception ex)
+            }
+            catch (Exception ex)
             {
-                IsFound=false;
+                IsFound = false;
             }
             finally
             {
-                Connection.Close( );
+                Connection.Close();
             }
             return IsFound;
 
@@ -232,14 +253,14 @@ namespace DVLDdataAccessLayer
                         Command.CommandType = CommandType.StoredProcedure;
                         Command.Parameters.AddWithValue("@PersonID", PersonID);
                         Command.Parameters.AddWithValue("@LicenseClassID", LicenseClassID);
-                        
+
                         SqlDataReader Reader = Command.ExecuteReader();
                         if (Reader.Read())
                         {
                             IsFound = true;
                             LicenseID = (int)Reader["LicenseID"];
                         }
-                       
+
                     }
                 }
             }
@@ -248,13 +269,13 @@ namespace DVLDdataAccessLayer
                 IsFound = false;
                 Settings.AddInfoToEventViewer("ERRor : " + ex.Message);
             }
-           
+
             return IsFound;
         }
 
         public static DataTable GetLocalLicensesHistoryForAPerson(int PersonID)
         {
-            DataTable dt    = new DataTable();
+            DataTable dt = new DataTable();
             string Querey = @"select Licenses.LicenseID ,Applications.ApplicationID,
                            LicenseClasses.ClassName,Licenses.IssueDate,
                            Licenses.ExpirationDate,Licenses.IsActive from 
@@ -264,8 +285,8 @@ namespace DVLDdataAccessLayer
                            where Applications.ApplicantPersonID= @PersonID and Applications.ApplicationStatus =3;
                            ";
 
-            SqlConnection connection=new SqlConnection(Settings.ConnectionString);
-            SqlCommand Command=new SqlCommand(Querey, connection);
+            SqlConnection connection = new SqlConnection(Settings.ConnectionString);
+            SqlCommand Command = new SqlCommand(Querey, connection);
             Command.Parameters.AddWithValue("@PersonID", PersonID);
             try
             {
@@ -276,7 +297,8 @@ namespace DVLDdataAccessLayer
                     dt.Load(Reader);
                 }
                 Reader.Close();
-            }catch(Exception ex)
+            }
+            catch (Exception ex)
             {
 
             }
@@ -290,7 +312,7 @@ namespace DVLDdataAccessLayer
 
 
         public static bool GetLicenseDetailsUsingLicenseID(
-            ref string LicenseClass, ref string Name,  int LicenseID,
+            ref string LicenseClass, ref string Name, int LicenseID,
             ref string NationalNo, ref string ImagePath, ref DateTime IssueDate, ref byte IssueReason,
             ref string Notes, ref bool IsActive, ref DateTime DateOfBirth,
             ref byte Gendor, ref int DriverID, ref DateTime ExpirationDate)
@@ -343,7 +365,8 @@ namespace DVLDdataAccessLayer
                 }
                 Log.Information("GetLicenseDetailsUsingLicenseID executed successfully");
 
-            }catch (Exception ex)
+            }
+            catch (Exception ex)
             {
                 IsFound = false;
                 Log.Error(ex, "Unexcepected Error", ex.Message);
@@ -357,7 +380,7 @@ namespace DVLDdataAccessLayer
             string Querey = @"Select DriverID from Licenses where 
                             Licenses.LicenseID=@LocalLicenseID;";
             SqlConnection Connection = new SqlConnection(Settings.ConnectionString);
-            SqlCommand Command=new SqlCommand(Querey, Connection);
+            SqlCommand Command = new SqlCommand(Querey, Connection);
             Command.Parameters.AddWithValue("@LocalLicenseID", LocalLicenseID);
             try
             {
@@ -368,9 +391,10 @@ namespace DVLDdataAccessLayer
                     DriverID = (int)Reader["DriverID"];
                 }
                 Reader.Close();
-            }catch(Exception ex)
+            }
+            catch (Exception ex)
             {
-                DriverID=0;
+                DriverID = 0;
             }
             finally
             {
@@ -380,14 +404,14 @@ namespace DVLDdataAccessLayer
         }
 
         public static bool GetLicenseFeesUsingLicenseClassID(int LicenseClassID,
-            ref Decimal LicenseFees )
+            ref Decimal LicenseFees)
         {
             bool IsFound = false;
             string Querey = @"select LicenseClasses.ClassFees 
                            from LicenseClasses
                            where LicenseClasses.LicenseClassID=@LicenseClassID;";
-            SqlConnection Connection =new SqlConnection(Settings.ConnectionString);
-            SqlCommand Command=new SqlCommand( Querey, Connection);
+            SqlConnection Connection = new SqlConnection(Settings.ConnectionString);
+            SqlCommand Command = new SqlCommand(Querey, Connection);
 
             Command.Parameters.AddWithValue("@LicenseClassID", LicenseClassID);
             try
@@ -400,10 +424,10 @@ namespace DVLDdataAccessLayer
                     LicenseFees = (Decimal)Reader["ClassFees"];
                 }
                 Reader.Close();
-            }catch (Exception ex)
+            }
+            catch (Exception ex)
             {
                 IsFound = false;
-                MessageBox.Show(ex.Message);
             }
             finally
             {
@@ -436,7 +460,6 @@ namespace DVLDdataAccessLayer
             catch (Exception ex)
             {
                 IsFound = false;
-                MessageBox.Show(ex.Message);
             }
             finally
             {
@@ -452,8 +475,8 @@ namespace DVLDdataAccessLayer
                              from LicenseClasses 
                              where LicenseClasses.ClassName=@ClassName;";
 
-            SqlConnection Connection=new SqlConnection(Settings.ConnectionString);
-            SqlCommand Command = new SqlCommand( Querey, Connection);
+            SqlConnection Connection = new SqlConnection(Settings.ConnectionString);
+            SqlCommand Command = new SqlCommand(Querey, Connection);
 
             Command.Parameters.AddWithValue("@ClassName", ClassName);
             try
@@ -465,11 +488,12 @@ namespace DVLDdataAccessLayer
                     ClassID = (int)Reader["LicenseClassID"];
                 }
                 Reader.Close();
-            }catch (Exception ex)
+            }
+            catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
-            }finally 
-            { 
+            }
+            finally
+            {
                 Connection.Close();
             }
 
@@ -483,7 +507,7 @@ namespace DVLDdataAccessLayer
                              set IsActive=0
                              where Licenses.LicenseID=@LicenseID;
                              ";
-            SqlConnection Connection= new SqlConnection(Settings.ConnectionString); 
+            SqlConnection Connection = new SqlConnection(Settings.ConnectionString);
             SqlCommand Command = new SqlCommand(Querey, Connection);
             Command.Parameters.AddWithValue("@LicenseID", LicenseID);
 
@@ -492,10 +516,10 @@ namespace DVLDdataAccessLayer
                 Connection.Open();
                 NumberOfAffectedRows = Command.ExecuteNonQuery();
 
-            }catch(Exception ex)
+            }
+            catch (Exception ex)
             {
                 NumberOfAffectedRows = 0;
-                MessageBox.Show(ex.Message);
             }
             finally
             {
@@ -503,6 +527,56 @@ namespace DVLDdataAccessLayer
             }
             return NumberOfAffectedRows > 0;
         }
+        public static async Task<FindLicenseDto> FindLicenseByLicenseID(int LicenseID)
+        {
+            FindLicenseDto licenseDto;
+            string Querey = @"select * from Licenses where LicenseID=@LicenseID;";
+            try
+            {
+                using (SqlConnection Connection = new SqlConnection(Settings.ConnectionString))
+                {
+                    using (SqlCommand Command = new SqlCommand(Querey, Connection))
+                    {
+                        Command.Parameters.AddWithValue("@LicenseID", LicenseID);
 
+                        await Connection.OpenAsync();
+                        using (SqlDataReader Reader = await Command.ExecuteReaderAsync())
+                        {
+                            if (Reader.Read())
+                            {
+                                licenseDto = new FindLicenseDto
+                                {
+                                    ApplicationID = (int)Reader["ApplicationID"],
+                                    CreatedByUserID = (int)Reader["CreatedByUserID"],
+                                    DriverID = (int)Reader["DriverID"],
+                                    LicenseID = LicenseID,
+                                    ExpirationDate = (DateTime)Reader["ExpirationDate"],
+                                    IsActive = (bool)Reader["IsActive"],
+                                    IssueDate = (DateTime)Reader["IssueDate"],
+                                    IssueReason = (byte)Reader["IssueReason"],
+                                    LicenseClassID = (int)Reader["LicenseClass"],
+                                    Notes = (string)Reader["Notes"],
+                                    PaidFees = (decimal)Reader["PaidFees"]
+
+                                };
+                            }
+                            else
+                            {
+                                licenseDto = null;
+                            }
+                        }
+                    }
+                }
+                return licenseDto;
+            }
+            catch (Exception ex)
+            {
+
+                Log.Error(ex, "unexcpected error occured", ex.Message);
+                return null;
+            }
+
+
+        }
     }
 }

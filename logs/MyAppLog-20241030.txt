@@ -1,0 +1,55 @@
+2024-10-30 09:22:38.182 +03:00 [WRN] Failed to determine the https port for redirect.
+2024-10-30 09:22:41.892 +03:00 [ERR] unexcpected error occured
+System.IndexOutOfRangeException: LicenseClassID
+   at Microsoft.Data.ProviderBase.FieldNameLookup.GetOrdinal(String fieldName)
+   at Microsoft.Data.SqlClient.SqlDataReader.GetOrdinal(String name)
+   at Microsoft.Data.SqlClient.SqlDataReader.get_Item(String name)
+   at DVLDdataAccessLayer.clsLicensesDataLayer.FindLicenseByLicenseID(Int32 LicenseID) in E:\programming_main\MyProjects\dvld_api\DVLDdataAccessLayer\clsLicensesDataLayer.cs:line 552
+2024-10-30 09:23:28.067 +03:00 [ERR] unexcpected error occured
+System.IndexOutOfRangeException: LicenseClassID
+   at Microsoft.Data.ProviderBase.FieldNameLookup.GetOrdinal(String fieldName)
+   at Microsoft.Data.SqlClient.SqlDataReader.GetOrdinal(String name)
+   at Microsoft.Data.SqlClient.SqlDataReader.get_Item(String name)
+   at DVLDdataAccessLayer.clsLicensesDataLayer.FindLicenseByLicenseID(Int32 LicenseID) in E:\programming_main\MyProjects\dvld_api\DVLDdataAccessLayer\clsLicensesDataLayer.cs:line 552
+2024-10-30 09:24:25.651 +03:00 [ERR] unexcpected error occured
+System.IndexOutOfRangeException: LicenseClassID
+   at Microsoft.Data.ProviderBase.FieldNameLookup.GetOrdinal(String fieldName)
+   at Microsoft.Data.SqlClient.SqlDataReader.GetOrdinal(String name)
+   at Microsoft.Data.SqlClient.SqlDataReader.get_Item(String name)
+   at DVLDdataAccessLayer.clsLicensesDataLayer.FindLicenseByLicenseID(Int32 LicenseID) in E:\programming_main\MyProjects\dvld_api\DVLDdataAccessLayer\clsLicensesDataLayer.cs:line 552
+2024-10-30 09:25:59.396 +03:00 [WRN] Failed to determine the https port for redirect.
+2024-10-30 09:27:37.801 +03:00 [WRN] Failed to determine the https port for redirect.
+2024-10-30 09:28:38.863 +03:00 [INF] Starting AddNewApplication func in clsOrdersDataLayer
+2024-10-30 09:28:40.746 +03:00 [INF] Connection Stablished Successfully
+2024-10-30 09:28:51.151 +03:00 [INF] Number of affected rows : 1
+2024-10-30 09:28:54.458 +03:00 [INF] Application Added successfully with ID : 149
+2024-10-30 09:29:05.173 +03:00 [ERR] An unhandled exception has occurred while executing the request.
+System.IO.FileNotFoundException: Could not load file or assembly 'System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089'. The system cannot find the file specified.
+File name: 'System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089'
+   at DVLDdataAccessLayer.clsLicensesDataLayer.DeActivateLicenseByID(Int32 LicenseID)
+   at DVDLBussinessLayer.clsLicenses.DeactivateLocalLicenseByLicenseID(Int32 LicenseID) in E:\programming_main\MyProjects\dvld_api\DVDLBussinessLayer\clsLicenses.cs:line 234
+   at DVDLBussinessLayer.clsLicenses.ReplaceLicense(Int32 LicenseID, enReplaceLicenseStatus replacedLicenseStatus) in E:\programming_main\MyProjects\dvld_api\DVDLBussinessLayer\clsLicenses.cs:line 271
+   at dvld_api.Controllers.LocalLicenseController.ReplaceLostLicense(Int32 LicenseID) in E:\programming_main\MyProjects\dvld_api\Controllers\LocalLicenseController.cs:line 177
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2024-10-30 09:32:38.873 +03:00 [WRN] Failed to determine the https port for redirect.
+2024-10-30 09:32:39.960 +03:00 [INF] Starting AddNewApplication func in clsOrdersDataLayer
+2024-10-30 09:32:39.964 +03:00 [INF] Connection Stablished Successfully
+2024-10-30 09:32:39.984 +03:00 [INF] Number of affected rows : 1
+2024-10-30 09:32:39.985 +03:00 [INF] Application Added successfully with ID : 150
+2024-10-30 09:33:32.986 +03:00 [INF] Starting AddNewApplication func in clsOrdersDataLayer
+2024-10-30 09:33:32.988 +03:00 [INF] Connection Stablished Successfully
+2024-10-30 09:33:32.998 +03:00 [INF] Number of affected rows : 1
+2024-10-30 09:33:33.000 +03:00 [INF] Application Added successfully with ID : 151

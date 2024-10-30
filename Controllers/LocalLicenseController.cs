@@ -165,5 +165,49 @@ namespace dvld_api.Controllers
             }
         }
 
+        [HttpPost("ReplaceLostLicense/{LicenseID}")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public async Task<IActionResult> ReplaceLostLicense(int LicenseID)
+        {
+            _logger.LogInformation("Start executing ReplaceLostLicense");
+            if (LicenseID < 1)
+            {
+                _logger.LogError($"Invalid LicenseID {LicenseID}");
+                return BadRequest($"Invalid User Input {LicenseID}");
+            }
+
+            if(!await clsLicenses.ReplaceLicense(LicenseID, clsLicenses.enReplaceLicenseStatus.Lost))
+            {
+                _logger.LogError("License Not Replaced Successfully");
+                return BadRequest("Not Saved Successfully");
+            }
+
+            _logger.LogInformation("License Replaced successfully");
+            return Ok("Replaced Successfully");
+        }
+
+        [HttpPost("ReplaceDamagedLicense/{LicenseID}")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public async Task<IActionResult> ReplaceDamagedLicense(int LicenseID)
+        {
+            _logger.LogInformation("Start executing ReplaceLostLicense");
+
+            if (LicenseID < 1)
+            {
+                _logger.LogError($"Invalid LicenseID {LicenseID}");
+                return BadRequest($"Invalid User Input {LicenseID}");
+            }
+
+            if (!await clsLicenses.ReplaceLicense(LicenseID, clsLicenses.enReplaceLicenseStatus.Damaged))
+            {
+                _logger.LogError("License Not Replaced Successfully");
+                return BadRequest("Not Saved Successfully");
+            }
+
+            _logger.LogInformation("License Replaced successfully");
+            return Ok("Replaced Successfully");
+        }
     }
 }

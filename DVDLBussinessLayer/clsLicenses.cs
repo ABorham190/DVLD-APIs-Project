@@ -233,6 +233,67 @@ namespace DVDLBussinessLayer
         {
             return clsLicensesDataLayer.DeActivateLicenseByID(LicenseID);
         }
+        public static async Task< FindLicenseDto> FindLicenseByID(int LicenseID)
+        {
+            return await clsLicensesDataLayer.FindLicenseByLicenseID(LicenseID);
+        }
+        public enum enReplaceLicenseStatus { Lost=3,Damaged=4}
+        public static async Task< bool> ReplaceLicense(int LicenseID,enReplaceLicenseStatus replacedLicenseStatus)
+        {
+            var oldLicense=await FindLicenseByID(LicenseID);
+            if (oldLicense == null)
+            {
+                return false;
+            }
+
+            if (!oldLicense.IsActive)
+            {
+                return false;
+            }
+
+            clsOrders RepApp = new clsOrders
+            {
+                ApplicationDate = DateTime.Now,
+                ApplicationStatus = 3,
+                ApplicationTypeID = (int)replacedLicenseStatus,
+                CreatedByUserID = 1,
+                LastStatusDate = DateTime.Now,
+                PaidFees = replacedLicenseStatus == enReplaceLicenseStatus.Damaged ? 5 : 10,
+                ApplicantID = clsPerson.GetPersonIDByLicenseID(oldLicense.LicenseID)
+
+            };
+
+            if (!RepApp.Save())
+            {
+                return false;
+            }
+
+            if (!clsLicenses.DeactivateLocalLicenseByLicenseID(oldLicense.LicenseID))
+            {
+                return false;
+            }
+
+            clsLicenses newLicense = new clsLicenses
+            {
+                ApplicationID = RepApp.ApplicationID,
+                DriverID = oldLicense.DriverID,
+                LicenseClassID = oldLicense.LicenseClassID,
+                IssueDate = oldLicense.IssueDate,
+                ExpirationDate = oldLicense.ExpirationDate,
+                Notes = oldLicense.Notes,
+                PaidFees = oldLicense.PaidFees,
+                IsActive = true,
+                IssueReason = (replacedLicenseStatus == enReplaceLicenseStatus.Lost) ? (byte)4 :(byte) 3 ,
+                CreatedByUserID=oldLicense.CreatedByUserID,
+            };
+
+            if (!newLicense.Save())
+            {
+                return false;
+            }
+
+            return true;
+        }
 
 
     }

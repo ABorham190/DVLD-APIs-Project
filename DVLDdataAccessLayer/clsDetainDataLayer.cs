@@ -26,6 +26,8 @@ namespace DVLDdataAccessLayer
             public int? ReleaseApplicationID { get; set; }
 
         }
+
+
         public static async Task<int> AddNewDetain(int LicenseID,DateTime DetainDate,
             Decimal FineFees,int CreatedByUserID,bool IsRelease
             )
@@ -214,5 +216,7 @@ namespace DVLDdataAccessLayer
             }
             return detainedLicenses;
         }
+
+        
     }
 }
