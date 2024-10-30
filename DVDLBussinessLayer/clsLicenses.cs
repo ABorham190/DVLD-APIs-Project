@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Data;
 using DVLDdataAccessLayer;
 using System.Runtime.CompilerServices;
+using Serilog;
 
 namespace DVDLBussinessLayer
 {
@@ -240,16 +241,21 @@ namespace DVDLBussinessLayer
         public enum enReplaceLicenseStatus { Lost=3,Damaged=4}
         public static async Task< bool> ReplaceLicense(int LicenseID,enReplaceLicenseStatus replacedLicenseStatus)
         {
+            Log.Information("Start executing ReplaceLicense func => clsLicenses");
             var oldLicense=await FindLicenseByID(LicenseID);
             if (oldLicense == null)
             {
+                Log.Error($"oldLicense equal null , no license with id : {LicenseID}");
                 return false;
             }
+            Log.Information($"License found with information {oldLicense}");
 
             if (!oldLicense.IsActive)
             {
+                Log.Error("InActive License");
                 return false;
             }
+            Log.Information("License is active");
 
             clsOrders RepApp = new clsOrders
             {
@@ -265,13 +271,17 @@ namespace DVDLBussinessLayer
 
             if (!RepApp.Save())
             {
+                Log.Error("RepApp not saved successfully");
                 return false;
             }
+            Log.Error("RepApp not saved successfully");
 
             if (!clsLicenses.DeactivateLocalLicenseByLicenseID(oldLicense.LicenseID))
             {
+                Log.Error("License not deactivated successfully");
                 return false;
             }
+            Log.Error("License deactivated successfully");
 
             clsLicenses newLicense = new clsLicenses
             {
@@ -289,8 +299,10 @@ namespace DVDLBussinessLayer
 
             if (!newLicense.Save())
             {
+                Log.Error("New License Not added successfully");
                 return false;
             }
+            Log.Information($"New Licesne Added successfully with ID : {newLicense.LicenseID}");
 
             return true;
         }
