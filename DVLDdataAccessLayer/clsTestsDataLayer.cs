@@ -1,15 +1,21 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.Data.SqlClient;
 
 namespace DVLDdataAccessLayer
 {
+    public class TakeTestDto
+    {
+        public int AppointmentID { get; set; }
+        public bool IsSucceed { get; set; }
+        public string Notes { get; set; }
+    }
     public class clsTestsDataLayer
     {
-        public static int AddNewTakenTest(int TestAppointmentID,
+        public static async Task<int> AddNewTakenTest(int TestAppointmentID,
             bool TestResult,string Notes,int CreatedByUserID)
         {
             int InsertedID = 0;
@@ -19,37 +25,33 @@ namespace DVLDdataAccessLayer
                             @TestResult,@Notes,
                             @CreatedByUserID);
                             Select scope_identity();";
-
-            SqlConnection Connection=new SqlConnection(Settings.ConnectionString);
-            SqlCommand Command=new SqlCommand(Querey, Connection);
-
-            Command.Parameters.AddWithValue("@TestAppointmentID", TestAppointmentID);
-            Command.Parameters.AddWithValue("@TestResult",TestResult);
-            if (Notes != "")
-                Command.Parameters.AddWithValue("@Notes", Notes);
-            else
-                Command.Parameters.AddWithValue("@Notes", DBNull.Value);
-            Command.Parameters.AddWithValue("@CreatedByUserID", CreatedByUserID);
-
             try
             {
-                Connection.Open();
-                Object Result = Command.ExecuteScalar();
-                if (Result != null && int.TryParse(Result.ToString(), out int ID))
+                using (SqlConnection Connection = new SqlConnection(Settings.ConnectionString))
                 {
-                    InsertedID = ID;
-                }
+                    using (SqlCommand Command = new SqlCommand(Querey, Connection))
+                    {
+                        Command.Parameters.AddWithValue("@TestAppointmentID", TestAppointmentID);
+                        Command.Parameters.AddWithValue("@TestResult", TestResult);
+                        if (Notes != "")
+                            Command.Parameters.AddWithValue("@Notes", Notes);
+                        else
+                            Command.Parameters.AddWithValue("@Notes", DBNull.Value);
+                        Command.Parameters.AddWithValue("@CreatedByUserID", CreatedByUserID);
 
+                        await Connection.OpenAsync();
+                        Object Result =await Command.ExecuteScalarAsync();
+                        if (Result != null && int.TryParse(Result.ToString(), out int ID))
+                        {
+                            InsertedID = ID;
+                        }
+                    }
+                }
 
             }catch (Exception ex)
             {
                 InsertedID = 0;
             }
-            finally
-            {
-                Connection.Close();
-            }
-
             return InsertedID ;
 
         }

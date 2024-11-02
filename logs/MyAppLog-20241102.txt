@@ -1,0 +1,53 @@
+2024-11-02 20:13:38.328 +02:00 [WRN] Failed to determine the https port for redirect.
+2024-11-02 20:13:40.866 +02:00 [INF] Start FindAppointmentApp  (clsAppointmentsDataLayer)
+2024-11-02 20:13:41.617 +02:00 [INF] Connection To database established successfully
+2024-11-02 20:13:41.707 +02:00 [INF] Reader has read
+2024-11-02 20:13:41.724 +02:00 [INF] FindAppointmentApp executed Successfully
+2024-11-02 20:14:54.759 +02:00 [WRN] Failed to determine the https port for redirect.
+2024-11-02 20:14:55.385 +02:00 [INF] Start FindAppointmentApp  (clsAppointmentsDataLayer)
+2024-11-02 20:14:55.670 +02:00 [INF] Connection To database established successfully
+2024-11-02 20:14:55.750 +02:00 [INF] Reader has read
+2024-11-02 20:14:55.789 +02:00 [INF] FindAppointmentApp executed Successfully
+2024-11-02 20:16:52.263 +02:00 [INF] Start AddAnAppointment method in AppointmentController 
+2024-11-02 20:16:52.269 +02:00 [INF] Start IsThisLDLAppIDAllowedToBookTest (LDLApp) to check if 57 Allowed to book test or not 
+2024-11-02 20:16:52.272 +02:00 [INF] Starting FindLDLApp in LDLAppDataLayer with LDLAppID : 57
+2024-11-02 20:16:52.273 +02:00 [INF] Connection To database established successfully
+2024-11-02 20:16:52.275 +02:00 [INF] Reader is Read
+2024-11-02 20:16:52.277 +02:00 [INF] FindLDLApp (LDLAppDataLAyer)  executed successfully
+2024-11-02 20:16:52.287 +02:00 [INF] starting FindApplicationByID in clsOrdersDatalayer using ApplicationID : 146
+2024-11-02 20:16:52.288 +02:00 [INF] Connection to database established successfully
+2024-11-02 20:16:52.294 +02:00 [INF] Reader is reading
+2024-11-02 20:16:52.297 +02:00 [INF] FindApplicationByID executed successfully
+2024-11-02 20:17:04.629 +02:00 [INF] Start IsThisLDLAppIDPassedTest func clsAppointmentsDataLayer
+2024-11-02 20:17:04.637 +02:00 [INF] Connection to databse established successfully
+2024-11-02 20:17:04.647 +02:00 [INF] Reader has rows
+2024-11-02 20:17:04.648 +02:00 [INF] IsThisLDLAppIDPassedTest func (clsAppointmentsDataLayer) Executed successfully
+2024-11-02 20:17:04.650 +02:00 [INF] Start GetNumberOfPassedTestsForLDLApp in LDLAppDataLayer
+2024-11-02 20:17:04.651 +02:00 [INF] Connection To database established successfully
+2024-11-02 20:17:04.657 +02:00 [INF] GetNumberOfPassedTestsForLDLApp in LDLAppDataLayer executed successfully
+2024-11-02 20:17:04.659 +02:00 [INF] Start IsThisLDLAppIDHasAnyActiveAppointments func in clsAppointmentsDataLayer
+2024-11-02 20:17:04.659 +02:00 [INF] Connection established successfully
+2024-11-02 20:17:04.662 +02:00 [INF] IsThisLDLAppIDHasAnyActiveAppointments func in clsAppointmentsDataLayer  executed successfully
+2024-11-02 20:17:04.687 +02:00 [INF] Appointment added successfully with ID : 142
+2024-11-02 20:18:08.264 +02:00 [INF] Start FindAppointmentApp  (clsAppointmentsDataLayer)
+2024-11-02 20:18:08.271 +02:00 [INF] Connection To database established successfully
+2024-11-02 20:18:08.274 +02:00 [INF] Reader has read
+2024-11-02 20:18:08.275 +02:00 [INF] FindAppointmentApp executed Successfully
+2024-11-02 20:18:43.028 +02:00 [INF] Start FindAppointmentApp  (clsAppointmentsDataLayer)
+2024-11-02 20:18:43.031 +02:00 [INF] Connection To database established successfully
+2024-11-02 20:18:43.033 +02:00 [INF] Reader has read
+2024-11-02 20:18:43.034 +02:00 [INF] FindAppointmentApp executed Successfully
+2024-11-02 20:20:05.596 +02:00 [INF] Start FindAppointmentApp  (clsAppointmentsDataLayer)
+2024-11-02 20:20:05.606 +02:00 [INF] Connection To database established successfully
+2024-11-02 20:20:05.612 +02:00 [INF] Reader has read
+2024-11-02 20:20:05.614 +02:00 [INF] FindAppointmentApp executed Successfully
+2024-11-02 20:21:38.604 +02:00 [INF] Start FindAppointmentApp  (clsAppointmentsDataLayer)
+2024-11-02 20:21:45.454 +02:00 [INF] Connection To database established successfully
+2024-11-02 20:21:47.994 +02:00 [INF] Reader has read
+2024-11-02 20:21:56.574 +02:00 [INF] FindAppointmentApp executed Successfully
+2024-11-02 20:23:19.461 +02:00 [WRN] Failed to determine the https port for redirect.
+2024-11-02 20:23:19.819 +02:00 [INF] Start FindAppointmentApp  (clsAppointmentsDataLayer)
+2024-11-02 20:23:20.113 +02:00 [INF] Connection To database established successfully
+2024-11-02 20:23:20.160 +02:00 [INF] Reader has read
+2024-11-02 20:23:20.184 +02:00 [INF] FindAppointmentApp executed Successfully
+2024-11-02 20:34:26.000 +02:00 [WRN] Failed to determine the https port for redirect.
